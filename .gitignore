@@ -39,6 +39,9 @@ vignettes/*.pdf
 # R Environment Variables
 .Renviron
 
+# Rproj
+*.Rproj
+
 # pkgdown site
 docs/
 
