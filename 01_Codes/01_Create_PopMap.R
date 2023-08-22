@@ -31,9 +31,19 @@ GQ.data <- load_DB("Metadata_Analyses_Externes")
 GQ.data %>% dplyr::pull(Nom_projet) %>% table()
 GQ.data <- GQ.data |> dplyr::filter(Nom_projet == "BOREOGADUS_2022")
 
-write_csv(GQ.data, "./00_Data/00_FileInfos/2022_Boreogadus_20230811.csv")
+#write_csv(GQ.data, "./00_Data/00_FileInfos/2022_Boreogadus_20230811.csv")
 
-GQ.data <- readr::read_csv("./00_Data/00_FileInfos/2022_Boreogadus_20230811.csv")
+# Add infos on the extraction
+
+lab.data <- load_DB("04_Extraits_ADN_ARN")
+
+GQ.data2 <- GQ.data |> left_join(lab.data |> 
+                                   dplyr::select("Numero_unique_extrait", "Annee_extraction", "Mois_extraction", "Jour_extraction", "Type_extraction", "Kit_extraction", "Protocole_extraction",    "Responsable_extraction" ,"Notes_extraitADN"))
+
+#write_csv(GQ.data, "./00_Data/00_FileInfos/2022_Boreogadus_20230811.csv")
+write_csv(GQ.data, "./00_Data/00_FileInfos/2022_Boreogadus_20230822.csv")
+
+GQ.data <- readr::read_csv("./00_Data/00_FileInfos/2022_Boreogadus_20230822.csv")
 
 GQ.data |> group_by(No_soumission_GQ) |> group_by(No_plaque_envoi) |> summarise(N = n())
 
@@ -67,7 +77,7 @@ GQ.data %>%  dplyr::mutate(puit_range = stringr::str_sub(No_puits_envoi, 1,1),
   facet_wrap(~No_plaque_envoi) +
   theme_bw()
 
-#write_csv(GQ.data, file = file.path(get.value("info.path"),"Project_Infos_20230811.csv"))
+#write_csv(GQ.data, file = file.path(get.value("info.path"),"Project_Infos_20230822.csv"))
 
 # Create the first popmap
 
