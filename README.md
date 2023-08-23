@@ -92,7 +92,43 @@ Use subsections to describe the purpose of each script if warranted
       - Remove x pairs of samples with relatedness > 0.25 (~0.45, so clearly duplicates)
       - final : 3398 individuals
       - 9 individuals with relatedness << 1 , also outliers within a PCA. Maybe Arctogadus glacialis.
-  - Keep only 1 snps by RADloc (Highest MAF / lowest NA), MAF 0.01 (some were fixed)
+  - Keep only 1 snps by RADloc (Highest MAF / lowest NA), new MAF 0.01 (some were fixed)
       - **28,309 snps from 540 individuals**
 
 
+## Main Results
+
+**Preliminary results in brief**
+
+- 9 individuals that looks like another species,to be confirmed
+  - From RDA loci on mtDNA, it is possible that some hybrid exist
+- Potential misidentification of extraction : no strong evidence based on PCA. Talk with Greg about it.
+
+| <img src="02_Results/01_PopStruct/01_PCA/PCA_Extraction.png"  width=100% height=100%> |
+|---| 
+| Exploration PCA with lab metadata. | 
+
+
+- Population structure: 3 groups evident, up to 5 based on Admixture and SnapClust
+
+| <img src="02_Results/01_PopStruct/01_PCA/PCA.png"  width=100% height=100%> |
+|---| 
+| PCA. ~ 3 groups, Beaufort, Eastern Arctic, Labrador |
+
+
+On PC3 and PC4, evidence of chromosomal inversion? What are the consequences on other analyses?
+
+| <img src="02_Results/01_PopStruct/Structure_wMap.png"  width=100% height=100%> |
+|---| 
+| Admixture. k = 5, introgress group? |
+
+
+
+
+
+
+
+
+
+
+  

@@ -1,0 +1,6 @@
+*.vcf
+*.tped
+*.tfam
+*.bed
+*.Rdata
+*.RData

@@ -1,0 +1,35 @@
+
+
+--cv /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./02_Results/01_PopStruct/02_Admixture/Bsaida.18531.540ind.final.bed 1 -j8
+
+
+****                   ADMIXTURE Version 1.3.0                  ****
+****                    Copyright 2008-2015                     ****
+****           David Alexander, Suyash Shringarpure,            ****
+****                John  Novembre, Ken Lange                   ****
+****                                                            ****
+****                 Please cite our paper!                     ****
+****   Information at www.genetics.ucla.edu/software/admixture  ****
+
+Cross-validation will be performed.  Folds=5.
+Parallel execution requested.  Will use 8 threads.
+Random seed: 43
+Point estimation method: Block relaxation algorithm
+Convergence acceleration algorithm: QuasiNewton, 3 secant conditions
+Point estimation will terminate when objective function delta < 0.0001
+Estimation of standard errors disabled; will compute point estimates only.
+Size of G: 540x18531
+Performing five EM steps to prime main algorithm
+1 (EM) 	Elapsed: 0.135	Loglikelihood: -8.90283e+06	(delta): 1.04463e+07
+2 (EM) 	Elapsed: 0.131	Loglikelihood: -8.90283e+06	(delta): 0
+3 (EM) 	Elapsed: 0.131	Loglikelihood: -8.90283e+06	(delta): 1.86265e-09
+4 (EM) 	Elapsed: 0.131	Loglikelihood: -8.90283e+06	(delta): 0
+5 (EM) 	Elapsed: 0.131	Loglikelihood: -8.90283e+06	(delta): 0
+Initial loglikelihood: -8.90283e+06
+Starting main algorithm
+1 (QN/Block) 	Elapsed: 1.159	Loglikelihood: -8.90283e+06	(delta): 1.86265e-09
+Summary: 
+Converged in 1 iterations (1.963 sec)
+Loglikelihood: -8902825.708952
+CV error (K=1): 0.51813
+Writing output files.
