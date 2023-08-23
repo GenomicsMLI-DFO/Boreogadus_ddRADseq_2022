@@ -1,0 +1,38 @@
+
+
+--vcf ./00_Data/06b_Filtering.ref/A_ALL_samples/02_MissingData/populations.170307snps.553ind.recode.vcf --recode --snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/A_ALL_samples/03_HW/Loc.h06.unique.csv --out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/A_ALL_samples/03_HW/populations.38222snps.553ind.H06.single
+
+
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf ./00_Data/06b_Filtering.ref/A_ALL_samples/02_MissingData/populations.170307snps.553ind.recode.vcf
+	--out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/A_ALL_samples/03_HW/populations.38222snps.553ind.H06.single
+	--recode
+	--snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/A_ALL_samples/03_HW/Loc.h06.unique.csv
+
+After filtering, kept 553 out of 553 Individuals
+Outputting VCF file...
+After filtering, kept 38222 out of a possible 170307 Sites
+Run Time = 29.00 seconds
+
+
+--vcf ./00_Data/06b_Filtering.ref/A_ALL_samples/02_MissingData/populations.170307snps.553ind.recode.vcf --recode --snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/A_ALL_samples/03_HW/Loc.h06.all.csv --out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/A_ALL_samples/03_HW/populations.169700snps.553ind.h06.all
+
+
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf ./00_Data/06b_Filtering.ref/A_ALL_samples/02_MissingData/populations.170307snps.553ind.recode.vcf
+	--out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/A_ALL_samples/03_HW/populations.169700snps.553ind.h06.all
+	--recode
+	--snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/A_ALL_samples/03_HW/Loc.h06.all.csv
+
+After filtering, kept 553 out of 553 Individuals
+Outputting VCF file...
+After filtering, kept 169700 out of a possible 170307 Sites
+Run Time = 116.00 seconds

@@ -1,0 +1,3 @@
+out.relatedness2
+*.vcf
+!.gitignore

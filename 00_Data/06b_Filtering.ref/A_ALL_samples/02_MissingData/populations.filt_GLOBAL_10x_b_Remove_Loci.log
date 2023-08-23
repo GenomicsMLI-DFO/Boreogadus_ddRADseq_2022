@@ -1,0 +1,19 @@
+
+
+--vcf ./00_Data/06b_Filtering.ref/A_ALL_samples/02_MissingData/populations.snps.553ind.vcf.recode.vcf --recode --max-missing 0.9 --out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/A_ALL_samples/02_MissingData/populations.170307snps.553ind
+
+
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf ./00_Data/06b_Filtering.ref/A_ALL_samples/02_MissingData/populations.snps.553ind.vcf.recode.vcf
+	--max-missing 0.9
+	--out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/A_ALL_samples/02_MissingData/populations.170307snps.553ind
+	--recode
+
+After filtering, kept 553 out of 553 Individuals
+Outputting VCF file...
+After filtering, kept 170307 out of a possible 211357 Sites
+Run Time = 122.00 seconds
