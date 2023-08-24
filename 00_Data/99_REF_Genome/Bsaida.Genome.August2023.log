@@ -1,0 +1,60 @@
+index -p ./00_Data/99_REF_Genome/Bsaida.Genome.August2023 -a bwtsw 00_Data/99_REF_Genome/ASM90030251v1/GCA_900302515.1/GCA_900302515.1_ASM90030251v1_genomic.fna
+
+
+
+[bwa_index] Pack FASTA... 2.49 sec
+[bwa_index] Construct BWT for the packed sequence...
+[BWTIncCreate] textLength=824140930, availableWord=69989404
+[BWTIncConstructFromPacked] 10 iterations done. 99999986 characters processed.
+[BWTIncConstructFromPacked] 20 iterations done. 198384578 characters processed.
+[BWTIncConstructFromPacked] 30 iterations done. 287001106 characters processed.
+[BWTIncConstructFromPacked] 40 iterations done. 365759714 characters processed.
+[BWTIncConstructFromPacked] 50 iterations done. 435756530 characters processed.
+[BWTIncConstructFromPacked] 60 iterations done. 497965890 characters processed.
+[BWTIncConstructFromPacked] 70 iterations done. 553253714 characters processed.
+[BWTIncConstructFromPacked] 80 iterations done. 602389634 characters processed.
+[BWTIncConstructFromPacked] 90 iterations done. 646057746 characters processed.
+[BWTIncConstructFromPacked] 100 iterations done. 684866050 characters processed.
+[BWTIncConstructFromPacked] 110 iterations done. 719354946 characters processed.
+[BWTIncConstructFromPacked] 120 iterations done. 750004754 characters processed.
+[BWTIncConstructFromPacked] 130 iterations done. 777242322 characters processed.
+[BWTIncConstructFromPacked] 140 iterations done. 801447106 characters processed.
+[BWTIncConstructFromPacked] 150 iterations done. 822956370 characters processed.
+[bwt_gen] Finished constructing BWT in 151 iterations.
+[bwa_index] 252.21 seconds elapse.
+[bwa_index] Update BWT... 2.35 sec
+[bwa_index] Pack forward-only FASTA... 1.56 sec
+[bwa_index] Construct SA from BWT and Occ... 106.67 sec
+[main] Version: 0.7.17-r1188
+[main] CMD: bwa index -p ./00_Data/99_REF_Genome/Bsaida.Genome.August2023 -a bwtsw 00_Data/99_REF_Genome/ASM90030251v1/GCA_900302515.1/GCA_900302515.1_ASM90030251v1_genomic.fna
+[main] Real time: 369.386 sec; CPU: 365.289 sec
+index -p ./00_Data/99_REF_Genome/Bsaida.Genome.August2023 -a bwtsw 00_Data/99_REF_Genome/ASM90030251v1/GCA_900302515.1/GCA_900302515.1_ASM90030251v1_genomic.fna
+
+
+
+[bwa_index] Pack FASTA... 2.62 sec
+[bwa_index] Construct BWT for the packed sequence...
+[BWTIncCreate] textLength=824140930, availableWord=69989404
+[BWTIncConstructFromPacked] 10 iterations done. 99999986 characters processed.
+[BWTIncConstructFromPacked] 20 iterations done. 198384578 characters processed.
+[BWTIncConstructFromPacked] 30 iterations done. 287001106 characters processed.
+[BWTIncConstructFromPacked] 40 iterations done. 365759714 characters processed.
+[BWTIncConstructFromPacked] 50 iterations done. 435756530 characters processed.
+[BWTIncConstructFromPacked] 60 iterations done. 497965890 characters processed.
+[BWTIncConstructFromPacked] 70 iterations done. 553253714 characters processed.
+[BWTIncConstructFromPacked] 80 iterations done. 602389634 characters processed.
+[BWTIncConstructFromPacked] 90 iterations done. 646057746 characters processed.
+[BWTIncConstructFromPacked] 100 iterations done. 684866050 characters processed.
+[BWTIncConstructFromPacked] 110 iterations done. 719354946 characters processed.
+[BWTIncConstructFromPacked] 120 iterations done. 750004754 characters processed.
+[BWTIncConstructFromPacked] 130 iterations done. 777242322 characters processed.
+[BWTIncConstructFromPacked] 140 iterations done. 801447106 characters processed.
+[BWTIncConstructFromPacked] 150 iterations done. 822956370 characters processed.
+[bwt_gen] Finished constructing BWT in 151 iterations.
+[bwa_index] 230.56 seconds elapse.
+[bwa_index] Update BWT... 2.39 sec
+[bwa_index] Pack forward-only FASTA... 1.56 sec
+[bwa_index] Construct SA from BWT and Occ... 107.24 sec
+[main] Version: 0.7.17-r1188
+[main] CMD: bwa index -p ./00_Data/99_REF_Genome/Bsaida.Genome.August2023 -a bwtsw 00_Data/99_REF_Genome/ASM90030251v1/GCA_900302515.1/GCA_900302515.1_ASM90030251v1_genomic.fna
+[main] Real time: 349.170 sec; CPU: 344.366 sec

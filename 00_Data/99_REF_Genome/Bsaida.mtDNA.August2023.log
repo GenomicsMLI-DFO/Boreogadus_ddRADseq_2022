@@ -1,0 +1,15 @@
+index -p ./00_Data/99_REF_Genome/mtDNA_Bsaida -a bwtsw ./00_Data/99_REF_Genome/mtDNA_Bsaida/NC_010121.1.fasta
+
+
+
+[bwa_index] Pack FASTA... 0.00 sec
+[bwa_index] Construct BWT for the packed sequence...
+[BWTIncCreate] textLength=33490, availableWord=65536
+[bwt_gen] Finished constructing BWT in 3 iterations.
+[bwa_index] 0.02 seconds elapse.
+[bwa_index] Update BWT... 0.00 sec
+[bwa_index] Pack forward-only FASTA... 0.00 sec
+[bwa_index] Construct SA from BWT and Occ... 0.01 sec
+[main] Version: 0.7.17-r1188
+[main] CMD: bwa index -p ./00_Data/99_REF_Genome/mtDNA_Bsaida -a bwtsw ./00_Data/99_REF_Genome/mtDNA_Bsaida/NC_010121.1.fasta
+[main] Real time: 0.289 sec; CPU: 0.027 sec

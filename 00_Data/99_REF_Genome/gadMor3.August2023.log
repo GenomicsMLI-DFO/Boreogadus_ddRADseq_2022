@@ -1,0 +1,35 @@
+index -p ./00_Data/99_REF_Genome/gadMor3.Genome.August2023 -a bwtsw 00_Data/99_REF_Genome/gadMor3.0/GCA_902167405.1/GCA_902167405.1_gadMor3.0_genomic.fna
+
+
+
+[bwa_index] Pack FASTA... 4.04 sec
+[bwa_index] Construct BWT for the packed sequence...
+[BWTIncCreate] textLength=1339899426, availableWord=106279792
+[BWTIncConstructFromPacked] 10 iterations done. 99999986 characters processed.
+[BWTIncConstructFromPacked] 20 iterations done. 199999986 characters processed.
+[BWTIncConstructFromPacked] 30 iterations done. 299999986 characters processed.
+[BWTIncConstructFromPacked] 40 iterations done. 399999986 characters processed.
+[BWTIncConstructFromPacked] 50 iterations done. 499999986 characters processed.
+[BWTIncConstructFromPacked] 60 iterations done. 599999986 characters processed.
+[BWTIncConstructFromPacked] 70 iterations done. 699208306 characters processed.
+[BWTIncConstructFromPacked] 80 iterations done. 789506578 characters processed.
+[BWTIncConstructFromPacked] 90 iterations done. 869759954 characters processed.
+[BWTIncConstructFromPacked] 100 iterations done. 941085330 characters processed.
+[BWTIncConstructFromPacked] 110 iterations done. 1004475490 characters processed.
+[BWTIncConstructFromPacked] 120 iterations done. 1060812818 characters processed.
+[BWTIncConstructFromPacked] 130 iterations done. 1110881554 characters processed.
+[BWTIncConstructFromPacked] 140 iterations done. 1155378786 characters processed.
+[BWTIncConstructFromPacked] 150 iterations done. 1194923970 characters processed.
+[BWTIncConstructFromPacked] 160 iterations done. 1230067842 characters processed.
+[BWTIncConstructFromPacked] 170 iterations done. 1261299762 characters processed.
+[BWTIncConstructFromPacked] 180 iterations done. 1289054722 characters processed.
+[BWTIncConstructFromPacked] 190 iterations done. 1313719378 characters processed.
+[BWTIncConstructFromPacked] 200 iterations done. 1335637346 characters processed.
+[bwt_gen] Finished constructing BWT in 203 iterations.
+[bwa_index] 442.27 seconds elapse.
+[bwa_index] Update BWT... 4.29 sec
+[bwa_index] Pack forward-only FASTA... 2.55 sec
+[bwa_index] Construct SA from BWT and Occ... 166.08 sec
+[main] Version: 0.7.17-r1188
+[main] CMD: bwa index -p ./00_Data/99_REF_Genome/gadMor3.Genome.August2023 -a bwtsw 00_Data/99_REF_Genome/gadMor3.0/GCA_902167405.1/GCA_902167405.1_gadMor3.0_genomic.fna
+[main] Real time: 625.309 sec; CPU: 619.224 sec
