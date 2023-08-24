@@ -297,9 +297,9 @@ imiss %>% left_join(pop.data %>% select(INDV = ID_GQ, Region_echantillonnage)) %
 
 
 graph2.0 <- imiss %>% left_join(pop.data, by = c("INDV" = "ID_GQ")) %>% 
-  ggplot(aes(x = Region_echantillonnage, y = F_MISS, col =  No_soumission_GQ)) + 
+  ggplot(aes(x = Region_echantillonnage, y = F_MISS, col =  Responsable_extraction)) + 
   geom_boxplot(col = "blue") +
-  geom_jitter(height = 0, alpha = 0.2) +
+  geom_jitter(height = 0, alpha = 0.75) +
   geom_hline(yintercept = 0.30, lty = "dashed", col = "red") +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 90))

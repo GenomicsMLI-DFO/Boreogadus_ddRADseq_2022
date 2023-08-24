@@ -28,6 +28,16 @@ pop.data
 
 names(pop.data)
 
+
+
+
+pop.data %>% mutate(date_extraction = paste(Jour_extraction, Mois_extraction, Annee_extraction, sep = "-")) %>% 
+             group_by(Numero_unique_groupe, date_extraction, Responsable_extraction) %>% 
+             summarise(Ntotal = n()) %>% 
+             dplyr::filter(Responsable_extraction == "S_Khan") %>% 
+             View()
+ 
+
 # Genetic Data ------------------------------------------------------------
 
 load( file.path("./00_Data/06b_Filtering.ref", "A_ALL_samples", "07_Final", "populations.28309snps.540ind.adegenet.Rdata"))
@@ -225,6 +235,56 @@ pca.MAF10.NA05 %>% QuickPop::pca_scoretable(naxe = 6) %>%
 
 
 
+count.ind.na.gl <- function(gl){
+  res <- apply(tab(gl,  NA.method = c("asis")), MARGIN = 1, FUN = function(l){   n.na <- length(l[is.na(l) == T])
+  freq.na <- n.na / length(l)
+  return(freq.na)
+  })
+  return(res)
+  
+}
+
+
+na.info <- data.frame(ID_GQ = indNames(gl.final),
+                      NNA = count.ind.na.gl(gl.final[, locNames(gl.final) %in% LOC.MAF10.NA05]))
+
+
+
+
+na.info %>% left_join(pop.data) %>% 
+  ggplot(aes(x = str_remove(Region_echantillonnage, "_ecoregion"), y = NNA, fill = NNA)) +
+  geom_boxplot() + geom_jitter(pch = 21) +
+  scale_fill_distiller(palette = "Spectral") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
+
+gPCA.NA <- pca.MAF10.NA05 %>% QuickPop::pca_scoretable(naxe = 6) %>%
+  left_join(pop.data, by = c("ID" = "ID_GQ")) %>% 
+  left_join(na.info, by = c("ID" = "ID_GQ")) %>% 
+  ggplot(aes(x = score.PC1, y = score.PC2, col = NNA)) +
+  geom_hline(yintercept = 0) +
+  geom_vline(xintercept = 0) +
+  facet_wrap(~Region_echantillonnage) +
+  #  stat_ellipse(aes(col = Espece))+
+  geom_point(alpha = 0.5, size = 3) +  
+  scale_color_distiller(palette = "Spectral") +
+  #  scale_colour_manual(name = "Region", values = c("black","blue", "darkorange","red", "magenta"))+    
+  # annotate("text",  x=-Inf, y = Inf, label = paste("Test snps:",  nLoc(gl.data[, locNames(gl.data) %in% LOC.MAF10.NA05])), vjust=1, hjust=0) +
+  
+  labs(#title = paste("All snps:",  nLoc(gl.final)),
+    x = paste0("PC1 (", QuickPop::pca_var(pca.MAF10.NA05)$p.eig[1] %>% round(3) *100, "%)"),
+    y = paste0("PC2 (", QuickPop::pca_var(pca.MAF10.NA05)$p.eig[2] %>% round(3) *100, "%)")) +
+  theme_bw()
+gPCA.NA
+
+
+ggsave(filename = file.path(here::here(), "02_Results", "01_PopStruct", "01_PCA", "PCA_wNA.png"), 
+       plot = gPCA.NA,
+       height = 6, width = 6, units = "in", bg = "white")   
+
+
+
+
 # Admixture ---------------------------------------------------------------
 
 
@@ -378,12 +438,14 @@ names(Q.res) <- c("ID_GQ", paste0("Q", 1:k), "K")
 gg.str <- Q.res %>% pivot_longer(cols =  paste0("Q", 1:k), names_to = "Group", values_to = "Q") %>% 
   mutate(Group = factor(Group, levels = c("Q2", "Q4", "Q3", "Q5", "Q1"))) %>% 
   left_join(pop.data) %>% 
-  left_join(clust.k5.df ) %>% 
+  left_join(clust.k5.df ) %>%
+  left_join(na.info) %>% 
+  #mutate(CAT = ifelse(NNA > 0.05, "High", "Low")) %>% 
   ggplot(aes(x = ID_GQ, y = Q, fill = Group)) + 
   
   geom_col() +
   #facet_grid(. ~Lieu_echantillonnage + Mois_echantillonnage, space = "free", scale = "free") +
-  facet_grid(K ~ Clust, space = "free", scale = "free") +
+  facet_grid(K ~ CAT + Clust , space = "free", scale = "free") +
   scale_fill_brewer(palette = "Set1") +
   labs(y="Membership probability") +
   theme_minimal() + 
@@ -443,6 +505,8 @@ gg.str.complete <-  ggarrange(gg.str + theme(legend.position = "none"),
 ggsave(filename = file.path(here::here(), "02_Results", "01_PopStruct", "Structure_wMap.png"), 
                   plot = gg.str.complete,
                   height = 6, width = 10, units = "in", bg = "white")
+
+
 
 # SnapClust ---------------------------------------------------------------
 
@@ -533,6 +597,11 @@ table(pop(gl.final))
 
 fst <- dartR::gl.fst.pop(gl.final[,locNames(gl.final) %in% LOC.MAF05.NA10],
                          nboots = 99, percent = 95, nclusters = 20)
+ID.test <- na.info %>% dplyr::filter(NNA <=.1) %>% pull(ID_GQ)
+fst.NAind10 <- dartR::gl.fst.pop(gl.final[indNames(gl.final) %in%  ID.test,locNames(gl.final) %in% LOC.MAF05.NA10],
+                         nboots = 99, percent = 95, nclusters = 20)
+
+
 
 names(fst)
 
@@ -560,7 +629,7 @@ fst %>% heat.fst() %>%  #  left_join(pop.data %>% dplyr::select(Population1 = Nu
   geom_text(aes(label = Sign), cex = 3) +
   #scale_y_discrete(limits=rev) +
   #scale_x_discrete(limits=rev) +
-  scale_fill_gradient(low = "ivory1", high = "red3", na.value = "white", limits = c(0,0.03))+
+  scale_fill_gradient(low = "ivory1", high = "red3", na.value = "white", limits = c(0,0.05))+
   # scale_fill_gradient(low = "ivory1", high = "dodgerblue2")+
   scale_shape_manual(values = c("","*"), guide = "none") +
   #scale_fill_distiller(palette = "Spectral") +
@@ -591,6 +660,10 @@ pop(gi.final) <-  data.frame(ID_GQ = indNames(gi.final)) %>%
 basic_stat_Region <- hierfstat::basic.stats(gi.final[loc = LOC.MAF05.NA10], diploid = TRUE)
 
 
+gi.test <- gi.final[loc = LOC.MAF05.NA10]
+gi.test <- gi.test[ID.test,]
+basic_stat_Region.test <- hierfstat::basic.stats(gi.test, diploid = TRUE)
+
 #save(list = c("basic_stat_Region"), 
 #     file = file.path(here::here(), "02_Results/01_PopStruct/05_HeHo/HeHo.RData"))
 
@@ -615,6 +688,7 @@ extract.basic.stats <- function(basic_stat_ALL){
 }
 
 Hstat_Region      <- extract.basic.stats(basic_stat_Region)
+#Hstat_Region      <- extract.basic.stats(basic_stat_Region.test)
 
 #write_csv(Hstat_Region , file.path(here::here(), "02_Results/01_Overall_PopGen/00_BasicStats/Hstat_Region.csv"))
 #write_csv(Hstat_Gen_ZONE , file.path(here::here(), "02_Results/01_Overall_PopGen/00_BasicStats/Hstat_Gen_ZONE.csv"))
