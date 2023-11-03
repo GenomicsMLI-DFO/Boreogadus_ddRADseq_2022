@@ -438,8 +438,8 @@ names(Q.res) <- c("ID_GQ", paste0("Q", 1:k), "K")
 gg.str <- Q.res %>% pivot_longer(cols =  paste0("Q", 1:k), names_to = "Group", values_to = "Q") %>% 
   mutate(Group = factor(Group, levels = c("Q2", "Q4", "Q3", "Q5", "Q1"))) %>% 
   left_join(pop.data) %>% 
-  left_join(clust.k5.df ) %>%
-  left_join(na.info) %>% 
+  #left_join(clust.k5.df ) %>%
+  #left_join(na.info) %>% 
   #mutate(CAT = ifelse(NNA > 0.05, "High", "Low")) %>% 
   ggplot(aes(x = ID_GQ, y = Q, fill = Group)) + 
   

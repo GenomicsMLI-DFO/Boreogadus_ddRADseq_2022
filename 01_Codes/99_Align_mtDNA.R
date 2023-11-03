@@ -478,17 +478,22 @@ bind_rows(Seq1.BlastTOP.95,
           Seq2.BlastTOP.95,
           Seq3.BlastTOP.95) %>% #pivot_wider(names_from = Loc, values_from = Taxon) %>% 
   left_join(pop.data) %>% #group_by(Loc, Region_echantillonnage, Taxon) %>% 
-  dplyr::filter(Region_echantillonnage == "Beaufort_Sea_ecoregion") %>% 
-  dplyr::mutate(CAT = ifelse(ID_GQ %in% c("S_22_00047","S_22_00054","S_22_00056","S_22_00057","S_22_00058","S_22_00154","S_22_00156","S_22_00172"), "Weird", "Other")) %>% 
+  #dplyr::filter(Region_echantillonnage == "Beaufort_Sea_ecoregion") %>% 
+  #dplyr::mutate(CAT = ifelse(ID_GQ %in% c("S_22_00047","S_22_00054","S_22_00056","S_22_00057","S_22_00058","S_22_00154","S_22_00156","S_22_00172"), "Weird", "Other")) %>% 
+  dplyr::mutate(Region_echantillonnage= ifelse(ID_GQ %in% c("S_22_00047","S_22_00054","S_22_00056","S_22_00057","S_22_00058","S_22_00154","S_22_00156","S_22_00172"), "Weird_nuclear", Region_echantillonnage)) %>% 
+  
   ggplot(aes(x = Loc, y = ID_GQ, fill = Taxon)) +
   geom_bin2d() +
   #scale_fill_viridis_c() +
-  facet_grid(CAT ~ ., scale = "free", space = "free") +
+  facet_wrap(~Region_echantillonnage, scale = "free_y") +
+  #facet_grid(CAT ~ ., scale = "free", space = "free") +
   theme_bw() +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 
 
+Arctogadis.ID <-  Seq1.BlastTOP.95 %>% dplyr::filter(Taxon == "Arctogadus glacialis")
 
+write_csv(Arctogadis.ID, "./02_Results/01_PopStruct/00_mtDNA/ArctogadusSeq1.csv")
 
 bind_rows(Seq1.BlastTOP.95,
           Seq2.BlastTOP.95,
