@@ -1,0 +1,42 @@
+gstacks v2.64, executed 2023-08-17 04:20:01 (zlib-1.2.11)
+/usr/local/bin/gstacks -I ./00_Data/03b_Align/Bsaida/ -M ./00_Data/00_FileInfos/popmap.test_samples.txt -O ./00_Data/04b_Test.ref/Bsaida -S .sorted.bam -t 8
+Locus/sample distributions will be written to './00_Data/04b_Test.ref/Bsaida/gstacks.log.distribs'.
+
+Configuration for this run:
+  Input mode: reference-based
+  Population map: './00_Data/00_FileInfos/popmap.test_samples.txt'
+  Input files: 26, e.g. './00_Data/03b_Align/Bsaida/S_22_00073.sorted.bam'
+  Output to: './00_Data/04b_Test.ref/Bsaida/'
+  Model: marukilow (var_alpha: 0.01, gt_alpha: 0.05)
+
+Reading BAM headers...
+Processing all loci...
+1K...
+2K...
+5K...
+10K...
+20K...
+50K...
+100K...
+200K...
+done.
+
+Read 176080956 BAM records:
+  kept 108700425 primary alignments (64.9%), of which 55148515 reverse reads
+  skipped 23692995 primary alignments with insufficient mapping qualities (14.2%)
+  skipped 19738135 excessively soft-clipped primary alignments (11.8%)
+  skipped 15253799 unmapped reads (9.1%)
+  skipped some suboptimal (secondary/supplementary) alignment records
+
+  Per-sample stats (details in 'gstacks.log.distribs'):
+    read 6772344.5 records/sample (955831-19698491)
+    kept 57.7%-64.6% of these
+
+Built 259136 loci comprising 53551910 forward reads and 48638438 matching paired-end reads; mean insert length was 207.6 (sd: 49.1).
+
+Genotyped 259136 loci:
+  effective per-sample coverage: mean=30.8x, stdev=17.2x, min=5.7x, max=86.5x
+  mean number of sites per locus: 197.5
+  a consistent phasing was found for 128413 of out 152499 (84.2%) diploid loci needing phasing
+
+gstacks is done.

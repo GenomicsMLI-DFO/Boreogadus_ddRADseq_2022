@@ -1,0 +1,258 @@
+ref_map.pl version 2.64 started at 2023-08-17 01:19:01
+/usr/local/bin/ref_map.pl --samples ./00_Data/03b_Align --popmap ./00_Data/00_FileInfos/popmap.test_samples.txt -o ./00_Data/04b_Test.ref -X gstacks:-S .sorted.bam -T 8 -X populations:-r 0.80 --vcf --write-single-snp
+
+gstacks
+==========
+/usr/local/bin/gstacks -I ./00_Data/03b_Align/ -M ./00_Data/00_FileInfos/popmap.test_samples.txt -O ./00_Data/04b_Test.ref -S .sorted.bam -t 8
+
+Logging to './00_Data/04b_Test.ref/gstacks.log'.
+Locus/sample distributions will be written to './00_Data/04b_Test.ref/gstacks.log.distribs'.
+
+Configuration for this run:
+  Input mode: reference-based
+  Population map: './00_Data/00_FileInfos/popmap.test_samples.txt'
+  Input files: 26, e.g. './00_Data/03b_Align/S_22_00073.sorted.bam'
+  Output to: './00_Data/04b_Test.ref/'
+  Model: marukilow (var_alpha: 0.01, gt_alpha: 0.05)
+
+Reading BAM headers...
+Processing all loci...
+1K...
+2K...
+5K...
+10K...
+20K...
+50K...
+100K...
+200K...
+done.
+
+Read 182366943 BAM records:
+  kept 108374857 primary alignments (64.7%), of which 55719237 reverse reads
+  skipped 32144171 primary alignments with insufficient mapping qualities (19.2%)
+  skipped 22478010 excessively soft-clipped primary alignments (13.4%)
+  skipped 4388316 unmapped reads (2.6%)
+  skipped some suboptimal (secondary/supplementary) alignment records
+
+  Per-sample stats (details in 'gstacks.log.distribs'):
+    read 7014113.2 records/sample (987561-20392316)
+    kept 55.9%-62.6% of these
+
+Built 273141 loci comprising 52655620 forward reads and 46124713 matching paired-end reads; mean insert length was 206.1 (sd: 52.6).
+
+Genotyped 273141 loci:
+  effective per-sample coverage: mean=29.4x, stdev=16.1x, min=5.7x, max=81.6x
+  mean number of sites per locus: 190.3
+  a consistent phasing was found for 132308 of out 158527 (83.5%) diploid loci needing phasing
+
+gstacks is done.
+
+populations
+==========
+/usr/local/bin/populations -P ./00_Data/04b_Test.ref -M ./00_Data/00_FileInfos/popmap.test_samples.txt -t 8 -r 0.80 --vcf --write-single-snp
+
+Logging to './00_Data/04b_Test.ref/populations.log'.
+Locus/sample distributions will be written to './00_Data/04b_Test.ref/populations.log.distribs'.
+populations parameters selected:
+  Percent samples limit per population: 0.8
+  Locus Population limit: 1
+  Percent samples overall: 0
+  Minor allele frequency cutoff: 0
+  Maximum observed heterozygosity cutoff: 1
+  Applying Fst correction: none.
+  Pi/Fis kernel smoothing: off
+  F-stats kernel smoothing: off
+  Bootstrap resampling: off
+
+Parsing population map...
+The population map contained 26 samples, 1 population(s), 1 group(s).
+Working on 26 samples.
+Working on 1 population(s):
+    noPOP: S_22_00073, S_22_00144, S_22_00146, S_22_00211, S_22_00239, S_22_00250, S_22_00251, S_22_00278, S_22_07670, S_22_07680, S_22_08020, 
+           S_22_08050, S_22_08055, S_22_08084, S_22_08116, S_22_08155, S_22_08295, S_22_08305, S_22_09217, S_22_09218, S_22_09279, S_22_09296, 
+           S_22_09377, S_22_09436, S_22_09615, S_22_09624
+Working on 1 group(s) of populations:
+    defaultgrp: noPOP
+
+SNPs and calls will be written in VCF format to './00_Data/04b_Test.ref/populations.snps.vcf'
+Raw haplotypes will be written to './00_Data/04b_Test.ref/populations.haplotypes.tsv'
+Population-level summary statistics will be written to './00_Data/04b_Test.ref/populations.sumstats.tsv'
+Population-level haplotype summary statistics will be written to './00_Data/04b_Test.ref/populations.hapstats.tsv'
+
+Processing data in batches:
+  * load a batch of catalog loci and apply filters
+  * compute SNP- and haplotype-wise per-population statistics
+  * write the above statistics in the output files
+  * export the genotypes/haplotypes in specified format(s)
+More details in './00_Data/04b_Test.ref/populations.log.distribs'.
+
+Now processing...
+LR633943.1 
+LR633944.1 
+LR633945.1 
+LR633946.1 
+LR633947.1 
+LR633948.1 
+LR633949.1 
+LR633950.1 
+LR633951.1 
+LR633952.1 
+LR633953.1 
+LR633954.1 
+LR633955.1 
+LR633956.1 
+LR633957.1 
+LR633958.1 
+LR633959.1 
+LR633960.1 
+LR633961.1 
+LR633962.1 
+LR633963.1 
+LR633964.1 
+LR633965.1 
+CABHMC010000002.1 
+CABHMC010000003.1 
+CABHMC010000004.1 
+CABHMC010000005.1 
+CABHMC010000007.1 
+CABHMC010000008.1 
+CABHMC010000009.1 
+CABHMC010000010.1 
+CABHMC010000011.1 
+CABHMC010000013.1 
+CABHMC010000014.1 
+CABHMC010000015.1 
+CABHMC010000016.1 
+CABHMC010000017.1 
+CABHMC010000021.1 
+CABHMC010000024.1 
+CABHMC010000025.1 
+CABHMC010000027.1 
+CABHMC010000028.1 
+CABHMC010000029.1 
+CABHMC010000030.1 
+CABHMC010000031.1 
+CABHMC010000032.1 
+CABHMC010000033.1 
+CABHMC010000035.1 
+CABHMC010000036.1 
+CABHMC010000039.1 
+CABHMC010000040.1 
+CABHMC010000041.1 
+CABHMC010000042.1 
+CABHMC010000043.1 
+CABHMC010000047.1 
+CABHMC010000049.1 
+CABHMC010000050.1 
+CABHMC010000052.1 
+CABHMC010000053.1 
+CABHMC010000055.1 
+CABHMC010000057.1 
+CABHMC010000058.1 
+CABHMC010000059.1 
+CABHMC010000063.1 
+CABHMC010000064.1 
+CABHMC010000065.1 
+CABHMC010000066.1 
+CABHMC010000067.1 
+CABHMC010000068.1 
+CABHMC010000069.1 
+CABHMC010000070.1 
+CABHMC010000071.1 
+CABHMC010000072.1 
+CABHMC010000074.1 
+CABHMC010000076.1 
+CABHMC010000077.1 
+CABHMC010000079.1 
+CABHMC010000080.1 
+CABHMC010000086.1 
+CABHMC010000087.1 
+CABHMC010000088.1 
+CABHMC010000089.1 
+CABHMC010000091.1 
+CABHMC010000092.1 
+CABHMC010000094.1 
+CABHMC010000095.1 
+CABHMC010000096.1 
+CABHMC010000097.1 
+CABHMC010000099.1 
+CABHMC010000100.1 
+CABHMC010000101.1 
+CABHMC010000102.1 
+CABHMC010000105.1 
+CABHMC010000106.1 
+CABHMC010000107.1 
+CABHMC010000109.1 
+CABHMC010000112.1 
+CABHMC010000113.1 
+CABHMC010000114.1 
+CABHMC010000119.1 
+CABHMC010000121.1 
+CABHMC010000122.1 
+CABHMC010000124.1 
+CABHMC010000125.1 
+CABHMC010000126.1 
+CABHMC010000127.1 
+CABHMC010000128.1 
+CABHMC010000129.1 
+CABHMC010000130.1 
+CABHMC010000131.1 
+CABHMC010000132.1 
+CABHMC010000133.1 
+CABHMC010000134.1 
+CABHMC010000135.1 
+CABHMC010000136.1 
+CABHMC010000138.1 
+CABHMC010000139.1 
+CABHMC010000140.1 
+CABHMC010000141.1 
+CABHMC010000143.1 
+CABHMC010000145.1 
+CABHMC010000146.1 
+CABHMC010000147.1 
+CABHMC010000150.1 
+CABHMC010000151.1 
+CABHMC010000153.1 
+CABHMC010000155.1 
+CABHMC010000157.1 
+CABHMC010000158.1 
+CABHMC010000159.1 
+CABHMC010000160.1 
+CABHMC010000162.1 
+CABHMC010000163.1 
+CABHMC010000166.1 
+CABHMC010000167.1 
+CABHMC010000170.1 
+CABHMC010000171.1 
+CABHMC010000172.1 
+CABHMC010000173.1 
+CABHMC010000177.1 
+CABHMC010000178.1 
+CABHMC010000179.1 
+CABHMC010000182.1 
+CABHMC010000184.1 
+CABHMC010000186.1 
+CABHMC010000187.1 
+CABHMC010000190.1 
+CABHMC010000191.1 
+CABHMC010000192.1 
+CABHMC010000194.1 
+CABHMC010000195.1 
+CABHMC010000196.1 
+CABHMC010000197.1 
+CABHMC010000199.1 
+CABHMC010000200.1 
+CABHMC010000201.1 
+CABHMC010000202.1 
+
+Removed 219107 loci that did not pass sample/population constraints from 273141 loci.
+Kept 54034 loci, composed of 11956846 sites; 27229 of those sites were filtered, 43541 variant sites remained.
+    11745426 genomic sites, of which 209412 were covered by multiple loci (1.8%).
+Mean genotyped sites per locus: 216.09bp (stderr 0.23).
+
+Population summary statistics (more detail in populations.sumstats_summary.tsv):
+  noPOP: 24.915 samples per locus; pi: 0.13053; all/variant/polymorphic sites: 11676198/43541/43541; private alleles: 0
+Populations is done.
+ref_map.pl is done.
+
+ref_map.pl completed at 2023-08-17 01:26:16
