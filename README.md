@@ -91,9 +91,9 @@ Use subsections to describe the purpose of each script if warranted
       - With VCFtool, relatedness2
       - Remove x pairs of samples with relatedness > 0.25 (~0.45, so clearly duplicates)
       - final : 3398 individuals
-      - 9 individuals with relatedness << 1 , also outliers within a PCA. Maybe Arctogadus glacialis.
-  - Keep only 1 snps by RADloc (Highest MAF / lowest NA), new MAF 0.01 (some were fixed)
-      - **28,309 snps from 540 individuals**
+      - 9 individuals with relatedness << 1 , also outliers within a PCA (first axis = 40%). mtDNA analysis suggested Arctogadus glacialis.
+  - Keep only 1 snps by RADloc (FIRST ONE), new MAF 0.01 (some were fixed)
+      - **37,990 snps from 549 individuals, including 9 Arctodagus + 2 potential hybrids**
 
 
 ## Main Results
