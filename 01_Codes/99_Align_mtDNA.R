@@ -243,9 +243,9 @@ seq3
 
 library(Biostrings)
 
-writeXStringSet(seq1, filepath = "Seq1_mtDNA.fasta")
-writeXStringSet(seq2, filepath = "Seq2_mtDNA.fasta")
-writeXStringSet(seq3, filepath = "Seq3_mtDNA.fasta")
+writeXStringSet(seq1, filepath = "02_Results/99_mtDNA/Seq1_mtDNA.fasta")
+writeXStringSet(seq2, filepath = "02_Results/99_mtDNA/Seq2_mtDNA.fasta")
+writeXStringSet(seq3, filepath = "02_Results/99_mtDNA/Seq3_mtDNA.fasta")
 
 
 
@@ -262,9 +262,9 @@ ncbi.tax <- readr::read_tsv("/media/genyoda/Fast_Storage/Projet/Banque_REF_NCBI.
 NCBI.path <- "/media/genyoda/Fast_Storage/Projet/Banque_REF_NCBI.git/01_Data/01_blastdb/"
 
 cmd1 <- paste("-db", "nt", 
-              "-query",  file.path("Seq1_mtDNA.fasta"),
+              "-query",  file.path("02_Results/99_mtDNA/Seq1_mtDNA.fasta"),
               "-outfmt", "\"7 qseqid sacc staxid ssciname sskingdom pident length mismatch gapopen qstart qend sstart send evalue bitscore\"",
-              "-out", file.path("Blast.Seq1.out"), 
+              "-out", file.path("02_Results/99_mtDNA/Blast.Seq1.out"), 
               "-perc_identity", 95,
               "-num_threads", 8,
               #"-max_target_seqs", 10, 
@@ -275,7 +275,7 @@ cmd1 <- paste("-db", "nt",
 A
 
 
-RES.Seq1.ncbi <- read.table(file.path("Blast.Seq1.out"),
+RES.Seq1.ncbi <- read.table(file.path("02_Results/99_mtDNA/Blast.Seq1.out"),
                            sep="\t")
 
 
@@ -287,9 +287,9 @@ RES.Seq1.ncbi <- RES.Seq1.ncbi %>% left_join(ncbi.tax, by = c("TaxoId" = "id"))
 
 
 cmd1 <- paste("-db", "nt", 
-              "-query",  file.path("Seq2_mtDNA.fasta"),
+              "-query",  file.path("02_Results/99_mtDNA/Seq2_mtDNA.fasta"),
               "-outfmt", "\"7 qseqid sacc staxid ssciname sskingdom pident length mismatch gapopen qstart qend sstart send evalue bitscore\"",
-              "-out", file.path("Blast.Seq2.out"), 
+              "-out", file.path("02_Results/99_mtDNA/Blast.Seq2.out"), 
               "-perc_identity", 95,
               "-num_threads", 8,
               #"-max_target_seqs", 10, 
@@ -300,7 +300,7 @@ cmd1 <- paste("-db", "nt",
 A
 
 
-RES.Seq2.ncbi <- read.table(file.path("Blast.Seq2.out"),
+RES.Seq2.ncbi <- read.table(file.path("02_Results/99_mtDNA/Blast.Seq2.out"),
                             sep="\t")
 
 
@@ -309,9 +309,9 @@ names(RES.Seq2.ncbi) <- c("QueryAccVer", "SubjectAccVer", "TaxoId","SciName", "S
 RES.Seq2.ncbi <- RES.Seq2.ncbi %>% left_join(ncbi.tax, by = c("TaxoId" = "id"))
 
 cmd1 <- paste("-db", "nt", 
-              "-query",  file.path("Seq3_mtDNA.fasta"),
+              "-query",  file.path("02_Results/99_mtDNA/Seq3_mtDNA.fasta"),
               "-outfmt", "\"7 qseqid sacc staxid ssciname sskingdom pident length mismatch gapopen qstart qend sstart send evalue bitscore\"",
-              "-out", file.path("Blast.Seq3.out"), 
+              "-out", file.path("02_Results/99_mtDNA/Blast.Seq3.out"), 
               "-perc_identity", 95,
               "-num_threads", 8,
               #"-max_target_seqs", 10, 
@@ -322,7 +322,7 @@ cmd1 <- paste("-db", "nt",
 A
 
 
-RES.Seq3.ncbi <- read.table(file.path("Blast.Seq3.out"),
+RES.Seq3.ncbi <- read.table(file.path("02_Results/99_mtDNA/Blast.Seq3.out"),
                             sep="\t")
 
 
