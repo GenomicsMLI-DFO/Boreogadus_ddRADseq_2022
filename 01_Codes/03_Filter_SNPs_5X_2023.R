@@ -1341,6 +1341,36 @@ cat(file = file.path(filter.ref.path, "A_ALL_samples", "06_Relatedness","VCFtool
     append= F, sep = "\n")
 
 
+
+
+good.ID.arcto <- related2.ok %>% 
+  filter(INDV1 %nin% unique(c(ID.to.remove)),
+         INDV2 %nin% unique(c(ID.to.remove))) %>% pull(INDV1, INDV2) %>% unique() 
+
+good.ID.arcto  %>% length()
+
+vcf.path <-  file.path(here::here(),filter.ref.path,"A_ALL_samples", "04_DP", "populations.169464snps.553ind.H06.all.recode.vcf")
+
+cmd2 <- paste("--vcf", vcf.path, 
+              "--recode",
+              paste("--indv", good.ID.arcto, collapse = " "),
+              "--out",  vcf.path %>% str_replace("04_DP", "06_Relatedness") %>% 
+                str_replace("553ind", paste0(length(good.ID.arcto), "indwArctogadus")) %>% 
+                str_remove(".recode.vcf")
+)
+
+cmd2
+
+A2 <- system2("vcftools", cmd2, stdout=T, stderr=T)
+
+A2 %>% tail()
+
+cat(file = file.path(filter.ref.path, "A_ALL_samples", "06_Relatedness","VCFtools_RemoveRelatedness25.log"),
+    "\n", cmd2, "\n",
+    A2, # what to put in my file
+    append= T, sep = "\n")
+
+
 # # #5 - Compute LD ---------------------------------------------------------
 # 
 # vcf.path <- file.path(filter.ref.path, "/06e_Relatedness/populations.57737snps.2259ind.H06.all.recode.vcf")
@@ -1466,38 +1496,13 @@ SCAFFOLD.info %>% group_by(RADloc) %>% summarise(N = n()) %>% arrange(desc(N)) %
 SCAFFOLD.info$MAF %>% hist()
 
 SCAFFOLD.info.final <- SCAFFOLD.info %>% 
-  dplyr::filter(between(MAF, 0.01, 0.5)) %>% 
+  dplyr::filter(MAF >= 0.01, MAF <=0.99, NNA <=0.10) %>% 
   mutate(RADloc = as.numeric(RADloc)) %>% 
-  arrange(RADloc, desc(round(MAF, 1)), round(NNA,2)) %>% 
-  distinct(RADloc, .keep_all = T)
+  arrange(RADloc, POS) %>% #head()
+  distinct(RADloc, .keep_all = T) # %>% nrow()
 
 SCAFFOLD.info$MAF %>% hist()
 SCAFFOLD.info.final$MAF %>% hist()
-
-# # Function to create a list of loci, from a genind object
-# 
-# filter.MAF.NA <- function(gi, MAF.trs = 0.5, NA.trs = 0.5){
-#   # Create vectors for each loci
-#   MAF.res <- adegenet::minorAllele(gi)
-#   NA.res  <- na.gi.count(gi)
-#   
-#   # Filter by threshold
-#   MAF.loc <- dimnames(MAF.res[MAF.res >= MAF.trs])[[1]]
-#   cat("There is", length( MAF.loc), "loci with MAF =", MAF.trs, "\n")
-#   
-#   NA.loc <- names(NA.res[NA.res <= NA.trs])
-#   cat("There is", length(NA.loc), "loci with NA =", NA.trs, "\n")
-#   
-#   # LOCI with both conditions
-#   LOCI.res <- c(MAF.loc, NA.loc)[duplicated(c(MAF.loc, NA.loc)) == T]
-#   LOCI.res %>% length()
-#   
-#   cat("There is", length(LOCI.res), "loci with BOTH MAF =", MAF.trs, "and NA =" , NA.trs, "\n")
-#   
-#   return(LOCI.res)
-# }
-# 
-
 
 write.csv(SCAFFOLD.info.final%>% select(ID), file.path(filter.ref.path,"A_ALL_samples", "07_Final", "Loc.H06.DP.unique.final.csv"), 
           row.names = F, quote = F)
@@ -1526,18 +1531,149 @@ tail(A)
 cat(file =  file.path(filter.ref.path,  "A_ALL_samples", "07_Final", "VCF.filter.log"),
     "\n", cmd, "\n",
     A, # what to put in my file
-    append= F, sep = "\n")
+    append= T, sep = "\n")
 
 # Reload, and save as Rdata
 
-vcf.path <- file.path( "./00_Data/06b_Filtering.ref",  "A_ALL_samples", "07_Final", "populations.28309snps.540ind.H06.DP.single.final.recode.vcf")
+vcf.path <- file.path( "./00_Data/06b_Filtering.ref",  "A_ALL_samples", "07_Final", "populations.28285snps.540ind.H06.DP.single.final.recode.vcf")
 vcf.data <- vcfR::read.vcfR(vcf.path)
 
 gl.final  <- vcfR::vcfR2genlight(vcf.data) 
 gi.final  <- vcfR::vcfR2genind(vcf.data) 
 
 save(list = c("gl.final", "gi.final"),
-     file = file.path("./00_Data/06b_Filtering.ref", "A_ALL_samples", "07_Final", "populations.28309snps.540ind.adegenet.Rdata"))
+     file = file.path("./00_Data/06b_Filtering.ref", "A_ALL_samples", "07_Final", "populations.28285snps.540ind.adegenet.Rdata"))
+
+
+if(!file.exists(file.path("./00_Data/06b_Filtering.ref", "A_ALL_samples", "07_Final", ".gitignore")) ){
+  cat("*.vcf", "*.Rdata", "!.gitignore", sep = "\n",
+      file = file.path("./00_Data/06b_Filtering.ref", "A_ALL_samples", "07_Final", ".gitignore")) 
+}
+
+# Final dataset w ARCTOGADUS -----------------------------------------------------------
+
+vcf.path <- file.path(filter.ref.path, "A_ALL_samples", "06_Relatedness", "populations.169464snps.549indwArctogadus.H06.all.recode.vcf")
+vcf.data <- vcfR::read.vcfR(vcf.path)
+
+#gl.data  <- vcfR::vcfR2genlight(vcf.data) 
+gi.data  <- vcfR::vcfR2genind(vcf.data) 
+
+# Transformer le tout en beau jeu de données :
+SCAFFOLD.info <- vcf.data@fix %>% as.data.frame() %>%  
+  select(ID, CHROM, POS) %>% 
+  mutate(scaffold = sapply(str_split(CHROM, ","), `[`,1) %>% str_remove("scaffold"),
+         RADloc = sapply(str_split(ID, ":"), `[`,1)
+  )
+
+SCAFFOLD.info
+
+
+na.gi.count <- function(gi){
+  res <- apply(tab(gi), MARGIN = 2, FUN = function(l){   n.na <- length(l[is.na(l) == T])
+  freq.na <- n.na / length(l)
+  return(freq.na)
+  })
+  res <- res[str_ends(names(res), "[.]0")] 
+  
+  names(res) <- names(res) %>% str_remove("[.]0")
+  
+  return(res)
+  
+}
+
+# Check that the order was kept
+table(locNames(gi.data) == SCAFFOLD.info$ID )
+
+# ADD NA and MAF info to select the "BEST" SNP / RAD loc
+
+SCAFFOLD.info$NNA <- na.gi.count(gi.data)
+SCAFFOLD.info$MAF <- adegenet::minorAllele(gi.data)
+
+
+SCAFFOLD.info %>% group_by(RADloc) %>% summarise(N = n()) %>% arrange(desc(N)) %>% head()
+
+SCAFFOLD.info$MAF %>% hist()
+
+#SCAFFOLD.info.final <- SCAFFOLD.info %>% 
+#  dplyr::filter(between(MAF, 0.01, 0.5)) %>% 
+#  mutate(RADloc = as.numeric(RADloc)) %>% 
+#  arrange(RADloc, desc(round(MAF, 1)), round(NNA,2)) %>% 
+#  distinct(RADloc, .keep_all = T)
+
+SCAFFOLD.info.MAF01 <-  SCAFFOLD.info %>% 
+  dplyr::filter(MAF >= 0.01, NNA <=0.10) %>% 
+  mutate(RADloc = as.numeric(RADloc)) %>% 
+  arrange(RADloc, POS) %>% #head()
+  distinct(RADloc, .keep_all = T) # %>% nrow()
+
+SCAFFOLD.info$MAF %>% hist()
+SCAFFOLD.info.MAF01$MAF %>% hist()
+
+# # Function to create a list of loci, from a genind object
+# 
+# filter.MAF.NA <- function(gi, MAF.trs = 0.5, NA.trs = 0.5){
+#   # Create vectors for each loci
+#   MAF.res <- adegenet::minorAllele(gi)
+#   NA.res  <- na.gi.count(gi)
+#   
+#   # Filter by threshold
+#   MAF.loc <- dimnames(MAF.res[MAF.res >= MAF.trs])[[1]]
+#   cat("There is", length( MAF.loc), "loci with MAF =", MAF.trs, "\n")
+#   
+#   NA.loc <- names(NA.res[NA.res <= NA.trs])
+#   cat("There is", length(NA.loc), "loci with NA =", NA.trs, "\n")
+#   
+#   # LOCI with both conditions
+#   LOCI.res <- c(MAF.loc, NA.loc)[duplicated(c(MAF.loc, NA.loc)) == T]
+#   LOCI.res %>% length()
+#   
+#   cat("There is", length(LOCI.res), "loci with BOTH MAF =", MAF.trs, "and NA =" , NA.trs, "\n")
+#   
+#   return(LOCI.res)
+# }
+# 
+
+
+write.csv(SCAFFOLD.info.MAF01%>% select(ID), file.path(filter.ref.path,"A_ALL_samples", "07_Final", "Loc.H06.DP.unique.final_wArctogadu.csv"), 
+          row.names = F, quote = F)
+
+write.csv(SCAFFOLD.info.MAF01, file.path(filter.ref.path,"A_ALL_samples", "07_Final",  "Scaffold.info.H06.DP.unique.final_wArctogadus.csv"), 
+          row.names = F, quote = F)
+
+SCAFFOLD.info.MAF01 <- read.csv(file.path(filter.ref.path,"A_ALL_samples", "07_Final",  "Scaffold.info.H06.DP.unique.final_wArctogadus.csv"))
+SCAFFOLD.info.MAF01 %>% nrow()
+# CREATE VCF WITH UNIQUE
+
+vcf.path
+
+cmd <- paste("--vcf", vcf.path, 
+             "--recode",
+             "--snps", file.path(here::here(),filter.ref.path, "A_ALL_samples", "07_Final", "Loc.H06.DP.unique.final_wArctogadu.csv"),
+             
+             "--out", file.path(here::here(),filter.ref.path, "A_ALL_samples", "07_Final", paste0("populations.", SCAFFOLD.info.MAF01 %>% nrow(),"snps.","549indwArctogadus.H06.DP.single.final"))
+)
+
+cmd
+
+A <- system2("vcftools", cmd, stdout=T, stderr=T)
+
+tail(A)
+
+cat(file =  file.path(filter.ref.path,  "A_ALL_samples", "07_Final", "VCF.filter.log"),
+    "\n", cmd, "\n",
+    A, # what to put in my file
+    append= T, sep = "\n")
+
+# Reload, and save as Rdata
+
+vcf.path <- file.path( "./00_Data/06b_Filtering.ref",  "A_ALL_samples", "07_Final", "populations.37990snps.549indwArctogadus.H06.DP.single.final.recode.vcf")
+vcf.data <- vcfR::read.vcfR(vcf.path)
+
+gl.final  <- vcfR::vcfR2genlight(vcf.data) 
+gi.final  <- vcfR::vcfR2genind(vcf.data) 
+
+save(list = c("gl.final", "gi.final"),
+     file = file.path("./00_Data/06b_Filtering.ref", "A_ALL_samples", "07_Final", "populations.379909snps.549indwArctogadus.adegenet.Rdata"))
 
 
 
@@ -1546,72 +1682,3 @@ if(!file.exists(file.path("./00_Data/06b_Filtering.ref", "A_ALL_samples", "07_Fi
       file = file.path("./00_Data/06b_Filtering.ref", "A_ALL_samples", "07_Final", ".gitignore")) 
 }
 
-
-# # Save as plink tped too for pcadapt
-# 
-# cmd1 <- paste("--vcf", vcf.path, 
-#                #"--recode",
-#                "--plink-tped",
-#                "--out",  vcf.path %>% str_remove(".vcf"))
-# 
-# 
-# cmd1
-# 
-# A1 <- system2("vcftools", cmd1, stdout=T, stderr=T)
-# 
-# cmd2a <- paste("--tfam", "./00_Data/00_Raw_to_Filter/06g_UniqueFinal/populations.14331snps.1513ind.n13HW.DP.r5.single.final.recode.tfam", 
-#                "--tped", "./00_Data/00_Raw_to_Filter/06g_UniqueFinal/populations.14331snps.1513ind.n13HW.DP.r5.single.final.recode.tped", 
-#                "--make-bed", 
-#                "--out", "./00_Data/00_Raw_to_Filter/06g_UniqueFinal/populations.14331snps.1513ind.n13HW.DP.r5.single.final.recode"
-#                
-# )
-# 
-# A2a <- system2("plink", cmd2a, stdout=T, stderr=T)
-# A2a
-# 
-# ### idem with SFA
-# 
-# gl.sfa <- gl.final[pop(gl.final) %nin%  c("NAFO-3M-1", "NAFO-3M-2", "NAFO-3M-3", "NAFO-3M")]
-# ID.sfa <- indNames(gl.sfa)
-# 
-# cmd <- paste("--vcf", vcf.path, 
-#              "--recode",
-#              
-#              paste("--indv",ID.sfa, collapse = " "),
-#              "--out", vcf.path %>% str_remove(".recode.vcf") %>% 
-#                                    str_replace("1513", length(ID.sfa) %>% as.character() ) %>% 
-#                                    str_replace(".final", ".sfa"))
-# 
-# cmd
-# 
-# A <- system2("vcftools", cmd, stdout=T, stderr=T)
-# 
-# 
-# cat(file =  file.path(filter.ref.path, "06g_UniqueFinal", "VCF.filter.log"),
-#     "\n", cmd, "\n",
-#     A, # what to put in my file
-#     append= T, sep = "\n")
-# 
-# 
-# "00_Data/00_Raw_to_Filter/06g_UniqueFinal/populations.14331snps.1513ind.n13HW.DP.r5.single.final.recode.vcf"
-# 
-# 
-# cmd1 <- paste("--vcf", vcf.sfa.path, 
-#               #"--recode",
-#               "--plink-tped",
-#               "--out",  vcf.sfa.path %>% str_remove(".vcf"))
-# 
-# 
-# cmd1
-# 
-# A1 <- system2("vcftools", cmd1, stdout=T, stderr=T)
-# 
-# cmd2a <- paste("--tfam", "./00_Data/00_Raw_to_Filter/06g_UniqueFinal/populations.14331snps.1399ind.n13HW.DP.r5.single.sfa.recode.tfam", 
-#                "--tped", "./00_Data/00_Raw_to_Filter/06g_UniqueFinal/populations.14331snps.1399ind.n13HW.DP.r5.single.sfa.recode.tped", 
-#                "--make-bed", 
-#                "--out", "./00_Data/00_Raw_to_Filter/06g_UniqueFinal/populations.14331snps.1399ind.n13HW.DP.r5.single.sfa.recode"
-#                
-# )
-# 
-# A2a <- system2("plink", cmd2a, stdout=T, stderr=T)
-# A2a
