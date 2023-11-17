@@ -1,0 +1,4 @@
+marker*.tsv
+*.pdf
+!.gitignore
+Boreogadus/*.fq.gz
