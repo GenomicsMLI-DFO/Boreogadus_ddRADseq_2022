@@ -72,7 +72,7 @@ Use subsections to describe the purpose of each script if warranted
   - The catalog was made with the full dataset (574 samples)
   - **807,969** loci, effective per-sample coverage: mean=27.8x, stdev=14.7x, min=2.7x, max=94.8x
 
-**High quality SNPs panel**
+**First SNPs panel**
 
   - Keep only samples with mean min coverage = 5x (562 samples)
   - Populations (stacks)
@@ -85,15 +85,43 @@ Use subsections to describe the purpose of each script if warranted
       - After filtration : 170,307 snps from 553 individuals
   - HW desequilibrium by sampling location - not performed
       - Instead, remove X loci with He > 0.6 
-  - Each SNPs depth - Remove a few SNPs with too low or high median coverage (< x and >x, 2 times SD, approx. 1-99% percentile)
+  - Each SNPs depth - Remove a few SNPs with too low or high median coverage (< 5 and >105, 2 times SD, approx. 1-99% percentile)
       - Remove  SNPs (x snps from x individuals)
+  - Batch effect by plate with an RDA - NS
   - Check relatedness
       - With VCFtool, relatedness2
       - Remove x pairs of samples with relatedness > 0.25 (~0.45, so clearly duplicates)
       - final : 3398 individuals
       - 9 individuals with relatedness << 1 , also outliers within a PCA (first axis = 40%). mtDNA analysis suggested Arctogadus glacialis.
-  - Keep only 1 snps by RADloc (FIRST ONE), new MAF 0.01 (some were fixed)
+  - Keep only 1 snps by RADloc (FIRST ONE), new MAF 0.01 
       - **37,990 snps from 549 individuals, including 9 Arctodagus + 2 potential hybrids**
+
+
+**High quality SNPs panel**
+
+  - Keep only samples with mean min coverage = 10x (516 samples)
+  - Populations (stacks)
+      - Parameters: R = 0.75 overall, min MAF = 0.01
+      - Kept 56,001 loci and 219,003 snps
+  - Remove missing values (individuals and SNPS)
+      - VCFtools - 0.1.17
+      - 1 individual with more than 10% missing values (it's maybe an Arctogadus), remove duplicated individuals, choosing the replicate with the less missing data 
+      - 40,929 SNPs with more than 10% missing values
+      - After filtration: 178,074 snps from 511 individuals
+  - HW desequilibrium by sampling location - not performed
+      - Instead, remove X loci with He > 0.6 
+      - After filtration: 177,445 snps from 511 individuals
+  - Each SNPs depth - Remove a few SNPs with too low or high median coverage (< 10 and >95, max = 2 times SD, approx. 1-99% percentile)
+      - Remove 3188 SNPs 
+      - After filtration: 174,257 snps from 511 individuals)
+  - Check batch effet with an RDA: non-significant (P = 0.117)
+  - Check relatedness
+      - With VCFtool, relatedness2
+      - Remove 2 pairs of samples with relatedness > 0.25 (>0.45, so clearly duplicates)
+      - final : 3398 individuals
+      - 9 individuals with relatedness << 1 , also outliers within a PCA (first axis = 40%). mtDNA analysis suggested Arctogadus glacialis.
+  - Keep only 1 snps by RADloc (FIRST ONE), new MAF 0.01 (some were fixed)
+      - **38,131 snps from 507 individuals, including 9 Arctodagus + 2 potential hybrids**
 
 
 ## Main Results

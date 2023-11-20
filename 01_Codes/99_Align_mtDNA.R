@@ -240,7 +240,6 @@ seq2
 seq3
 
 
-
 library(Biostrings)
 
 writeXStringSet(seq1, filepath = "02_Results/99_mtDNA/Seq1_mtDNA.fasta")

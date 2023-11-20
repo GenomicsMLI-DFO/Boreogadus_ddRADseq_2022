@@ -1,0 +1,36 @@
+
+
+--vcf ./00_Data/06b_Filtering.ref/B_10X_samples/06_Relatedness/populations.174257snps.507indwArctogadus.H06.allrecode.vcf --recode --snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/B_10X_samples/07_Final/Loc.H06.DP.unique.final_wArctogadu.csv --out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/B_10X_samples/07_Final/populations.38205snps.507indwArctogadus.H06.DP.single.final
+
+
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf ./00_Data/06b_Filtering.ref/B_10X_samples/06_Relatedness/populations.174257snps.507indwArctogadus.H06.allrecode.vcf
+	--out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/B_10X_samples/07_Final/populations.38205snps.507indwArctogadus.H06.DP.single.final
+	--recode
+	--snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/B_10X_samples/07_Final/Loc.H06.DP.unique.final_wArctogadu.csv
+
+stat error: No such file or directory
+Error: Can't determine file type of ./00_Data/06b_Filtering.ref/B_10X_samples/06_Relatedness/populations.174257snps.507indwArctogadus.H06.allrecode.vcf
+
+
+--vcf ./00_Data/06b_Filtering.ref/B_10X_samples/06_Relatedness/populations.174257snps.507indwArctogadus.H06.all.recode.vcf --recode --snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/B_10X_samples/07_Final/Loc.H06.DP.unique.final_wArctogadu.csv --out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/B_10X_samples/07_Final/populations.38131snps.507indwArctogadus.H06.DP.single.final
+
+
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf ./00_Data/06b_Filtering.ref/B_10X_samples/06_Relatedness/populations.174257snps.507indwArctogadus.H06.all.recode.vcf
+	--out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/B_10X_samples/07_Final/populations.38131snps.507indwArctogadus.H06.DP.single.final
+	--recode
+	--snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/B_10X_samples/07_Final/Loc.H06.DP.unique.final_wArctogadu.csv
+
+After filtering, kept 507 out of 507 Individuals
+Outputting VCF file...
+After filtering, kept 38131 out of a possible 174257 Sites
+Run Time = 26.00 seconds

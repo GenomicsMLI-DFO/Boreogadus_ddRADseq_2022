@@ -1,0 +1,17 @@
+
+
+--vcf /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/B_10X_samples/01_r75_MAF01/populations.snps.vcf --missing-indv
+
+
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/B_10X_samples/01_r75_MAF01/populations.snps.vcf
+	--missing-indv
+
+After filtering, kept 516 out of 516 Individuals
+Outputting Individual Missingness
+After filtering, kept 219003 out of a possible 219003 Sites
+Run Time = 10.00 seconds
