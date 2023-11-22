@@ -105,7 +105,7 @@ pca.all %>% QuickPop::pca_scoretable(naxe = 10) %>%
   ggplot(aes(x = score.PC2, y = score.PC3, col = Region)) +
   geom_hline(yintercept = 0) +
   geom_vline(xintercept = 0) +
-  #facet_wrap(~Region, ncol = 3) +
+  facet_wrap(~Region, ncol = 3) +
   stat_ellipse()+
   geom_point(alpha = 0.5, size = 2) + 
   #scale_color_viridis_d()+

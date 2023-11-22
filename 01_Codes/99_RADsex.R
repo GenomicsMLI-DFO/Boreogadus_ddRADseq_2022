@@ -16,8 +16,8 @@ library(Hmisc)
 library(adegenet)
 
 # Installation from GitHub requires devtools
-install.packages("devtools")
-devtools::install_github("SexGenomicsToolkit/sgtr")
+#install.packages("devtools")
+#devtools::install_github("SexGenomicsToolkit/sgtr")
 
 devtools::install_github("biodray/sgtr")
 library(sgtr)
@@ -32,8 +32,7 @@ pop.data
 Arctogadus.ID <- c("S_22_00047", "S_22_00054", "S_22_00056", "S_22_00057", "S_22_00058", "S_22_00154", "S_22_00156",
           "S_22_00157", "S_22_00172")
 
-
-load( file.path("./00_Data/06b_Filtering.ref", "A_ALL_samples", "07_Final", "populations.379909snps.549indwArctogadus.adegenet.Rdata"))
+load( file.path("./00_Data/06b_Filtering.ref", "B_10X_samples", "07_Final", "populations.38131snps.507indwArctogadus.adegenet.Rdata"))
 
 gl.final
 
@@ -96,6 +95,7 @@ cat(file =  "./02_Results/99_RADsex/RADsex.process.log",
     append= F, sep = "\n")
 
 
+
 cmd <- paste("depth", 
              "--markers-table",  "./02_Results/99_RADsex/markers_table_Boreogadus.tsv", 
              "--output-file", "./02_Results/99_RADsex/depth_Boreogadus.tsv",
@@ -112,10 +112,8 @@ cat(file =  "./02_Results/99_RADsex/RADsex.depth.log",
 
 
 
-
-
-sgtr::radsex_distrib("./02_Results/99_RADsex/distribution_Boreogadus.tsv", 
-                     output_file = "./02_Results/99_RADsex/distribution_Boreogadus.png")
+sgtr::radsex_depth("./02_Results/99_RADsex/depth_Boreogadus.tsv", 
+                     output_file = "./02_Results/99_RADsex/depth_Boreogadus.png")
 
 
 
@@ -132,32 +130,32 @@ write.table(ID.Boreogadus,
 
 cmd <- paste("distrib", 
              "--markers-table",  "./02_Results/99_RADsex/markers_table_Boreogadus.tsv", 
-             "--output-file", "./02_Results/99_RADsex/distribution_Boreogadus.tsv",
+             "--output-file", "./02_Results/99_RADsex/distribution_Boreogadus_10X.tsv",
              "--popmap", "./02_Results/99_RADsex/popmap_Boreogadus.tsv",
-             "--min-depth", 5,
+             "--min-depth", 10,
              "--groups M,F")
 cmd
 
 A <- system2("radsex", cmd, stdout=T, stderr=T)
 A
 
-cat(file =  "./02_Results/99_RADsex/RADsex.distrib.log",
+cat(file =  "./02_Results/99_RADsex/RADsex.distrib_10X.log",
     "\n", cmd, "\n",
     A, # what to put in my file
     append= F, sep = "\n")
 
 
-sgtr::radsex_distrib("./02_Results/99_RADsex/distribution_Boreogadus.tsv", 
-                     output_file = "./02_Results/99_RADsex/distribution_Boreogadus.png")
+sgtr::radsex_distrib("./02_Results/99_RADsex/distribution_Boreogadus_10X.tsv", 
+                     output_file = "./02_Results/99_RADsex/distribution_Boreogadus_10X.png")
 
 # RADsex: Signif ----------------------------------------------------------
 
 
 cmd <- paste("signif",
              "--markers-table",  "./02_Results/99_RADsex/markers_table_Boreogadus.tsv", 
-             "--output-file", "./02_Results/99_RADsex/significant_markers_table_Boreogadus.tsv",
+             "--output-file", "./02_Results/99_RADsex/significant_markers_table_Boreogadus_10X.tsv",
              "--popmap", "./02_Results/99_RADsex/popmap_Boreogadus.tsv",
-             "--min-depth", 5,
+             "--min-depth", 10,
              "--groups M,F"#, 
              #"--disable-correction"
 )
@@ -172,9 +170,56 @@ cat(file =  "./02_Results/99_RADsex/RADsex.signif.log",
     append= F, sep = "\n")
 
 
-sgtr::radsex_marker_depths("./02_Results/99_RADsex/significant_markers_table_Boreogadus.tsv", 
-                           output_file = "./02_Results/99_RADsex/significant_markers_table_Boreogadus.png", 
+sgtr::radsex_marker_depths("./02_Results/99_RADsex/significant_markers_table_Boreogadus_10X.tsv", 
+                           output_file = "./02_Results/99_RADsex/significant_markers_table_Boreogadus_10X.png", 
                            group_info_file = "./02_Results/99_RADsex/popmap_Boreogadus.tsv")
+
+
+# Subset ------------------------------------------------------------------
+
+
+test <- sgtr::load_marker_depths( "./02_Results/99_RADsex/significant_markers_table_Boreogadus_10X.tsv")
+
+
+test %>% pivot_longer(cols = names(test)[3:ncol(test)], names_to = "ID_GQ", values_to = "N") %>% 
+  dplyr::filter(N > 0) %>% 
+  left_join(pop.data %>% dplyr::select(ID_GQ, Sexe_visuel, Region_echantillonnage, Longueur_mm, Numero_unique_groupe, Responsable_extraction)) %>% #head()
+  #dplyr::filter(#Sexe_visuel == "F"
+  #              Longueur_mm > 100
+  #              ) %>% 
+  ggplot(aes(x = ID_GQ, y = factor(id), fill =N)) +
+  geom_bin2d() +
+  scale_fill_viridis_c() +
+  facet_grid(.~ Sexe_visuel +Responsable_extraction, scale = "free", space = "free") +
+  theme(axis.text.x = element_blank())
+
+              
+ID.Boreogadus %>% left_join(pop.data) %>% 
+  ggplot(aes(x = Longueur_mm)) + 
+  geom_histogram() +
+  facet_grid(Sexe_visuel ~ Region_echantillonnage)
+
+
+cmd <- paste("subset",
+             "--markers-table",  "./02_Results/99_RADsex/significant_markers_table_Boreogadus_5X.tsv", 
+             "--output-file", "./02_Results/99_RADsex/subset_markers_table_Boreogadus_5X_females.tsv",
+             "--popmap", "./02_Results/99_RADsex/popmap_Boreogadus.tsv",
+             "--min-depth", 5,
+             "--groups M,F", 
+             "--min-group2", 5
+             #"--disable-correction"
+)
+
+A <- system2("radsex", cmd, stdout=T, stderr=T)
+A
+
+sgtr::radsex_marker_depths("./02_Results/99_RADsex/subset_markers_table_Boreogadus_5X_females.tsv", 
+                           output_file = "./02_Results/99_RADsex/significant_markers_table_Boreogadus_female.png", 
+                           group_info_file = "./02_Results/99_RADsex/popmap_Boreogadus.tsv")
+
+
+
+
 
 
 
@@ -184,7 +229,7 @@ sgtr::radsex_marker_depths("./02_Results/99_RADsex/significant_markers_table_Bor
 
 cmd <- paste("map", 
              "--markers-file", "./02_Results/99_RADsex/markers_table_Boreogadus.tsv",
-             "--output-file", "./02_Results/99_RADsex/map_results_Boreogadus.tsv",
+             "--output-file", "./02_Results/99_RADsex/map_results_Boreogadus_5X.tsv",
              "--popmap", "./02_Results/99_RADsex/popmap_Boreogadus.tsv",
              "--genome-file", "./00_Data/99_REF_Genome/gadMor3.0/GCA_902167405.1/GCA_902167405.1_gadMor3.0_genomic.fna",
              "--min-depth", 5,
@@ -195,28 +240,48 @@ cmd
 A <- system2("radsex", cmd, stdout=T, stderr=T)
 A
 
-cat(file =  "./02_Results/99_RADsex/RADsex.map.log",
+cat(file =  "./02_Results/99_RADsex/RADsex.map_5X.log",
     "\n", cmd, "\n",
     A, # what to put in my file
     append= F, sep = "\n")
 
 # Create a circo!!
 
-radsex_map_circos("./02_Results/99_RADsex/map_results_Boreogadus.tsv", 
+radsex_map_circos("./02_Results/99_RADsex/map_results_Boreogadus_10X.tsv", 
                   detect_chromosomes = T,
                   chromosomes_file = "./02_Results/99_RADsex/gadus_chromosomes.tsv", 
-                  output_file = "./02_Results/99_RADsex/map_results_Boreogadus.pdf")
+                  output_file = "./02_Results/99_RADsex/map_results_Boreogadus_10X.png")
 
 
-radsex_map_region("./02_Results/99_RADsex/map_results_Boreogadus.tsv", 
+radsex_map_circos("./02_Results/99_RADsex/map_results_Boreogadus_5X.tsv", 
+                  detect_chromosomes = T,
+                  chromosomes_file = "./02_Results/99_RADsex/gadus_chromosomes.tsv", 
+                  output_file = "./02_Results/99_RADsex/map_results_Boreogadus_5X.png")
+
+
+radsex_map_region("./02_Results/99_RADsex/map_results_Boreogadus_10X.tsv", 
                   region = "chr13",
                   tracks = c("p", "bias"),
                   detect_chromosomes = T,
                   chromosomes_file = "./02_Results/99_RADsex/gadus_chromosomes.tsv", 
-                  output_file = "./02_Results/99_RADsex/chr13_results_Boreogadus.pdf"
+                  output_file = "./02_Results/99_RADsex/chr13_results_Boreogadus_10X.png"
            
 )
 
+
+radsex_map_region("./02_Results/99_RADsex/map_results_Boreogadus_5X.tsv", 
+                  region = "chr13",
+                  tracks = c("p", "bias"),
+                  p_color = "#1E9B8A",
+                  detect_chromosomes = T,
+                  chromosomes_file = "./02_Results/99_RADsex/gadus_chromosomes.tsv", 
+                  output_file = "./02_Results/99_RADsex/chr13_results_Boreogadus.pdf"
+                  
+)
+
+
+
+plot("#FF0000")
 
 radsex_map_manhattan( "./02_Results/99_RADsex/map_results_Boreogadus.tsv", 
                       #region = "chr13",
