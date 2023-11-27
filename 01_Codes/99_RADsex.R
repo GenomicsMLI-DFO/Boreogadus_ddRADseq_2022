@@ -220,9 +220,6 @@ sgtr::radsex_marker_depths("./02_Results/99_RADsex/subset_markers_table_Boreogad
 
 
 
-
-
-
 # RADsex: Map -------------------------------------------------------------
 
 # Align to a chromosome
@@ -297,3 +294,16 @@ if(!file.exists(file.path("./02_Results/99_RADsex/", ".gitignore")) ){
   cat("marker*.tsv", "*.pdf", "!.gitignore", "Boreogadus/*.fq.gz", sep = "\n",
       file = file.path("./02_Results/99_RADsex/", ".gitignore")) 
 }
+
+
+
+
+
+map.res <- sgtr::load_marker_depths( "./02_Results/99_RADsex/map_results_Boreogadus_5X.tsv")
+head(map.res)
+
+
+map.res %>% dplyr::filter(Signif == T) %>% arrange(Position) %>% head()
+map.res %>% dplyr::filter(Signif == T) %>% arrange(Position) %>% tail() 
+
+
