@@ -94,28 +94,50 @@ pcadapt.k4 <- pcadapt(pcadapt.genotype , K = 4)
 
 plot(pcadapt.k2, option = "manhattan")
 
-hist(pcadapt.k3$pvalues, xlab = "p-values", main = NULL, breaks = 50, col = "orange")
+hist(pcadapt.k2$pvalues, xlab = "p-values", main = NULL, breaks = 50, col = "orange")
 
-plot(pcadapt.k3, option = "qqplot")
+plot(pcadapt.k2, option = "qqplot")
 
-
+plot(pcadapt.k2, option = "stat.distribution")
 
 # Statistics
 #x$pvalues 
-alpha <- 0.05
+alpha <- 0.05 
 
 qval.k2 <- qvalue::qvalue(pcadapt.k2$pvalues)$qvalues
 outliers.k2 <- which(qval.k2 < alpha)
 length(outliers.k2)
 
 
+padj.k2 <- p.adjust(pcadapt.k2$pvalues,method="BH")
+outliers.padj.k2 <- which(padj.k2 < alpha)
+length(outliers.padj.k2)
+
+bonf.k2 <- p.adjust(pcadapt.k2$pvalues,method="bonferroni")
+outliers.bonf.k2 <- which(bonf.k2 < alpha)
+length(outliers.bonf.k2)
+
+
+venn.pcadapt <- plot(euler(list(qvalue =   pcadapt.snp[outliers.k2]  , BH = pcadapt.snp[outliers.padj.k2], Bonferroni =  pcadapt.snp[outliers.bonf.k2] ) , shape = "circle"),
+                     quantities = T,
+                     fill = brewer.pal(n = 3, name = "Dark2"),
+                     alpha = 0.7, edges = F)
+
+venn.pcadapt
+
 res.pcadapt <- data.frame(ID = pcadapt.snp,
                           pvalues = pcadapt.k2$pvalues,
                           qvalues = qval.k2) %>% 
                left_join(SCAFFOLD.info %>% dplyr::select(ID, CHROM, POS)) %>% 
-  mutate(Outliers = ifelse(ID %in% pcadapt.snp[outliers.k2], T, F))
+  mutate(Outliers.qvalue = ifelse(ID %in% pcadapt.snp[outliers.k2], T, F),
+         Outliers.bonferroni = ifelse(ID %in% pcadapt.snp[outliers.bonf.k2], T, F))
 
 res.pcadapt %>% View()
+
+res.pcadapt %>% mutate(test = -log10(pvalues)) %>% arrange(pvalues) %>% View(
+  
+)
+
 
 write_csv(res.pcadapt, "02_Results/02_PCADAPT/PCADAPT_k2_results.csv")
 
@@ -126,8 +148,8 @@ length(outliers.k3)
 res.pcadapt %>% dplyr::filter(str_detect(CHROM, "LR")) %>% 
                                 group_by(CHROM) %>% 
                                 summarise(Nsnps = n(),
-                                          Noutlier = length(ID[Outliers == T]),
-                                          Nneutral = length(ID[Outliers == F])) %>% 
+                                          Noutlier = length(ID[Outliers.bonferroni == T]),
+                                          Nneutral = length(ID[Outliers.bonferroni == F])) %>% 
   
                               mutate(Prop = Noutlier / Nsnps) %>% arrange(desc(Prop)) %>% 
   View()
@@ -223,14 +245,11 @@ A <- system2("vcftools", cmd, stdout=T, stderr=T)
 
 
 
-
-
-
 # PCA ---------------------------------------------------------------------
 
 library(Hmisc)
 
-pca.outliers  <- glPca(gl.data[,locNames(gl.data) %in%  pcadapt.snp[c(outliers.k2, outliers.k3, outliers.k4) %>% unique()]], center = TRUE, scale = FALSE,  
+pca.outliers  <- glPca(gl.data[,locNames(gl.data) %in%  pcadapt.snp[c(outliers.bonf.k2) %>% unique()]], center = TRUE, scale = FALSE,  
                   parallel = TRUE, n.core =16, nf = 1000)
 
 pca.neutral  <- glPca(gl.data[,locNames(gl.data) %nin% pcadapt.outliers], center = TRUE, scale = FALSE,  
@@ -243,11 +262,11 @@ pca.outliers %>% QuickPop::pca_scoretable(naxe = 6) %>%
                                   ifelse(Region_echantillonnage %in% c("2G", "2H", "2J"), "2GHJ", 
                                          Region_echantillonnage ) 
   )) %>% 
-  ggplot(aes(x = score.PC1, y = score.PC2, col = Region_echantillonnage)) +
+  ggplot(aes(x = score.PC3, y = score.PC4, col = Region)) +
   geom_hline(yintercept = 0) +
   geom_vline(xintercept = 0) +
-  facet_wrap(~Region_echantillonnage, ncol = 3) +
-  #stat_ellipse(aes(col = Region))+
+  #facet_wrap(~Region_echantillonnage, ncol = 3) +
+  stat_ellipse(aes(col = Region))+
   geom_point(alpha = 0.5, size = 2) +  
   #  scale_colour_manual(name = "Region", values = c("black","blue", "darkorange","red", "magenta"))+    
   # annotate("text",  x=-Inf, y = Inf, label = paste("Test snps:",  nLoc(gl.data[, locNames(gl.data) %in% LOC.MAF10.NA05])), vjust=1, hjust=0) +
