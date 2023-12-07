@@ -1,1134 +1,577 @@
-ID_GQ,Taxon,Loc
-S_22_00001,Boreogadus saida,Seq1
-S_22_00008,Arctogadus glacialis,Seq1
-S_22_00020,Boreogadus saida,Seq1
-S_22_00030,Arctogadus glacialis,Seq1
-S_22_00032,Arctogadus glacialis,Seq1
-S_22_00047,Arctogadus glacialis,Seq1
-S_22_00050,Boreogadus saida,Seq1
-S_22_00053,Boreogadus saida,Seq1
-S_22_00054,Arctogadus glacialis,Seq1
-S_22_00055,Arctogadus glacialis,Seq1
-S_22_00056,Arctogadus glacialis,Seq1
-S_22_00057,Arctogadus glacialis,Seq1
-S_22_00058,Arctogadus glacialis,Seq1
-S_22_00059,Arctogadus glacialis,Seq1
-S_22_00065,Arctogadus glacialis,Seq1
-S_22_00067,Arctogadus glacialis,Seq1
-S_22_00072,Arctogadus glacialis,Seq1
-S_22_00079,Boreogadus saida,Seq1
-S_22_00083,Arctogadus glacialis,Seq1
-S_22_00089,Arctogadus glacialis,Seq1
-S_22_00102,Arctogadus glacialis,Seq1
-S_22_00130,Boreogadus saida,Seq1
-S_22_00131,Arctogadus glacialis,Seq1
-S_22_00133,Arctogadus glacialis,Seq1
-S_22_00153,Arctogadus glacialis,Seq1
-S_22_00154,Arctogadus glacialis,Seq1
-S_22_00155,Arctogadus glacialis,Seq1
-S_22_00156,Arctogadus glacialis,Seq1
-S_22_00157,Arctogadus glacialis,Seq1
-S_22_00163,Boreogadus saida,Seq1
-S_22_00172,Arctogadus glacialis,Seq1
-S_22_00174,Arctogadus glacialis,Seq1
-S_22_00183,Arctogadus glacialis,Seq1
-S_22_00189,Arctogadus glacialis,Seq1
-S_22_00211,Arctogadus glacialis,Seq1
-S_22_00213,Arctogadus glacialis,Seq1
-S_22_00230,Arctogadus glacialis,Seq1
-S_22_00234,Arctogadus glacialis,Seq1
-S_22_00239,Arctogadus glacialis,Seq1
-S_22_00243,Boreogadus saida,Seq1
-S_22_00253,Arctogadus glacialis,Seq1
-S_22_00298,Arctogadus glacialis,Seq1
-S_22_00302,Arctogadus glacialis,Seq1
-S_22_00307,Arctogadus glacialis,Seq1
-S_22_08009,Arctogadus glacialis,Seq1
-S_22_08015,Arctogadus glacialis,Seq1
-S_22_08021,Arctogadus glacialis,Seq1
-S_22_08030,Arctogadus glacialis,Seq1
-S_22_08033,Gadus morhua,Seq1
-S_22_08041,Arctogadus glacialis,Seq1
-S_22_08044,Boreogadus saida,Seq1
-S_22_08051,Boreogadus saida,Seq1
-S_22_08055,Boreogadus saida,Seq1
-S_22_08075,Boreogadus saida,Seq1
-S_22_08085,Arctogadus glacialis,Seq1
-S_22_08089,Boreogadus saida,Seq1
-S_22_08098,Arctogadus glacialis,Seq1
-S_22_08099,Boreogadus saida,Seq1
-S_22_08142,Boreogadus saida,Seq1
-S_22_08288,Arctogadus glacialis,Seq1
-S_22_08306,Arctogadus glacialis,Seq1
-S_22_08349,Arctogadus glacialis,Seq1
-S_22_08379,Arctogadus glacialis,Seq1
-S_22_09200,Boreogadus saida,Seq1
-S_22_09203,Arctogadus glacialis,Seq1
-S_22_09211,Boreogadus saida,Seq1
-S_22_09217,Arctogadus glacialis,Seq1
-S_22_09225,Boreogadus saida,Seq1
-S_22_09226,Arctogadus glacialis,Seq1
-S_22_09227,Boreogadus saida,Seq1
-S_22_09228,Boreogadus saida,Seq1
-S_22_09230,Boreogadus saida,Seq1
-S_22_09231,Boreogadus saida,Seq1
-S_22_09233,Boreogadus saida,Seq1
-S_22_09234_rep,Boreogadus saida,Seq1
-S_22_09237,Arctogadus glacialis,Seq1
-S_22_09243,Arctogadus glacialis,Seq1
-S_22_09245,Boreogadus saida,Seq1
-S_22_09249,Arctogadus glacialis,Seq1
-S_22_09250,Boreogadus saida,Seq1
-S_22_09253,Arctogadus glacialis,Seq1
-S_22_09254,Boreogadus saida,Seq1
-S_22_09273,Boreogadus saida,Seq1
-S_22_09275,Boreogadus saida,Seq1
-S_22_09280,Boreogadus saida,Seq1
-S_22_09281,Boreogadus saida,Seq1
-S_22_09283,Boreogadus saida,Seq1
-S_22_09294,Arctogadus glacialis,Seq1
-S_22_09295,Boreogadus saida,Seq1
-S_22_09319,Boreogadus saida,Seq1
-S_22_09321,Boreogadus saida,Seq1
-S_22_09322,Boreogadus saida,Seq1
-S_22_09324,Boreogadus saida,Seq1
-S_22_09325,Boreogadus saida,Seq1
-S_22_09335,Boreogadus saida,Seq1
-S_22_09337,Boreogadus saida,Seq1
-S_22_09342,Boreogadus saida,Seq1
-S_22_09343,Boreogadus saida,Seq1
-S_22_09344,Arctogadus glacialis,Seq1
-S_22_09345,Boreogadus saida,Seq1
-S_22_09353,Boreogadus saida,Seq1
-S_22_09364,Boreogadus saida,Seq1
-S_22_09377,Boreogadus saida,Seq1
-S_22_09386,Boreogadus saida,Seq1
-S_22_09387,Boreogadus saida,Seq1
-S_22_09388,Boreogadus saida,Seq1
-S_22_09393,Arctogadus glacialis,Seq1
-S_22_09403,Boreogadus saida,Seq1
-S_22_09423,Arctogadus glacialis,Seq1
-S_22_09453,Boreogadus saida,Seq1
-S_22_09454,Arctogadus glacialis,Seq1
-S_22_00001,Boreogadus saida,Seq2
-S_22_00002,Boreogadus saida,Seq2
-S_22_00003,Boreogadus saida,Seq2
-S_22_00004,Gadiformes,Seq2
-S_22_00006,Gadidae,Seq2
-S_22_00010,Boreogadus saida,Seq2
-S_22_00011,Gadidae,Seq2
-S_22_00012,Boreogadus saida,Seq2
-S_22_00014,Boreogadus saida,Seq2
-S_22_00016,Boreogadus saida,Seq2
-S_22_00017_rep,Boreogadus saida,Seq2
-S_22_00017,Boreogadus saida,Seq2
-S_22_00018,Gadidae,Seq2
-S_22_00019,Gadiformes,Seq2
-S_22_00020,Boreogadus saida,Seq2
-S_22_00021,Boreogadus saida,Seq2
-S_22_00024,Boreogadus saida,Seq2
-S_22_00026,Boreogadus saida,Seq2
-S_22_00027,Boreogadus saida,Seq2
-S_22_00028_rep,Gadidae,Seq2
-S_22_00028,Gadidae,Seq2
-S_22_00030,Boreogadus saida,Seq2
-S_22_00033,Boreogadus saida,Seq2
-S_22_00035,Gadidae,Seq2
-S_22_00036,Boreogadus saida,Seq2
-S_22_00037,Boreogadus saida,Seq2
-S_22_00038,Boreogadus saida,Seq2
-S_22_00039,Boreogadus saida,Seq2
-S_22_00040,Boreogadus saida,Seq2
-S_22_00041,Gadiformes,Seq2
-S_22_00042,Gadidae,Seq2
-S_22_00043,Boreogadus saida,Seq2
-S_22_00044,Boreogadus saida,Seq2
-S_22_00045,Boreogadus saida,Seq2
-S_22_00046,Boreogadus saida,Seq2
-S_22_00047,Gadidae,Seq2
-S_22_00048,Boreogadus saida,Seq2
-S_22_00049,Boreogadus saida,Seq2
-S_22_00050,Boreogadus saida,Seq2
-S_22_00051,Boreogadus saida,Seq2
-S_22_00052,Boreogadus saida,Seq2
-S_22_00053,Boreogadus saida,Seq2
-S_22_00054,Gadidae,Seq2
-S_22_00055,Gadiformes,Seq2
-S_22_00056,Gadidae,Seq2
-S_22_00057,Gadidae,Seq2
-S_22_00058,Gadidae,Seq2
-S_22_00059,Gadidae,Seq2
-S_22_00060,Boreogadus saida,Seq2
-S_22_00061,Boreogadus saida,Seq2
-S_22_00065,Boreogadus saida,Seq2
-S_22_00066,Boreogadus saida,Seq2
-S_22_00067,Boreogadus saida,Seq2
-S_22_00068,Boreogadus saida,Seq2
-S_22_00069,Gadidae,Seq2
-S_22_00070,Boreogadus saida,Seq2
-S_22_00072,Boreogadus saida,Seq2
-S_22_00073,Gadidae,Seq2
-S_22_00075,Boreogadus saida,Seq2
-S_22_00076,Boreogadus saida,Seq2
-S_22_00078,Boreogadus saida,Seq2
-S_22_00079,Boreogadus saida,Seq2
-S_22_00080,Boreogadus saida,Seq2
-S_22_00082,Boreogadus saida,Seq2
-S_22_00083,Gadiformes,Seq2
-S_22_00084,Boreogadus saida,Seq2
-S_22_00085,Boreogadus saida,Seq2
-S_22_00086,Boreogadus saida,Seq2
-S_22_00089,Gadidae,Seq2
-S_22_00092,Boreogadus saida,Seq2
-S_22_00093,Boreogadus saida,Seq2
-S_22_00094,Boreogadus saida,Seq2
-S_22_00095,Boreogadus saida,Seq2
-S_22_00099,Boreogadus saida,Seq2
-S_22_00100,Boreogadus saida,Seq2
-S_22_00101,Gadidae,Seq2
-S_22_00102,Boreogadus saida,Seq2
-S_22_00103,Boreogadus saida,Seq2
-S_22_00105,Gadiformes,Seq2
-S_22_00107,Boreogadus saida,Seq2
-S_22_00108,Boreogadus saida,Seq2
-S_22_00109,Boreogadus saida,Seq2
-S_22_00112,Gadidae,Seq2
-S_22_00113,Boreogadus saida,Seq2
-S_22_00116,Gadidae,Seq2
-S_22_00118,Boreogadus saida,Seq2
-S_22_00119,Gadidae,Seq2
-S_22_00120,Boreogadus saida,Seq2
-S_22_00123,Boreogadus saida,Seq2
-S_22_00124,Gadidae,Seq2
-S_22_00126,Boreogadus saida,Seq2
-S_22_00127,Boreogadus saida,Seq2
-S_22_00131,Boreogadus saida,Seq2
-S_22_00132,Boreogadus saida,Seq2
-S_22_00133,Gadidae,Seq2
-S_22_00134,Boreogadus saida,Seq2
-S_22_00135,Boreogadus saida,Seq2
-S_22_00137,Boreogadus saida,Seq2
-S_22_00139,Gadiformes,Seq2
-S_22_00141,Gadidae,Seq2
-S_22_00144,Boreogadus saida,Seq2
-S_22_00146,Boreogadus saida,Seq2
-S_22_00148,Boreogadus saida,Seq2
-S_22_00149_rep,Boreogadus saida,Seq2
-S_22_00149,Boreogadus saida,Seq2
-S_22_00150,Boreogadus saida,Seq2
-S_22_00153,Gadidae,Seq2
-S_22_00154,Gadidae,Seq2
-S_22_00155,Gadidae,Seq2
-S_22_00156,Gadidae,Seq2
-S_22_00157,Gadidae,Seq2
-S_22_00161,Boreogadus saida,Seq2
-S_22_00162,Boreogadus saida,Seq2
-S_22_00163,Boreogadus saida,Seq2
-S_22_00164,Boreogadus saida,Seq2
-S_22_00165,Gadidae,Seq2
-S_22_00170,Boreogadus saida,Seq2
-S_22_00171,Boreogadus saida,Seq2
-S_22_00172,Gadidae,Seq2
-S_22_00175,Boreogadus saida,Seq2
-S_22_00176,Boreogadus saida,Seq2
-S_22_00178,Boreogadus saida,Seq2
-S_22_00179,Boreogadus saida,Seq2
-S_22_00180,Boreogadus saida,Seq2
-S_22_00181,Boreogadus saida,Seq2
-S_22_00183,Boreogadus saida,Seq2
-S_22_00185,Boreogadus saida,Seq2
-S_22_00187,Boreogadus saida,Seq2
-S_22_00188,Gadiformes,Seq2
-S_22_00189,Gadiformes,Seq2
-S_22_00190,Boreogadus saida,Seq2
-S_22_00191,Gadidae,Seq2
-S_22_00192,Boreogadus saida,Seq2
-S_22_00193,Gadidae,Seq2
-S_22_00194,Boreogadus saida,Seq2
-S_22_00195,Boreogadus saida,Seq2
-S_22_00196,Boreogadus saida,Seq2
-S_22_00197,Boreogadus saida,Seq2
-S_22_00198,Boreogadus saida,Seq2
-S_22_00199,Boreogadus saida,Seq2
-S_22_00200,Boreogadus saida,Seq2
-S_22_00202,Gadidae,Seq2
-S_22_00203,Boreogadus saida,Seq2
-S_22_00210,Boreogadus saida,Seq2
-S_22_00211,Gadidae,Seq2
-S_22_00212,Boreogadus saida,Seq2
-S_22_00213,Gadidae,Seq2
-S_22_00214,Boreogadus saida,Seq2
-S_22_00215,Gadidae,Seq2
-S_22_00219,Boreogadus saida,Seq2
-S_22_00220,Boreogadus saida,Seq2
-S_22_00222,Boreogadus saida,Seq2
-S_22_00223,Boreogadus saida,Seq2
-S_22_00225,Gadidae,Seq2
-S_22_00229,Boreogadus saida,Seq2
-S_22_00230,Boreogadus saida,Seq2
-S_22_00232,Boreogadus saida,Seq2
-S_22_00233,Boreogadus saida,Seq2
-S_22_00235,Boreogadus saida,Seq2
-S_22_00238,Boreogadus saida,Seq2
-S_22_00239,Boreogadus saida,Seq2
-S_22_00247,Boreogadus saida,Seq2
-S_22_00249,Boreogadus saida,Seq2
-S_22_00250,Boreogadus saida,Seq2
-S_22_00251,Boreogadus saida,Seq2
-S_22_00252,Gadiformes,Seq2
-S_22_00253,Boreogadus saida,Seq2
-S_22_00258,Boreogadus saida,Seq2
-S_22_00261,Boreogadus saida,Seq2
-S_22_00274,Gadidae,Seq2
-S_22_00276,Boreogadus saida,Seq2
-S_22_00278,Boreogadus saida,Seq2
-S_22_00279,Boreogadus saida,Seq2
-S_22_00280,Boreogadus saida,Seq2
-S_22_00291,Boreogadus saida,Seq2
-S_22_00300,Gadidae,Seq2
-S_22_00302,Gadidae,Seq2
-S_22_00307,Gadidae,Seq2
-S_22_07680,Boreogadus saida,Seq2
-S_22_07696,Gadidae,Seq2
-S_22_07703,Boreogadus saida,Seq2
-S_22_07708,Boreogadus saida,Seq2
-S_22_07712,Gadidae,Seq2
-S_22_07714,Boreogadus saida,Seq2
-S_22_08005,Boreogadus saida,Seq2
-S_22_08006,Boreogadus saida,Seq2
-S_22_08007,Boreogadus saida,Seq2
-S_22_08008,Boreogadus saida,Seq2
-S_22_08009,Boreogadus saida,Seq2
-S_22_08011,Boreogadus saida,Seq2
-S_22_08013,Boreogadus saida,Seq2
-S_22_08015,Boreogadus saida,Seq2
-S_22_08020,Gadiformes,Seq2
-S_22_08021,Boreogadus saida,Seq2
-S_22_08022,Boreogadus saida,Seq2
-S_22_08025,Boreogadus saida,Seq2
-S_22_08028,Boreogadus saida,Seq2
-S_22_08029,Gadidae,Seq2
-S_22_08030,Gadidae,Seq2
-S_22_08031,Boreogadus saida,Seq2
-S_22_08033,Gadiformes,Seq2
-S_22_08036,Boreogadus saida,Seq2
-S_22_08037,Boreogadus saida,Seq2
-S_22_08038,Boreogadus saida,Seq2
-S_22_08039,Boreogadus saida,Seq2
-S_22_08042,Boreogadus saida,Seq2
-S_22_08043,Boreogadus saida,Seq2
-S_22_08044,Boreogadus saida,Seq2
-S_22_08045,Boreogadus saida,Seq2
-S_22_08046,Boreogadus saida,Seq2
-S_22_08047,Boreogadus saida,Seq2
-S_22_08049,Boreogadus saida,Seq2
-S_22_08051,Boreogadus saida,Seq2
-S_22_08052,Boreogadus saida,Seq2
-S_22_08053,Boreogadus saida,Seq2
-S_22_08054,Gadidae,Seq2
-S_22_08055,Gadiformes,Seq2
-S_22_08056,Boreogadus saida,Seq2
-S_22_08057,Boreogadus saida,Seq2
-S_22_08058,Gadidae,Seq2
-S_22_08059,Boreogadus saida,Seq2
-S_22_08061,Boreogadus saida,Seq2
-S_22_08062,Boreogadus saida,Seq2
-S_22_08067,Gadidae,Seq2
-S_22_08068,Boreogadus saida,Seq2
-S_22_08069,Boreogadus saida,Seq2
-S_22_08070,Boreogadus saida,Seq2
-S_22_08071,Boreogadus saida,Seq2
-S_22_08074,Boreogadus saida,Seq2
-S_22_08075,Gadiformes,Seq2
-S_22_08076,Boreogadus saida,Seq2
-S_22_08077,Boreogadus saida,Seq2
-S_22_08078,Boreogadus saida,Seq2
-S_22_08079,Boreogadus saida,Seq2
-S_22_08080,Boreogadus saida,Seq2
-S_22_08081,Boreogadus saida,Seq2
-S_22_08082,Boreogadus saida,Seq2
-S_22_08083,Boreogadus saida,Seq2
-S_22_08084,Boreogadus saida,Seq2
-S_22_08085,Gadidae,Seq2
-S_22_08087,Boreogadus saida,Seq2
-S_22_08088,Boreogadus saida,Seq2
-S_22_08089,Boreogadus saida,Seq2
-S_22_08090,Boreogadus saida,Seq2
-S_22_08097,Boreogadus saida,Seq2
-S_22_08098,Boreogadus saida,Seq2
-S_22_08099,Boreogadus saida,Seq2
-S_22_08100,Boreogadus saida,Seq2
-S_22_08101,Boreogadus saida,Seq2
-S_22_08103,Boreogadus saida,Seq2
-S_22_08104,Boreogadus saida,Seq2
-S_22_08105,Boreogadus saida,Seq2
-S_22_08106,Boreogadus saida,Seq2
-S_22_08108,Boreogadus saida,Seq2
-S_22_08109,Boreogadus saida,Seq2
-S_22_08110,Boreogadus saida,Seq2
-S_22_08111,Boreogadus saida,Seq2
-S_22_08115,Gadidae,Seq2
-S_22_08116,Boreogadus saida,Seq2
-S_22_08117,Boreogadus saida,Seq2
-S_22_08118,Boreogadus saida,Seq2
-S_22_08120,Boreogadus saida,Seq2
-S_22_08121,Boreogadus saida,Seq2
-S_22_08122,Boreogadus saida,Seq2
-S_22_08124,Boreogadus saida,Seq2
-S_22_08137,Boreogadus saida,Seq2
-S_22_08138,Boreogadus saida,Seq2
-S_22_08142,Gadiformes,Seq2
-S_22_08143,Gadidae,Seq2
-S_22_08147,Gadiformes,Seq2
-S_22_08149,Boreogadus saida,Seq2
-S_22_08151,Boreogadus saida,Seq2
-S_22_08154,Boreogadus saida,Seq2
-S_22_08157,Boreogadus saida,Seq2
-S_22_08158,Gadidae,Seq2
-S_22_08161,Boreogadus saida,Seq2
-S_22_08162,Boreogadus saida,Seq2
-S_22_08163,Boreogadus saida,Seq2
-S_22_08280,Boreogadus saida,Seq2
-S_22_08282,Boreogadus saida,Seq2
-S_22_08288,Gadidae,Seq2
-S_22_08295,Gadidae,Seq2
-S_22_08305,Gadiformes,Seq2
-S_22_08306,Gadiformes,Seq2
-S_22_08309,Boreogadus saida,Seq2
-S_22_08311,Boreogadus saida,Seq2
-S_22_08313,Boreogadus saida,Seq2
-S_22_08324,Boreogadus saida,Seq2
-S_22_08327,Gadidae,Seq2
-S_22_08330,Boreogadus saida,Seq2
-S_22_08340,Boreogadus saida,Seq2
-S_22_08348,Boreogadus saida,Seq2
-S_22_08349,Boreogadus saida,Seq2
-S_22_09200,Gadidae,Seq2
-S_22_09201,Boreogadus saida,Seq2
-S_22_09202,Boreogadus saida,Seq2
-S_22_09203,Boreogadus saida,Seq2
-S_22_09205,Boreogadus saida,Seq2
-S_22_09206,Boreogadus saida,Seq2
-S_22_09207,Gadidae,Seq2
-S_22_09208,Boreogadus saida,Seq2
-S_22_09209,Boreogadus saida,Seq2
-S_22_09210,Boreogadus saida,Seq2
-S_22_09211,Boreogadus saida,Seq2
-S_22_09212,Boreogadus saida,Seq2
-S_22_09213,Gadidae,Seq2
-S_22_09214,Boreogadus saida,Seq2
-S_22_09215,Boreogadus saida,Seq2
-S_22_09216,Boreogadus saida,Seq2
-S_22_09217,Boreogadus saida,Seq2
-S_22_09218,Boreogadus saida,Seq2
-S_22_09219,Boreogadus saida,Seq2
-S_22_09221,Boreogadus saida,Seq2
-S_22_09222,Boreogadus saida,Seq2
-S_22_09225,Gadidae,Seq2
-S_22_09226,Boreogadus saida,Seq2
-S_22_09227,Boreogadus saida,Seq2
-S_22_09228,Boreogadus saida,Seq2
-S_22_09229,Gadidae,Seq2
-S_22_09230,Boreogadus saida,Seq2
-S_22_09231,Gadidae,Seq2
-S_22_09232,Boreogadus saida,Seq2
-S_22_09233,Boreogadus saida,Seq2
-S_22_09234_rep,Boreogadus saida,Seq2
-S_22_09234,Boreogadus saida,Seq2
-S_22_09235,Boreogadus saida,Seq2
-S_22_09236,Gadidae,Seq2
-S_22_09237,Gadidae,Seq2
-S_22_09238,Boreogadus saida,Seq2
-S_22_09239,Boreogadus saida,Seq2
-S_22_09240,Boreogadus saida,Seq2
-S_22_09242,Boreogadus saida,Seq2
-S_22_09243,Boreogadus saida,Seq2
-S_22_09245,Boreogadus saida,Seq2
-S_22_09246,Boreogadus saida,Seq2
-S_22_09247,Boreogadus saida,Seq2
-S_22_09248,Boreogadus saida,Seq2
-S_22_09249,Boreogadus saida,Seq2
-S_22_09250,Boreogadus saida,Seq2
-S_22_09251,Boreogadus saida,Seq2
-S_22_09252,Boreogadus saida,Seq2
-S_22_09253,Boreogadus saida,Seq2
-S_22_09254,Boreogadus saida,Seq2
-S_22_09255,Boreogadus saida,Seq2
-S_22_09262,Gadidae,Seq2
-S_22_09263,Boreogadus saida,Seq2
-S_22_09264,Boreogadus saida,Seq2
-S_22_09265,Gadidae,Seq2
-S_22_09272,Boreogadus saida,Seq2
-S_22_09273,Boreogadus saida,Seq2
-S_22_09274,Boreogadus saida,Seq2
-S_22_09275,Boreogadus saida,Seq2
-S_22_09279,Boreogadus saida,Seq2
-S_22_09280,Boreogadus saida,Seq2
-S_22_09281,Boreogadus saida,Seq2
-S_22_09282,Boreogadus saida,Seq2
-S_22_09283,Boreogadus saida,Seq2
-S_22_09285,Boreogadus saida,Seq2
-S_22_09286,Boreogadus saida,Seq2
-S_22_09287,Boreogadus saida,Seq2
-S_22_09294,Boreogadus saida,Seq2
-S_22_09295,Boreogadus saida,Seq2
-S_22_09296,Boreogadus saida,Seq2
-S_22_09297,Gadidae,Seq2
-S_22_09303,Boreogadus saida,Seq2
-S_22_09304,Boreogadus saida,Seq2
-S_22_09305,Boreogadus saida,Seq2
-S_22_09306,Boreogadus saida,Seq2
-S_22_09307,Boreogadus saida,Seq2
-S_22_09318,Boreogadus saida,Seq2
-S_22_09319,Boreogadus saida,Seq2
-S_22_09320,Boreogadus saida,Seq2
-S_22_09321,Boreogadus saida,Seq2
-S_22_09322,Boreogadus saida,Seq2
-S_22_09323,Boreogadus saida,Seq2
-S_22_09324,Gadidae,Seq2
-S_22_09325,Boreogadus saida,Seq2
-S_22_09326,Boreogadus saida,Seq2
-S_22_09327,Gadidae,Seq2
-S_22_09333,Boreogadus saida,Seq2
-S_22_09334,Boreogadus saida,Seq2
-S_22_09335,Gadidae,Seq2
-S_22_09336,Boreogadus saida,Seq2
-S_22_09337,Boreogadus saida,Seq2
-S_22_09342,Boreogadus saida,Seq2
-S_22_09343,Boreogadus saida,Seq2
-S_22_09344,Boreogadus saida,Seq2
-S_22_09345,Boreogadus saida,Seq2
-S_22_09352,Boreogadus saida,Seq2
-S_22_09353,Boreogadus saida,Seq2
-S_22_09354,Gadidae,Seq2
-S_22_09362,Boreogadus saida,Seq2
-S_22_09363,Boreogadus saida,Seq2
-S_22_09364,Boreogadus saida,Seq2
-S_22_09366,Boreogadus saida,Seq2
-S_22_09367,Boreogadus saida,Seq2
-S_22_09368,Boreogadus saida,Seq2
-S_22_09376,Boreogadus saida,Seq2
-S_22_09377,Boreogadus saida,Seq2
-S_22_09378,Boreogadus saida,Seq2
-S_22_09386,Boreogadus saida,Seq2
-S_22_09387,Boreogadus saida,Seq2
-S_22_09388,Boreogadus saida,Seq2
-S_22_09391,Boreogadus saida,Seq2
-S_22_09392,Boreogadus saida,Seq2
-S_22_09393,Boreogadus saida,Seq2
-S_22_09400,Boreogadus saida,Seq2
-S_22_09401,Boreogadus saida,Seq2
-S_22_09402,Gadidae,Seq2
-S_22_09403,Boreogadus saida,Seq2
-S_22_09409,Boreogadus saida,Seq2
-S_22_09410_rep,Boreogadus saida,Seq2
-S_22_09410,Boreogadus saida,Seq2
-S_22_09411,Boreogadus saida,Seq2
-S_22_09412,Boreogadus saida,Seq2
-S_22_09413,Boreogadus saida,Seq2
-S_22_09419,Boreogadus saida,Seq2
-S_22_09421,Gadidae,Seq2
-S_22_09422,Boreogadus saida,Seq2
-S_22_09423,Boreogadus saida,Seq2
-S_22_09427,Boreogadus saida,Seq2
-S_22_09428,Boreogadus saida,Seq2
-S_22_09430,Gadidae,Seq2
-S_22_09434,Boreogadus saida,Seq2
-S_22_09436,Boreogadus saida,Seq2
-S_22_09440,Gadidae,Seq2
-S_22_09444,Gadidae,Seq2
-S_22_09447,Boreogadus saida,Seq2
-S_22_09452,Boreogadus saida,Seq2
-S_22_09453,Boreogadus saida,Seq2
-S_22_09454,Boreogadus saida,Seq2
-S_22_09612,Boreogadus saida,Seq2
-S_22_09613,Boreogadus saida,Seq2
-S_22_09614,Boreogadus saida,Seq2
-S_22_09615,Boreogadus saida,Seq2
-S_22_09616_rep,Boreogadus saida,Seq2
-S_22_09616,Boreogadus saida,Seq2
-S_22_09617,Boreogadus saida,Seq2
-S_22_09618,Gadidae,Seq2
-S_22_09619,Boreogadus saida,Seq2
-S_22_09620,Boreogadus saida,Seq2
-S_22_09621,Boreogadus saida,Seq2
-S_22_09622,Gadidae,Seq2
-S_22_09623,Boreogadus saida,Seq2
-S_22_09624,Gadidae,Seq2
-S_22_09625,Boreogadus saida,Seq2
-S_22_00001,Boreogadus saida,Seq3
-S_22_00002,Boreogadus saida,Seq3
-S_22_00003,Boreogadus saida,Seq3
-S_22_00004,Boreogadus saida,Seq3
-S_22_00005,Boreogadus saida,Seq3
-S_22_00006,Boreogadus saida,Seq3
-S_22_00007,Boreogadus saida,Seq3
-S_22_00008,Boreogadus saida,Seq3
-S_22_00009,Boreogadus saida,Seq3
-S_22_00010,Boreogadus saida,Seq3
-S_22_00011,Boreogadus saida,Seq3
-S_22_00012,Boreogadus saida,Seq3
-S_22_00014,Boreogadus saida,Seq3
-S_22_00015,Boreogadus saida,Seq3
-S_22_00016,Boreogadus saida,Seq3
-S_22_00017_rep,Boreogadus saida,Seq3
-S_22_00017,Boreogadus saida,Seq3
-S_22_00018,Boreogadus saida,Seq3
-S_22_00019,Boreogadus saida,Seq3
-S_22_00020,Boreogadus saida,Seq3
-S_22_00021,Boreogadus saida,Seq3
-S_22_00024,Boreogadus saida,Seq3
-S_22_00025,Boreogadus saida,Seq3
-S_22_00026,Boreogadus saida,Seq3
-S_22_00027,Boreogadus saida,Seq3
-S_22_00028_rep,Boreogadus saida,Seq3
-S_22_00028,Boreogadus saida,Seq3
-S_22_00029,Boreogadus saida,Seq3
-S_22_00030,Boreogadus saida,Seq3
-S_22_00031,Boreogadus saida,Seq3
-S_22_00032,Boreogadus saida,Seq3
-S_22_00033,Boreogadus saida,Seq3
-S_22_00034,Boreogadus saida,Seq3
-S_22_00035,Boreogadus saida,Seq3
-S_22_00036,Boreogadus saida,Seq3
-S_22_00037,Boreogadus saida,Seq3
-S_22_00038,Boreogadus saida,Seq3
-S_22_00039,Boreogadus saida,Seq3
-S_22_00040,Boreogadus saida,Seq3
-S_22_00041,Boreogadus saida,Seq3
-S_22_00042,Boreogadus saida,Seq3
-S_22_00043,Boreogadus saida,Seq3
-S_22_00044,Boreogadus saida,Seq3
-S_22_00045,Boreogadus saida,Seq3
-S_22_00046,Boreogadus saida,Seq3
-S_22_00047,Boreogadus saida,Seq3
-S_22_00048,Boreogadus saida,Seq3
-S_22_00049,Boreogadus saida,Seq3
-S_22_00050,Boreogadus saida,Seq3
-S_22_00051,Boreogadus saida,Seq3
-S_22_00052,Boreogadus saida,Seq3
-S_22_00053,Boreogadus saida,Seq3
-S_22_00054,Boreogadus saida,Seq3
-S_22_00055,Boreogadus saida,Seq3
-S_22_00056,Boreogadus saida,Seq3
-S_22_00057,Boreogadus saida,Seq3
-S_22_00058,Boreogadus saida,Seq3
-S_22_00059,Boreogadus saida,Seq3
-S_22_00060,Boreogadus saida,Seq3
-S_22_00061,Boreogadus saida,Seq3
-S_22_00062,Boreogadus saida,Seq3
-S_22_00063,Boreogadus saida,Seq3
-S_22_00064,Boreogadus saida,Seq3
-S_22_00065,Boreogadus saida,Seq3
-S_22_00066,Boreogadus saida,Seq3
-S_22_00067,Boreogadus saida,Seq3
-S_22_00068,Boreogadus saida,Seq3
-S_22_00069,Boreogadus saida,Seq3
-S_22_00070,Boreogadus saida,Seq3
-S_22_00071,Boreogadus saida,Seq3
-S_22_00072,Boreogadus saida,Seq3
-S_22_00073,Boreogadus saida,Seq3
-S_22_00074,Boreogadus saida,Seq3
-S_22_00075,Boreogadus saida,Seq3
-S_22_00076,Boreogadus saida,Seq3
-S_22_00077,Boreogadus saida,Seq3
-S_22_00078,Boreogadus saida,Seq3
-S_22_00079,Boreogadus saida,Seq3
-S_22_00080,Boreogadus saida,Seq3
-S_22_00081,Boreogadus saida,Seq3
-S_22_00082,Boreogadus saida,Seq3
-S_22_00083,Boreogadus saida,Seq3
-S_22_00084,Boreogadus saida,Seq3
-S_22_00085,Boreogadus saida,Seq3
-S_22_00086,Boreogadus saida,Seq3
-S_22_00088,Boreogadus saida,Seq3
-S_22_00089,Boreogadus saida,Seq3
-S_22_00090,Boreogadus saida,Seq3
-S_22_00091,Boreogadus saida,Seq3
-S_22_00092,Boreogadus saida,Seq3
-S_22_00093,Boreogadus saida,Seq3
-S_22_00094,Boreogadus saida,Seq3
-S_22_00095,Boreogadus saida,Seq3
-S_22_00099,Boreogadus saida,Seq3
-S_22_00100,Boreogadus saida,Seq3
-S_22_00101,Boreogadus saida,Seq3
-S_22_00102,Boreogadus saida,Seq3
-S_22_00103,Boreogadus saida,Seq3
-S_22_00105,Boreogadus saida,Seq3
-S_22_00107,Boreogadus saida,Seq3
-S_22_00108,Boreogadus saida,Seq3
-S_22_00109,Boreogadus saida,Seq3
-S_22_00110,Boreogadus saida,Seq3
-S_22_00112,Boreogadus saida,Seq3
-S_22_00113,Boreogadus saida,Seq3
-S_22_00115,Boreogadus saida,Seq3
-S_22_00116,Boreogadus saida,Seq3
-S_22_00117,Boreogadus saida,Seq3
-S_22_00118,Boreogadus saida,Seq3
-S_22_00119,Boreogadus saida,Seq3
-S_22_00120,Boreogadus saida,Seq3
-S_22_00121,Boreogadus saida,Seq3
-S_22_00122,Boreogadus saida,Seq3
-S_22_00123,Boreogadus saida,Seq3
-S_22_00124,Boreogadus saida,Seq3
-S_22_00125,Boreogadus saida,Seq3
-S_22_00126,Boreogadus saida,Seq3
-S_22_00127,Boreogadus saida,Seq3
-S_22_00128,Boreogadus saida,Seq3
-S_22_00129,Boreogadus saida,Seq3
-S_22_00130,Boreogadus saida,Seq3
-S_22_00131,Boreogadus saida,Seq3
-S_22_00132,Boreogadus saida,Seq3
-S_22_00133,Boreogadus saida,Seq3
-S_22_00134,Boreogadus saida,Seq3
-S_22_00135,Boreogadus saida,Seq3
-S_22_00136,Boreogadus saida,Seq3
-S_22_00137,Boreogadus saida,Seq3
-S_22_00138,Boreogadus saida,Seq3
-S_22_00139,Boreogadus saida,Seq3
-S_22_00140,Boreogadus saida,Seq3
-S_22_00141,Boreogadus saida,Seq3
-S_22_00142,Boreogadus saida,Seq3
-S_22_00143,Boreogadus saida,Seq3
-S_22_00144,Boreogadus saida,Seq3
-S_22_00145,Boreogadus saida,Seq3
-S_22_00146,Boreogadus saida,Seq3
-S_22_00148,Boreogadus saida,Seq3
-S_22_00149_rep,Boreogadus saida,Seq3
-S_22_00149,Boreogadus saida,Seq3
-S_22_00150,Boreogadus saida,Seq3
-S_22_00151,Boreogadus saida,Seq3
-S_22_00153,Boreogadus saida,Seq3
-S_22_00154,Boreogadus saida,Seq3
-S_22_00155,Boreogadus saida,Seq3
-S_22_00156,Boreogadus saida,Seq3
-S_22_00157,Boreogadus saida,Seq3
-S_22_00161,Boreogadus saida,Seq3
-S_22_00162,Boreogadus saida,Seq3
-S_22_00163,Boreogadus saida,Seq3
-S_22_00164,Boreogadus saida,Seq3
-S_22_00165,Boreogadus saida,Seq3
-S_22_00168,Boreogadus saida,Seq3
-S_22_00169,Boreogadus saida,Seq3
-S_22_00170,Boreogadus saida,Seq3
-S_22_00171,Boreogadus saida,Seq3
-S_22_00172,Boreogadus saida,Seq3
-S_22_00174,Boreogadus saida,Seq3
-S_22_00175,Boreogadus saida,Seq3
-S_22_00176,Boreogadus saida,Seq3
-S_22_00178,Boreogadus saida,Seq3
-S_22_00179,Boreogadus saida,Seq3
-S_22_00180,Boreogadus saida,Seq3
-S_22_00181,Boreogadus saida,Seq3
-S_22_00183,Boreogadus saida,Seq3
-S_22_00185,Boreogadus saida,Seq3
-S_22_00186,Boreogadus saida,Seq3
-S_22_00187,Boreogadus saida,Seq3
-S_22_00188,Boreogadus saida,Seq3
-S_22_00189,Boreogadus saida,Seq3
-S_22_00190,Boreogadus saida,Seq3
-S_22_00191,Boreogadus saida,Seq3
-S_22_00192,Boreogadus saida,Seq3
-S_22_00193,Boreogadus saida,Seq3
-S_22_00194,Boreogadus saida,Seq3
-S_22_00195,Boreogadus saida,Seq3
-S_22_00196,Boreogadus saida,Seq3
-S_22_00197,Boreogadus saida,Seq3
-S_22_00198,Boreogadus saida,Seq3
-S_22_00199,Boreogadus saida,Seq3
-S_22_00200,Boreogadus saida,Seq3
-S_22_00202,Boreogadus saida,Seq3
-S_22_00203,Boreogadus saida,Seq3
-S_22_00205,Boreogadus saida,Seq3
-S_22_00206,Boreogadus saida,Seq3
-S_22_00207,Boreogadus saida,Seq3
-S_22_00209,Boreogadus saida,Seq3
-S_22_00210,Boreogadus saida,Seq3
-S_22_00211,Boreogadus saida,Seq3
-S_22_00212,Boreogadus saida,Seq3
-S_22_00213,Boreogadus saida,Seq3
-S_22_00214,Boreogadus saida,Seq3
-S_22_00215,Boreogadus saida,Seq3
-S_22_00216,Boreogadus saida,Seq3
-S_22_00217,Boreogadus saida,Seq3
-S_22_00218,Boreogadus saida,Seq3
-S_22_00219,Boreogadus saida,Seq3
-S_22_00220,Boreogadus saida,Seq3
-S_22_00221,Boreogadus saida,Seq3
-S_22_00222,Boreogadus saida,Seq3
-S_22_00223,Boreogadus saida,Seq3
-S_22_00224,Boreogadus saida,Seq3
-S_22_00225,Boreogadus saida,Seq3
-S_22_00226,Boreogadus saida,Seq3
-S_22_00227,Boreogadus saida,Seq3
-S_22_00229,Boreogadus saida,Seq3
-S_22_00230,Boreogadus saida,Seq3
-S_22_00231,Boreogadus saida,Seq3
-S_22_00232,Boreogadus saida,Seq3
-S_22_00233,Boreogadus saida,Seq3
-S_22_00234,Boreogadus saida,Seq3
-S_22_00235,Boreogadus saida,Seq3
-S_22_00237,Boreogadus saida,Seq3
-S_22_00238,Boreogadus saida,Seq3
-S_22_00239,Boreogadus saida,Seq3
-S_22_00240,Boreogadus saida,Seq3
-S_22_00242,Boreogadus saida,Seq3
-S_22_00243,Boreogadus saida,Seq3
-S_22_00246,Boreogadus saida,Seq3
-S_22_00247,Boreogadus saida,Seq3
-S_22_00248,Boreogadus saida,Seq3
-S_22_00249,Boreogadus saida,Seq3
-S_22_00250,Boreogadus saida,Seq3
-S_22_00251,Boreogadus saida,Seq3
-S_22_00252,Boreogadus saida,Seq3
-S_22_00253,Boreogadus saida,Seq3
-S_22_00254,Boreogadus saida,Seq3
-S_22_00258,Boreogadus saida,Seq3
-S_22_00261,Boreogadus saida,Seq3
-S_22_00263,Boreogadus saida,Seq3
-S_22_00272,Boreogadus saida,Seq3
-S_22_00273,Boreogadus saida,Seq3
-S_22_00274,Boreogadus saida,Seq3
-S_22_00275,Boreogadus saida,Seq3
-S_22_00276,Boreogadus saida,Seq3
-S_22_00278,Boreogadus saida,Seq3
-S_22_00279,Boreogadus saida,Seq3
-S_22_00280,Boreogadus saida,Seq3
-S_22_00286,Boreogadus saida,Seq3
-S_22_00289,Boreogadus saida,Seq3
-S_22_00291,Boreogadus saida,Seq3
-S_22_00297,Boreogadus saida,Seq3
-S_22_00298,Boreogadus saida,Seq3
-S_22_00300,Boreogadus saida,Seq3
-S_22_00301,Boreogadus saida,Seq3
-S_22_00302,Boreogadus saida,Seq3
-S_22_00306,Boreogadus saida,Seq3
-S_22_00307,Boreogadus saida,Seq3
-S_22_07665,Boreogadus saida,Seq3
-S_22_07670,Boreogadus saida,Seq3
-S_22_07675,Boreogadus saida,Seq3
-S_22_07680,Boreogadus saida,Seq3
-S_22_07683,Boreogadus saida,Seq3
-S_22_07685,Boreogadus saida,Seq3
-S_22_07687,Boreogadus saida,Seq3
-S_22_07689,Boreogadus saida,Seq3
-S_22_07690,Boreogadus saida,Seq3
-S_22_07691,Boreogadus saida,Seq3
-S_22_07692,Boreogadus saida,Seq3
-S_22_07694,Boreogadus saida,Seq3
-S_22_07695,Boreogadus saida,Seq3
-S_22_07696,Boreogadus saida,Seq3
-S_22_07697,Boreogadus saida,Seq3
-S_22_07698,Boreogadus saida,Seq3
-S_22_07700,Boreogadus saida,Seq3
-S_22_07701,Boreogadus saida,Seq3
-S_22_07703,Boreogadus saida,Seq3
-S_22_07705,Boreogadus saida,Seq3
-S_22_07706,Boreogadus saida,Seq3
-S_22_07707,Boreogadus saida,Seq3
-S_22_07708,Boreogadus saida,Seq3
-S_22_07711,Boreogadus saida,Seq3
-S_22_07712,Boreogadus saida,Seq3
-S_22_07714,Boreogadus saida,Seq3
-S_22_08005,Boreogadus saida,Seq3
-S_22_08006,Boreogadus saida,Seq3
-S_22_08007,Boreogadus saida,Seq3
-S_22_08008,Boreogadus saida,Seq3
-S_22_08009,Boreogadus saida,Seq3
-S_22_08011,Boreogadus saida,Seq3
-S_22_08013,Boreogadus saida,Seq3
-S_22_08015,Boreogadus saida,Seq3
-S_22_08016,Boreogadus saida,Seq3
-S_22_08020,Boreogadus saida,Seq3
-S_22_08021,Boreogadus saida,Seq3
-S_22_08022,Boreogadus saida,Seq3
-S_22_08023,Boreogadus saida,Seq3
-S_22_08025,Boreogadus saida,Seq3
-S_22_08028,Boreogadus saida,Seq3
-S_22_08029,Boreogadus saida,Seq3
-S_22_08030,Boreogadus saida,Seq3
-S_22_08031,Boreogadus saida,Seq3
-S_22_08032,Boreogadus saida,Seq3
-S_22_08033,Boreogadus saida,Seq3
-S_22_08035,Boreogadus saida,Seq3
-S_22_08036,Boreogadus saida,Seq3
-S_22_08037,Boreogadus saida,Seq3
-S_22_08038,Boreogadus saida,Seq3
-S_22_08039,Boreogadus saida,Seq3
-S_22_08041,Boreogadus saida,Seq3
-S_22_08042,Boreogadus saida,Seq3
-S_22_08043,Boreogadus saida,Seq3
-S_22_08044,Boreogadus saida,Seq3
-S_22_08045,Boreogadus saida,Seq3
-S_22_08046,Boreogadus saida,Seq3
-S_22_08047,Boreogadus saida,Seq3
-S_22_08048,Boreogadus saida,Seq3
-S_22_08049,Boreogadus saida,Seq3
-S_22_08050,Boreogadus saida,Seq3
-S_22_08051,Boreogadus saida,Seq3
-S_22_08052,Boreogadus saida,Seq3
-S_22_08053,Boreogadus saida,Seq3
-S_22_08054,Boreogadus saida,Seq3
-S_22_08055,Boreogadus saida,Seq3
-S_22_08056,Boreogadus saida,Seq3
-S_22_08057,Boreogadus saida,Seq3
-S_22_08058,Boreogadus saida,Seq3
-S_22_08059,Boreogadus saida,Seq3
-S_22_08060,Boreogadus saida,Seq3
-S_22_08061,Boreogadus saida,Seq3
-S_22_08062,Boreogadus saida,Seq3
-S_22_08067,Boreogadus saida,Seq3
-S_22_08068,Boreogadus saida,Seq3
-S_22_08069,Boreogadus saida,Seq3
-S_22_08070,Boreogadus saida,Seq3
-S_22_08071,Boreogadus saida,Seq3
-S_22_08074,Boreogadus saida,Seq3
-S_22_08075,Boreogadus saida,Seq3
-S_22_08076,Boreogadus saida,Seq3
-S_22_08077,Boreogadus saida,Seq3
-S_22_08078,Boreogadus saida,Seq3
-S_22_08079,Boreogadus saida,Seq3
-S_22_08080,Boreogadus saida,Seq3
-S_22_08081,Boreogadus saida,Seq3
-S_22_08082,Boreogadus saida,Seq3
-S_22_08083,Boreogadus saida,Seq3
-S_22_08084,Boreogadus saida,Seq3
-S_22_08085,Boreogadus saida,Seq3
-S_22_08087,Boreogadus saida,Seq3
-S_22_08088,Boreogadus saida,Seq3
-S_22_08089,Boreogadus saida,Seq3
-S_22_08090,Boreogadus saida,Seq3
-S_22_08097,Boreogadus saida,Seq3
-S_22_08098,Boreogadus saida,Seq3
-S_22_08099,Boreogadus saida,Seq3
-S_22_08100,Boreogadus saida,Seq3
-S_22_08101,Boreogadus saida,Seq3
-S_22_08103,Boreogadus saida,Seq3
-S_22_08104,Boreogadus saida,Seq3
-S_22_08105,Boreogadus saida,Seq3
-S_22_08106,Boreogadus saida,Seq3
-S_22_08108,Boreogadus saida,Seq3
-S_22_08109,Boreogadus saida,Seq3
-S_22_08110,Boreogadus saida,Seq3
-S_22_08111,Boreogadus saida,Seq3
-S_22_08115,Boreogadus saida,Seq3
-S_22_08116,Boreogadus saida,Seq3
-S_22_08117,Boreogadus saida,Seq3
-S_22_08118,Boreogadus saida,Seq3
-S_22_08120,Boreogadus saida,Seq3
-S_22_08121,Boreogadus saida,Seq3
-S_22_08122,Boreogadus saida,Seq3
-S_22_08124,Boreogadus saida,Seq3
-S_22_08137,Boreogadus saida,Seq3
-S_22_08138,Boreogadus saida,Seq3
-S_22_08139,Boreogadus saida,Seq3
-S_22_08140,Boreogadus saida,Seq3
-S_22_08142,Boreogadus saida,Seq3
-S_22_08143,Boreogadus saida,Seq3
-S_22_08147,Boreogadus saida,Seq3
-S_22_08149,Boreogadus saida,Seq3
-S_22_08150,Boreogadus saida,Seq3
-S_22_08151,Boreogadus saida,Seq3
-S_22_08154,Boreogadus saida,Seq3
-S_22_08155,Boreogadus saida,Seq3
-S_22_08157,Boreogadus saida,Seq3
-S_22_08158,Boreogadus saida,Seq3
-S_22_08161,Boreogadus saida,Seq3
-S_22_08162,Boreogadus saida,Seq3
-S_22_08163,Boreogadus saida,Seq3
-S_22_08280,Boreogadus saida,Seq3
-S_22_08281,Boreogadus saida,Seq3
-S_22_08282,Boreogadus saida,Seq3
-S_22_08283,Boreogadus saida,Seq3
-S_22_08284,Boreogadus saida,Seq3
-S_22_08286,Boreogadus saida,Seq3
-S_22_08287,Boreogadus saida,Seq3
-S_22_08288,Boreogadus saida,Seq3
-S_22_08289,Boreogadus saida,Seq3
-S_22_08290,Boreogadus saida,Seq3
-S_22_08291,Boreogadus saida,Seq3
-S_22_08292,Boreogadus saida,Seq3
-S_22_08295,Boreogadus saida,Seq3
-S_22_08298,Boreogadus saida,Seq3
-S_22_08301,Boreogadus saida,Seq3
-S_22_08302,Boreogadus saida,Seq3
-S_22_08305,Boreogadus saida,Seq3
-S_22_08306,Boreogadus saida,Seq3
-S_22_08308,Boreogadus saida,Seq3
-S_22_08309,Boreogadus saida,Seq3
-S_22_08311,Boreogadus saida,Seq3
-S_22_08313,Boreogadus saida,Seq3
-S_22_08314,Boreogadus saida,Seq3
-S_22_08315,Boreogadus saida,Seq3
-S_22_08318,Boreogadus saida,Seq3
-S_22_08319,Boreogadus saida,Seq3
-S_22_08322,Boreogadus saida,Seq3
-S_22_08323,Boreogadus saida,Seq3
-S_22_08324,Boreogadus saida,Seq3
-S_22_08326,Boreogadus saida,Seq3
-S_22_08327,Boreogadus saida,Seq3
-S_22_08328,Boreogadus saida,Seq3
-S_22_08330,Boreogadus saida,Seq3
-S_22_08340,Boreogadus saida,Seq3
-S_22_08345,Boreogadus saida,Seq3
-S_22_08346,Boreogadus saida,Seq3
-S_22_08348,Boreogadus saida,Seq3
-S_22_08349,Boreogadus saida,Seq3
-S_22_08376,Boreogadus saida,Seq3
-S_22_08379,Boreogadus saida,Seq3
-S_22_09200,Boreogadus saida,Seq3
-S_22_09201,Boreogadus saida,Seq3
-S_22_09202,Boreogadus saida,Seq3
-S_22_09203,Boreogadus saida,Seq3
-S_22_09205,Boreogadus saida,Seq3
-S_22_09206,Boreogadus saida,Seq3
-S_22_09207,Boreogadus saida,Seq3
-S_22_09208,Boreogadus saida,Seq3
-S_22_09209,Boreogadus saida,Seq3
-S_22_09210,Boreogadus saida,Seq3
-S_22_09211,Boreogadus saida,Seq3
-S_22_09212,Boreogadus saida,Seq3
-S_22_09213,Boreogadus saida,Seq3
-S_22_09214,Boreogadus saida,Seq3
-S_22_09215,Boreogadus saida,Seq3
-S_22_09216,Boreogadus saida,Seq3
-S_22_09217,Boreogadus saida,Seq3
-S_22_09218,Boreogadus saida,Seq3
-S_22_09219,Boreogadus saida,Seq3
-S_22_09221,Boreogadus saida,Seq3
-S_22_09222,Boreogadus saida,Seq3
-S_22_09224,Boreogadus saida,Seq3
-S_22_09225,Boreogadus saida,Seq3
-S_22_09226,Boreogadus saida,Seq3
-S_22_09227,Boreogadus saida,Seq3
-S_22_09228,Boreogadus saida,Seq3
-S_22_09229,Boreogadus saida,Seq3
-S_22_09230,Boreogadus saida,Seq3
-S_22_09231,Boreogadus saida,Seq3
-S_22_09232,Boreogadus saida,Seq3
-S_22_09233,Boreogadus saida,Seq3
-S_22_09234_rep,Boreogadus saida,Seq3
-S_22_09234,Boreogadus saida,Seq3
-S_22_09235,Boreogadus saida,Seq3
-S_22_09236,Boreogadus saida,Seq3
-S_22_09237,Boreogadus saida,Seq3
-S_22_09238,Boreogadus saida,Seq3
-S_22_09239,Boreogadus saida,Seq3
-S_22_09240,Boreogadus saida,Seq3
-S_22_09242,Boreogadus saida,Seq3
-S_22_09243,Boreogadus saida,Seq3
-S_22_09244,Boreogadus saida,Seq3
-S_22_09245,Boreogadus saida,Seq3
-S_22_09246,Boreogadus saida,Seq3
-S_22_09247,Boreogadus saida,Seq3
-S_22_09248,Boreogadus saida,Seq3
-S_22_09249,Boreogadus saida,Seq3
-S_22_09250,Boreogadus saida,Seq3
-S_22_09251,Boreogadus saida,Seq3
-S_22_09252,Boreogadus saida,Seq3
-S_22_09253,Boreogadus saida,Seq3
-S_22_09254,Boreogadus saida,Seq3
-S_22_09255,Boreogadus saida,Seq3
-S_22_09262,Boreogadus saida,Seq3
-S_22_09263,Boreogadus saida,Seq3
-S_22_09264,Boreogadus saida,Seq3
-S_22_09265,Boreogadus saida,Seq3
-S_22_09272,Boreogadus saida,Seq3
-S_22_09273,Boreogadus saida,Seq3
-S_22_09274,Boreogadus saida,Seq3
-S_22_09275,Boreogadus saida,Seq3
-S_22_09279,Boreogadus saida,Seq3
-S_22_09280,Boreogadus saida,Seq3
-S_22_09281,Boreogadus saida,Seq3
-S_22_09282,Boreogadus saida,Seq3
-S_22_09283,Boreogadus saida,Seq3
-S_22_09285,Boreogadus saida,Seq3
-S_22_09286,Boreogadus saida,Seq3
-S_22_09287,Boreogadus saida,Seq3
-S_22_09294,Boreogadus saida,Seq3
-S_22_09295,Boreogadus saida,Seq3
-S_22_09296,Boreogadus saida,Seq3
-S_22_09297,Boreogadus saida,Seq3
-S_22_09303,Boreogadus saida,Seq3
-S_22_09304,Boreogadus saida,Seq3
-S_22_09305,Boreogadus saida,Seq3
-S_22_09306,Boreogadus saida,Seq3
-S_22_09307,Boreogadus saida,Seq3
-S_22_09318,Boreogadus saida,Seq3
-S_22_09319,Boreogadus saida,Seq3
-S_22_09320,Boreogadus saida,Seq3
-S_22_09321,Boreogadus saida,Seq3
-S_22_09322,Boreogadus saida,Seq3
-S_22_09323,Boreogadus saida,Seq3
-S_22_09324,Boreogadus saida,Seq3
-S_22_09325,Boreogadus saida,Seq3
-S_22_09326,Boreogadus saida,Seq3
-S_22_09327,Boreogadus saida,Seq3
-S_22_09333,Boreogadus saida,Seq3
-S_22_09334,Boreogadus saida,Seq3
-S_22_09335,Boreogadus saida,Seq3
-S_22_09336,Boreogadus saida,Seq3
-S_22_09337,Boreogadus saida,Seq3
-S_22_09342,Boreogadus saida,Seq3
-S_22_09343,Boreogadus saida,Seq3
-S_22_09344,Boreogadus saida,Seq3
-S_22_09345,Boreogadus saida,Seq3
-S_22_09352,Boreogadus saida,Seq3
-S_22_09353,Boreogadus saida,Seq3
-S_22_09354,Boreogadus saida,Seq3
-S_22_09362,Boreogadus saida,Seq3
-S_22_09363,Boreogadus saida,Seq3
-S_22_09364,Boreogadus saida,Seq3
-S_22_09366,Boreogadus saida,Seq3
-S_22_09367,Boreogadus saida,Seq3
-S_22_09368,Boreogadus saida,Seq3
-S_22_09376,Boreogadus saida,Seq3
-S_22_09377,Boreogadus saida,Seq3
-S_22_09378,Boreogadus saida,Seq3
-S_22_09386,Boreogadus saida,Seq3
-S_22_09387,Boreogadus saida,Seq3
-S_22_09388,Boreogadus saida,Seq3
-S_22_09391,Boreogadus saida,Seq3
-S_22_09392,Boreogadus saida,Seq3
-S_22_09393,Boreogadus saida,Seq3
-S_22_09400,Boreogadus saida,Seq3
-S_22_09401,Boreogadus saida,Seq3
-S_22_09402,Boreogadus saida,Seq3
-S_22_09403,Boreogadus saida,Seq3
-S_22_09409,Boreogadus saida,Seq3
-S_22_09410_rep,Boreogadus saida,Seq3
-S_22_09410,Boreogadus saida,Seq3
-S_22_09411,Boreogadus saida,Seq3
-S_22_09412,Boreogadus saida,Seq3
-S_22_09413,Boreogadus saida,Seq3
-S_22_09419,Boreogadus saida,Seq3
-S_22_09421,Boreogadus saida,Seq3
-S_22_09422,Boreogadus saida,Seq3
-S_22_09423,Boreogadus saida,Seq3
-S_22_09427,Boreogadus saida,Seq3
-S_22_09428,Boreogadus saida,Seq3
-S_22_09430,Boreogadus saida,Seq3
-S_22_09434,Boreogadus saida,Seq3
-S_22_09436,Boreogadus saida,Seq3
-S_22_09440,Boreogadus saida,Seq3
-S_22_09444,Boreogadus saida,Seq3
-S_22_09447,Boreogadus saida,Seq3
-S_22_09452,Boreogadus saida,Seq3
-S_22_09453,Boreogadus saida,Seq3
-S_22_09454,Boreogadus saida,Seq3
-S_22_09611,Boreogadus saida,Seq3
-S_22_09612,Boreogadus saida,Seq3
-S_22_09613,Boreogadus saida,Seq3
-S_22_09614,Boreogadus saida,Seq3
-S_22_09615,Boreogadus saida,Seq3
-S_22_09616_rep,Boreogadus saida,Seq3
-S_22_09616,Boreogadus saida,Seq3
-S_22_09617,Boreogadus saida,Seq3
-S_22_09618,Boreogadus saida,Seq3
-S_22_09619,Boreogadus saida,Seq3
-S_22_09620,Boreogadus saida,Seq3
-S_22_09621,Boreogadus saida,Seq3
-S_22_09622,Boreogadus saida,Seq3
-S_22_09623,Boreogadus saida,Seq3
-S_22_09624,Boreogadus saida,Seq3
-S_22_09625,Boreogadus saida,Seq3
+ID_GQ,Seq1,Seq2,Seq3,Seq1Seq2,mtSP,DNAidentity
+S_22_00001,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_00008,A. glacialis,NA,B. saida,A. glacialis / NA,A. glacialis mtDNA,Boreogadus
+S_22_00020,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_00030,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_00032,A. glacialis,NA,B. saida,A. glacialis / NA,A. glacialis mtDNA,Boreogadus
+S_22_00047,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Arctodagus
+S_22_00050,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_00053,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_00054,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Arctodagus
+S_22_00055,A. glacialis,Gadiformes,B. saida,A. glacialis / Gadiformes,A. glacialis mtDNA,Boreogadus
+S_22_00056,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Arctodagus
+S_22_00057,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Arctodagus
+S_22_00058,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Arctodagus
+S_22_00059,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_00065,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_00067,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_00072,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_00079,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_00083,A. glacialis,Gadiformes,B. saida,A. glacialis / Gadiformes,A. glacialis mtDNA,Boreogadus
+S_22_00089,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_00102,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_00130,B. saida,NA,B. saida,B. saida / NA,Undefined mtDNA,Boreogadus
+S_22_00131,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_00133,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_00153,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_00154,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Arctodagus
+S_22_00155,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_00156,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Arctodagus
+S_22_00157,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_00163,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_00172,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Arctodagus
+S_22_00174,A. glacialis,NA,B. saida,A. glacialis / NA,A. glacialis mtDNA,Boreogadus
+S_22_00183,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_00189,A. glacialis,Gadiformes,B. saida,A. glacialis / Gadiformes,A. glacialis mtDNA,Boreogadus
+S_22_00211,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_00213,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_00230,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_00234,A. glacialis,NA,B. saida,A. glacialis / NA,A. glacialis mtDNA,Boreogadus
+S_22_00239,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_00243,B. saida,NA,B. saida,B. saida / NA,Undefined mtDNA,Boreogadus
+S_22_00253,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_00298,A. glacialis,NA,B. saida,A. glacialis / NA,A. glacialis mtDNA,Boreogadus
+S_22_00302,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_00307,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_08009,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_08015,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_08021,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_08030,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_08033,Gadus morhua,Gadiformes,B. saida,Gadus morhua / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_08041,A. glacialis,NA,B. saida,A. glacialis / NA,A. glacialis mtDNA,Boreogadus
+S_22_08044,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_08051,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_08055,B. saida,Gadiformes,B. saida,B. saida / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_08075,B. saida,Gadiformes,B. saida,B. saida / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_08085,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_08089,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_08098,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_08099,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_08142,B. saida,Gadiformes,B. saida,B. saida / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_08288,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_08306,A. glacialis,Gadiformes,B. saida,A. glacialis / Gadiformes,A. glacialis mtDNA,Boreogadus
+S_22_08349,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_08379,A. glacialis,NA,B. saida,A. glacialis / NA,A. glacialis mtDNA,Boreogadus
+S_22_09200,B. saida,Gadidae,B. saida,B. saida / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09203,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_09211,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09217,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_09225,B. saida,Gadidae,B. saida,B. saida / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09226,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_09227,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09228,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09230,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09231,B. saida,Gadidae,B. saida,B. saida / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09233,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09234_rep,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09237,A. glacialis,Gadidae,B. saida,A. glacialis / Gadidae*,A. glacialis mtDNA,Boreogadus
+S_22_09243,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_09245,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09249,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_09250,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09253,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_09254,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09273,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09275,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09280,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09281,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09283,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09294,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_09295,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09319,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09321,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09322,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09324,B. saida,Gadidae,B. saida,B. saida / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09325,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09335,B. saida,Gadidae,B. saida,B. saida / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09337,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09342,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09343,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09344,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_09345,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09353,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09364,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09377,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09386,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09387,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09388,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09393,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_09403,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09423,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_09453,B. saida,B. saida,B. saida,B. saida / B. saida,B. saida mtDNA,Boreogadus
+S_22_09454,A. glacialis,B. saida,B. saida,A. glacialis / B. saida,Undefined mtDNA,Boreogadus
+S_22_00002,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00003,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00004,NA,Gadiformes,B. saida,NA / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_00006,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00010,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00011,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00012,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00014,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00016,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00017_rep,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00017,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00018,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00019,NA,Gadiformes,B. saida,NA / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_00021,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00024,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00026,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00027,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00028_rep,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00028,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00033,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00035,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00036,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00037,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00038,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00039,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00040,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00041,NA,Gadiformes,B. saida,NA / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_00042,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00043,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00044,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00045,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00046,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00048,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00049,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00051,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00052,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00060,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00061,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00066,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00068,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00069,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00070,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00073,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00075,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00076,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00078,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00080,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00082,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00084,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00085,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00086,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00092,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00093,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00094,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00095,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00099,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00100,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00101,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00103,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00105,NA,Gadiformes,B. saida,NA / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_00107,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00108,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00109,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00112,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00113,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00116,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00118,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00119,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00120,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00123,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00124,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00126,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00127,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00132,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00134,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00135,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00137,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00139,NA,Gadiformes,B. saida,NA / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_00141,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00144,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00146,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00148,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00149_rep,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00149,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00150,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00161,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00162,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00164,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00165,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00170,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00171,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00175,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00176,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00178,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00179,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00180,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00181,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00185,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00187,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00188,NA,Gadiformes,B. saida,NA / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_00190,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00191,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00192,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00193,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00194,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00195,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00196,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00197,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00198,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00199,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00200,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00202,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00203,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00210,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00212,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00214,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00215,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00219,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00220,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00222,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00223,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00225,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00229,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00232,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00233,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00235,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00238,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00247,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00249,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00250,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00251,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00252,NA,Gadiformes,B. saida,NA / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_00258,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00261,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00274,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_00276,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00278,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00279,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00280,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00291,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00300,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_07680,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_07696,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_07703,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_07708,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_07712,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_07714,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08005,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08006,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08007,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08008,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08011,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08013,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08020,NA,Gadiformes,B. saida,NA / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_08022,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08025,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08028,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08029,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_08031,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08036,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08037,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08038,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08039,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08042,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08043,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08045,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08046,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08047,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08049,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08052,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08053,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08054,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_08056,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08057,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08058,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_08059,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08061,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08062,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08067,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_08068,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08069,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08070,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08071,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08074,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08076,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08077,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08078,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08079,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08080,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08081,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08082,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08083,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08084,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08087,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08088,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08090,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08097,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08100,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08101,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08103,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08104,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08105,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08106,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08108,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08109,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08110,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08111,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08115,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_08116,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08117,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08118,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08120,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08121,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08122,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08124,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08137,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08138,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08143,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_08147,NA,Gadiformes,B. saida,NA / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_08149,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08151,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08154,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08157,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08158,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_08161,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08162,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08163,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08280,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08282,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08295,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_08305,NA,Gadiformes,B. saida,NA / Gadiformes,Undefined mtDNA,Boreogadus
+S_22_08309,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08311,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08313,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08324,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08327,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_08330,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08340,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_08348,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09201,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09202,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09205,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09206,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09207,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09208,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09209,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09210,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09212,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09213,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09214,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09215,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09216,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09218,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09219,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09221,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09222,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09229,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09232,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09234,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09235,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09236,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09238,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09239,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09240,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09242,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09246,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09247,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09248,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09251,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09252,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09255,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09262,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09263,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09264,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09265,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09272,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09274,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09279,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09282,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09285,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09286,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09287,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09296,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09297,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09303,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09304,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09305,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09306,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09307,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09318,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09320,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09323,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09326,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09327,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09333,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09334,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09336,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09352,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09354,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09362,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09363,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09366,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09367,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09368,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09376,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09378,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09391,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09392,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09400,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09401,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09402,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09409,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09410_rep,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09410,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09411,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09412,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09413,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09419,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09421,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09422,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09427,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09428,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09430,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09434,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09436,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09440,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09444,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09447,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09452,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09612,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09613,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09614,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09615,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09616_rep,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09616,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09617,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09618,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09619,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09620,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09621,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09622,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09623,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_09624,NA,Gadidae,B. saida,NA / Gadidae,Undefined mtDNA,Boreogadus
+S_22_09625,NA,B. saida,B. saida,NA / B. saida*,B. saida mtDNA,Boreogadus
+S_22_00005,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00007,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00009,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00015,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00025,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00029,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00031,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00034,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00062,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00063,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00064,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00071,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00074,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00077,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00081,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00088,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00090,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00091,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00110,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00115,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00117,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00121,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00122,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00125,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00128,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00129,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00136,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00138,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00140,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00142,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00143,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00145,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00151,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00168,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00169,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00186,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00205,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00206,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00207,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00209,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00216,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00217,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00218,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00221,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00224,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00226,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00227,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00231,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00237,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00240,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00242,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00246,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00248,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00254,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00263,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00272,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00273,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00275,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00286,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00289,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00297,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00301,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_00306,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07665,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07670,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07675,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07683,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07685,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07687,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07689,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07690,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07691,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07692,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07694,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07695,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07697,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07698,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07700,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07701,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07705,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07706,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07707,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_07711,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08016,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08023,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08032,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08035,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08048,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08050,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08060,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08139,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08140,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08150,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08155,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08281,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08283,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08284,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08286,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08287,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08289,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08290,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08291,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08292,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08298,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08301,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08302,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08308,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08314,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08315,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08318,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08319,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08322,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08323,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08326,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08328,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08345,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08346,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_08376,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_09224,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_09244,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus
+S_22_09611,NA,NA,B. saida,NA / NA,Undefined mtDNA,Boreogadus

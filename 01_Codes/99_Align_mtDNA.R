@@ -486,33 +486,36 @@ pop.data %>%
   theme_bw() +
   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust = 1))
 
-bind_rows(Seq1.BlastTOP.95,
-          Seq2.BlastTOP.95,
-          Seq3.BlastTOP.95) %>% 
-  dplyr::mutate(Taxon = str_replace(Taxon, "oreogadus|rctogadus", ".")) %>% 
-  pivot_wider(names_from = Loc, values_from = Taxon, values_fill = "NA") %>% 
-  mutate(Seq1Seq2 = paste(Seq1, "/", Seq2),
-         Seq1Seq2 = ifelse(Seq1Seq2 %in% c("NA / B. saida", "A. glacialis / Gadidae"), paste0(Seq1Seq2, "*"), Seq1Seq2)) %>% 
-  dplyr::filter(Seq3 != "NA")  %>% dplyr::filter(ID_GQ %in% c("S_22_00012", "S_22_00043", "S_22_00058", "S_22_00154", "S_22_00157"))
 
-
-
-mtDNA.df <- bind_rows(Seq1.BlastTOP.95,
-          Seq2.BlastTOP.95,
-          Seq3.BlastTOP.95) %>% 
+raw.info  <-bind_rows(Seq1.BlastTOP.95,
+                      Seq2.BlastTOP.95,
+                      Seq3.BlastTOP.95) %>% 
   dplyr::mutate(Taxon = str_replace(Taxon, "oreogadus|rctogadus", ".")) %>% 
   pivot_wider(names_from = Loc, values_from = Taxon, values_fill = "NA") %>% 
   mutate(Seq1Seq2 = paste(Seq1, "/", Seq2),
          Seq1Seq2 = ifelse(Seq1Seq2 %in% c("NA / B. saida", "A. glacialis / Gadidae"), paste0(Seq1Seq2, "*"), Seq1Seq2)) %>% 
   dplyr::filter(Seq3 != "NA") %>% 
-  left_join(ID_Ecoregion) %>% 
+  #left_join(ID_Ecoregion) %>% 
   dplyr::mutate(mtSP =ifelse(Seq1 == "A. glacialis" & Seq2 == "B. saida", "Undefined mtDNA",
-                      ifelse(Seq1 == "A. glacialis", paste(Seq1, "mtDNA"), 
-                      ifelse(Seq2 == "B. saida",  paste(Seq2, "mtDNA"),
-                             "Undefined mtDNA"))),
-    
-    DNAidentity= ifelse(ID_GQ %in% c("S_22_00047","S_22_00054","S_22_00056","S_22_00057","S_22_00058","S_22_00154","S_22_00156","S_22_00172"), "Arctodagus", "Boreogadus")) %>% 
-  
+                             ifelse(Seq1 == "A. glacialis", paste(Seq1, "mtDNA"), 
+                                    ifelse(Seq2 == "B. saida",  paste(Seq2, "mtDNA"),
+                                           "Undefined mtDNA"))),
+                
+                DNAidentity= ifelse(ID_GQ %in% c("S_22_00047","S_22_00054","S_22_00056","S_22_00057","S_22_00058","S_22_00154","S_22_00156","S_22_00172"), "Arctodagus", "Boreogadus"))
+
+
+
+#write_csv(raw.info ,
+#          "02_Results/99_mtDNA/Table_compile_assignments_20231207.csv") 
+
+#%>%
+
+raw.info <- read_csv("02_Results/99_mtDNA/Table_compile_assignments_20231207.csv")
+
+
+mtDNA.df %>% group_by(mtSP) %>% summarise(N = sum(N))
+
+mtDNA.df <- raw.info  %>%   
   group_by(mtSP,  Seq1Seq2) %>% 
   
   
@@ -521,37 +524,12 @@ mtDNA.df <- bind_rows(Seq1.BlastTOP.95,
 mtDNA.df
 
 #write_csv(mtDNA.df, "02_Results/99_mtDNA/Table_summary_seq1seq2_20231207.csv")
-#write_csv(bind_rows(Seq1.BlastTOP.95,
-#          Seq2.BlastTOP.95,
-#          Seq3.BlastTOP.95),
-#          "02_Results/99_mtDNA/Table_compile_assignments_20231207.csv") 
-
-#%>%
-
-mtDNA.df %>% group_by(mtSP) %>% summarise(N = sum(N))
 
 
-bind_rows(Seq1.BlastTOP.95,
-          Seq2.BlastTOP.95,
-          Seq3.BlastTOP.95) %>% 
-  dplyr::mutate(Taxon = str_replace(Taxon, "oreogadus|rctogadus", ".")) %>% 
-  pivot_wider(names_from = Loc, values_from = Taxon, values_fill = "NA") %>% 
-  mutate(Seq1Seq2 = paste(Seq1, "/", Seq2),
-         Seq1Seq2 = ifelse(Seq1Seq2 %in% c("NA / B. saida", "A. glacialis / Gadidae"), paste0(Seq1Seq2, "*"), Seq1Seq2)) %>% 
-  dplyr::filter(Seq3 != "NA") %>% 
+raw.info %>% 
   left_join(ID_Ecoregion) %>% 
-  dplyr::mutate(mtSP =ifelse(Seq1 == "A. glacialis" & Seq2 == "B. saida", "Undefined mtDNA",
-                             ifelse(Seq1 == "A. glacialis", paste(Seq1, "mtDNA"), 
-                                    ifelse(Seq2 == "B. saida",  paste(Seq2, "mtDNA"),
-                                           "Undefined mtDNA"))),
-                
-                DNAidentity= ifelse(ID_GQ %in% c("S_22_00047","S_22_00054","S_22_00056","S_22_00057","S_22_00058","S_22_00154","S_22_00156","S_22_00172"), "Arctodagus", "Boreogadus")) %>% 
-  
   group_by(Ecoregion, mtSP,  Seq1Seq2) %>% 
-  
-  
   summarise(N = n()) %>% 
-
   mutate(Total = sum(N),
          Prop = N / Total) %>% 
   ggplot(aes(x = Ecoregion, y = N, fill = Seq1Seq2 )) +
