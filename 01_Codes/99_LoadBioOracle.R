@@ -27,10 +27,8 @@ env.bioOracle <- load_layers(c("BO22_tempmean_bdmean", #"BO22_tempmin_bdmean", "
 ), datadir = file.path("/media/genyoda/Fast_Storage/Projet/BioOracle/") )
 
 
-env.bioOracle
+env.bioOracle$BO22_tempmean_bdmean
 names(env.bioOracle)
-
-# Check layer statistics
 
 
 # Extract -----------------------------------------------------------------

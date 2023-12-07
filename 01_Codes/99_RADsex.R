@@ -46,6 +46,8 @@ ID.Boreogadus <- pop.data %>% dplyr::filter(ID_GQ %nin% c(Arctogadus.ID ),
 
 ID.Boreogadus 
 
+ID.Boreogadus %>% group_by(Sexe_visuel) %>% summarise(N = n())
+
 alig.files <- list.files("00_Data/03a_Demultiplex", full.names = T, pattern = "1.fq.gz")
 alig.files
 

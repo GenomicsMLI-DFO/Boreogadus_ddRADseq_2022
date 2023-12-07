@@ -793,6 +793,19 @@ ggsave(filename = file.path(filter.ref.path, "B_10X_samples", "03_HW", "PCA_test
 vcf.path <-  file.path(here::here(), filter.ref.path,  "B_10X_samples","03_HW", "populations.177445snps.511.ind.h06.all.recode.vcf")
 vcf.data <- vcfR::read.vcfR(vcf.path)
 
+# Check stats
+
+SCAFFOLD.info <- vcf.data@fix %>% as.data.frame() %>%  
+   select(ID, CHROM, POS) %>% 
+   mutate(scaffold = sapply(str_split(CHROM, ","), `[`,1) %>% str_remove("scaffold"),
+          RADloc = sapply(str_split(ID, ":"), `[`,1),
+          scaffold.length = sapply(str_split(CHROM, ","), `[`,2))
+
+SCAFFOLD.info %>% head()
+
+length(unique(SCAFFOLD.info$RADloc))
+length(unique(SCAFFOLD.info$ID))
+
 # Remove loci with too much depth
 
 gt.tidy <- extract_gt_tidy(vcf.data, format_types = NULL, format_fields = c("DP"))
@@ -931,6 +944,21 @@ file.path(current.wd,filter.ref.path, "B_10X_samples", "04_DP") %>% list.files()
 
 vcf.path <- file.path(filter.ref.path,"B_10X_samples", "04_DP", "populations.174257snps.511ind.H06.all.recode.vcf")
 vcf.data <- vcfR::read.vcfR(vcf.path)
+
+# Stats
+
+SCAFFOLD.info <- vcf.data@fix %>% as.data.frame() %>%  
+  select(ID, CHROM, POS) %>% 
+  mutate(scaffold = sapply(str_split(CHROM, ","), `[`,1) %>% str_remove("scaffold"),
+         RADloc = sapply(str_split(ID, ":"), `[`,1),
+         scaffold.length = sapply(str_split(CHROM, ","), `[`,2))
+
+SCAFFOLD.info %>% head()
+
+length(unique(SCAFFOLD.info$RADloc))
+length(unique(SCAFFOLD.info$ID))
+
+
 
 gl.data  <- vcfR::vcfR2genlight(vcf.data) 
 

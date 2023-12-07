@@ -28,6 +28,14 @@ pop.data
 
 names(pop.data)
 
+
+pop.data %>% group_by(Dup_specimen) %>% summarise(N = n())
+
+pop.data %>% group_by(Region_echantillonnage) %>% summarise(N = n()) %>% View(
+  
+)
+
+
 # Genetic Data ------------------------------------------------------------
 
 load( file.path("./00_Data/06b_Filtering.ref", "B_10X_samples", "07_Final", "populations.38131snps.507indwArctogadus.adegenet.Rdata"))
@@ -102,7 +110,7 @@ pca.all %>% QuickPop::pca_scoretable(naxe = 10) %>%
                          Region_echantillonnage ) 
                          )) %>% 
   dplyr::filter(Taxon !="Arctogadus") %>% 
-  ggplot(aes(x = score.PC2, y = score.PC3, col = Region)) +
+  ggplot(aes(x = score.PC2, y = score.PC3, col = Longueur_mm)) +
   geom_hline(yintercept = 0) +
   geom_vline(xintercept = 0) +
   facet_wrap(~Region, ncol = 3) +
