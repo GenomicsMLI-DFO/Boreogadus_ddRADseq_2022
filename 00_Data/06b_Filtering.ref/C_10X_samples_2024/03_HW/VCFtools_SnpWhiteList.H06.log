@@ -1,0 +1,38 @@
+
+
+--vcf ./00_Data/06b_Filtering.ref/C_10X_samples_2024/02_MissingData/populations.191001snps.526ind.recode.vcf --recode --snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/03_HW/Loc.h06.unique.csv --out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/03_HW/populations.56049snps.526ind.H06.single
+
+
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf ./00_Data/06b_Filtering.ref/C_10X_samples_2024/02_MissingData/populations.191001snps.526ind.recode.vcf
+	--out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/03_HW/populations.56049snps.526ind.H06.single
+	--recode
+	--snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/03_HW/Loc.h06.unique.csv
+
+After filtering, kept 526 out of 526 Individuals
+Outputting VCF file...
+After filtering, kept 56049 out of a possible 191001 Sites
+Run Time = 41.00 seconds
+
+
+--vcf ./00_Data/06b_Filtering.ref/C_10X_samples_2024/02_MissingData/populations.191001snps.526ind.recode.vcf --recode --snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/03_HW/Loc.h06.all.csv --out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/03_HW/populations.190049snps.526.ind.h06.all
+
+
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf ./00_Data/06b_Filtering.ref/C_10X_samples_2024/02_MissingData/populations.191001snps.526ind.recode.vcf
+	--out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/03_HW/populations.190049snps.526.ind.h06.all
+	--recode
+	--snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/03_HW/Loc.h06.all.csv
+
+After filtering, kept 526 out of 526 Individuals
+Outputting VCF file...
+After filtering, kept 190049 out of a possible 191001 Sites
+Run Time = 133.00 seconds

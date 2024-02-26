@@ -2,10 +2,10 @@
 
 #  Check for sex-linked loci in Boreogadus saida
 #  with the program RADsex
+#  Rerun in 2024 on a new version of the demultiplex samples (more shorter reads)
 #
-# Audrey Bourret
-# 2023-11-17
-#
+#  Audrey Bourret
+#  2024-02-23
 
 # https://sexgenomicstoolkit.github.io/html/radsex/example.html
 
@@ -32,7 +32,7 @@ pop.data
 Arctogadus.ID <- c("S_22_00047", "S_22_00054", "S_22_00056", "S_22_00057", "S_22_00058", "S_22_00154", "S_22_00156",
           "S_22_00157", "S_22_00172")
 
-load( file.path("./00_Data/06b_Filtering.ref", "B_10X_samples", "07_Final", "populations.38131snps.507indwArctogadus.adegenet.Rdata"))
+load( file.path("./00_Data/06b_Filtering.ref", "C_10X_samples_2024", "07_Final", "populations.53384snps.522indwArctogadus.adegenet.Rdata"))
 
 gl.final
 
@@ -48,10 +48,17 @@ ID.Boreogadus
 
 ID.Boreogadus %>% group_by(Sexe_visuel) %>% summarise(N = n())
 
-alig.files <- list.files("00_Data/03a_Demultiplex", full.names = T, pattern = "1.fq.gz")
+# Creating a popmap
+
+write.table(ID.Boreogadus, 
+            file = "./02_Results/99_RADsex/popmap_Boreogadus.tsv",
+            quote = FALSE, sep = "\t",
+            row.names = F, col.names = F)
+
+
+alig.files <- list.files("00_Data/03a_Demultiplex", full.names = T, pattern = "1.fq.gz") %>%
+                        str_subset(".rem.1", negate = T)
 alig.files
-
-
 
 
 # Transfert files --------------------------------------------------------------
@@ -98,6 +105,7 @@ cat(file =  "./02_Results/99_RADsex/RADsex.process.log",
 
 
 
+
 cmd <- paste("depth", 
              "--markers-table",  "./02_Results/99_RADsex/markers_table_Boreogadus.tsv", 
              "--output-file", "./02_Results/99_RADsex/depth_Boreogadus.tsv",
@@ -122,12 +130,6 @@ sgtr::radsex_depth("./02_Results/99_RADsex/depth_Boreogadus.tsv",
 
 # RADsex: Distrib ---------------------------------------------------------
 
-# Creating a popmap
-
-write.table(ID.Boreogadus, 
-            file = "./02_Results/99_RADsex/popmap_Boreogadus.tsv",
-            quote = FALSE, sep = "\t",
-            row.names = F, col.names = F)
 
 
 cmd <- paste("distrib", 
@@ -228,10 +230,10 @@ sgtr::radsex_marker_depths("./02_Results/99_RADsex/subset_markers_table_Boreogad
 
 cmd <- paste("map", 
              "--markers-file", "./02_Results/99_RADsex/markers_table_Boreogadus.tsv",
-             "--output-file", "./02_Results/99_RADsex/map_results_Boreogadus_5X.tsv",
+             "--output-file", "./02_Results/99_RADsex/map_results_Boreogadus_10X.tsv",
              "--popmap", "./02_Results/99_RADsex/popmap_Boreogadus.tsv",
              "--genome-file", "./00_Data/99_REF_Genome/gadMor3.0/GCA_902167405.1/GCA_902167405.1_gadMor3.0_genomic.fna",
-             "--min-depth", 5,
+             "--min-depth", 10,
              "--groups M,F"#, 
 )
 
@@ -239,7 +241,7 @@ cmd
 A <- system2("radsex", cmd, stdout=T, stderr=T)
 A
 
-cat(file =  "./02_Results/99_RADsex/RADsex.map_5X.log",
+cat(file =  "./02_Results/99_RADsex/RADsex.map_10X.log",
     "\n", cmd, "\n",
     A, # what to put in my file
     append= F, sep = "\n")
@@ -282,7 +284,7 @@ radsex_map_region("./02_Results/99_RADsex/map_results_Boreogadus_5X.tsv",
 
 plot("#FF0000")
 
-radsex_map_manhattan( "./02_Results/99_RADsex/map_results_Boreogadus.tsv", 
+radsex_map_manhattan( "./02_Results/99_RADsex/map_results_Boreogadus_5X.tsv", 
                       #region = "chr13",
                       detect_chromosomes = T,
                       chromosomes_file = "./02_Results/99_RADsex/gadus_chromosomes.tsv", 

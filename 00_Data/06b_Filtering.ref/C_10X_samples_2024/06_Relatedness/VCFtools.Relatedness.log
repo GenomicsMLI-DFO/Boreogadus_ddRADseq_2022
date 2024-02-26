@@ -1,0 +1,17 @@
+
+
+--vcf /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/04_DP/populations.184620snps.526ind.H06.all.recode.vcf --relatedness2
+
+
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/04_DP/populations.184620snps.526ind.H06.all.recode.vcf
+	--relatedness2
+
+After filtering, kept 526 out of 526 Individuals
+Outputting Individual Relatedness
+After filtering, kept 184620 out of a possible 184620 Sites
+Run Time = 216.00 seconds

@@ -1,0 +1,43 @@
+gstacks v2.64, executed 2023-08-17 22:40:59 (zlib-1.2.11)
+gstacks -I ./00_Data/03b_Align -M ./00_Data/00_FileInfos/popmap_good_align.txt -O ./00_Data/05b_Stacks.ref -S .sorted.bam -t 8
+Locus/sample distributions will be written to './00_Data/05b_Stacks.ref/gstacks.log.distribs'.
+
+Configuration for this run:
+  Input mode: reference-based
+  Population map: './00_Data/00_FileInfos/popmap_good_align.txt'
+  Input files: 574, e.g. './00_Data/03b_Align/S_22_00001.sorted.bam'
+  Output to: './00_Data/05b_Stacks.ref/'
+  Model: marukilow (var_alpha: 0.01, gt_alpha: 0.05)
+
+Reading BAM headers...
+Processing all loci...
+1K...
+2K...
+5K...
+10K...
+20K...
+50K...
+100K...
+200K...
+500K...
+done.
+
+Read 3636986800 BAM records:
+  kept 2167539798 primary alignments (64.9%), of which 1114196206 reverse reads
+  skipped 644060579 primary alignments with insufficient mapping qualities (19.3%)
+  skipped 441977674 excessively soft-clipped primary alignments (13.2%)
+  skipped 88748287 unmapped reads (2.7%)
+  skipped some suboptimal (secondary/supplementary) alignment records
+
+  Per-sample stats (details in 'gstacks.log.distribs'):
+    read 6336213.9 records/sample (249953-22995038)
+    kept 47.1%-65.0% of these
+
+Built 807969 loci comprising 1053343592 forward reads and 924348620 matching paired-end reads; mean insert length was 206.3 (sd: 52.4).
+
+Genotyped 807969 loci:
+  effective per-sample coverage: mean=27.8x, stdev=14.7x, min=2.7x, max=94.8x
+  mean number of sites per locus: 208.5
+  a consistent phasing was found for 3135496 of out 4007944 (78.2%) diploid loci needing phasing
+
+gstacks is done.

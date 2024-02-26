@@ -51,20 +51,24 @@ In-development
 
 #### 02_Discovered_SNPs.R
 
-Main script to obtain a first catalog of SNPs through STACKS
+Main script to obtain a first catalog of SNPs through STACKS. An older version of the script (02_Discovered_SNPs_2:30:10_old.R) using less longer reads was used in the first attempts to work on this dataset, but was later abandoned. 
 
+#### 03c_Filter_SNPs_10X_2024.R
 
-### Subsections within contents
-Use subsections to describe the purpose of each script if warranted
+Main script to perform the first round of filtration, up to a SNPs panel with 1 SNP / locus, still with Arctogadus and hybrids individuals. Older version of the script (03a_Filter_SNPs_5X_2023.R and 03b_Filter_SNPs_10X_2023.R) were used in previous version of the pipeline.
+
+#### 99_RADsex.R
+
+Script to run the external program RADsex, aiming to identify sexualluy biased zone in the genome.  An older version of the script (99_RADsex_2:30:10_old.R) using less longer reads was used in the first attempts to work on this dataset, but was later abandoned. 
 
 
 ## Methods
 ### SNP panels
 
-**Main catalog**
+**OLDER - Main catalog 2:30:10**
 
 - 6 librairies of 96 samples = 576, sequenced on 1 lane of NovaSeq 150 PE
-- Remove Illumina adaptor with Trimmomatic  
+- Remove Illumina adaptor with Trimmomatic using 2:30:10  
 - Demultiplex with process_radtag module, 2 restriction enzymes (*pstI* & *mspI*)), truncation at 135 pb, filter-illumina, clean, rescue and check quality options
 - Align on *GadMor3 (Gadus morhua)* reference genome. Did some tests with a B. saida assembly. The % alignment was lower (91% vs 98%) but in the end a similar number of SNPs was genotyped (test on 26 individuals). 
   - Keep only those with > 96% alignment (574- remove 2 samples)
@@ -72,29 +76,40 @@ Use subsections to describe the purpose of each script if warranted
   - The catalog was made with the full dataset (574 samples)
   - **807,969** loci, effective per-sample coverage: mean=27.8x, stdev=14.7x, min=2.7x, max=94.8x
 
-**First SNPs panel**
+**Final main catalog**
 
-  - Keep only samples with mean min coverage = 5x (562 samples)
+- 6 librairies of 96 samples = 576, sequenced on 1 lane of NovaSeq 150 PE
+- Remove Illumina adaptor with Trimmomatic using 2:30:10:8:FALSE to keep all reads in both R1 and R2 
+- Demultiplex with process_radtag module, 2 restriction enzymes (*pstI* & *mspI*)), truncation at 90 pb, filter-illumina, clean, rescue and check quality options
+- Align on *GadMor3 (Gadus morhua)* reference genome. 
+  - Keep only those with >10,000,000 and <250,000,000 reads mapped (566 - remove 10 samples)
+- Stacks v2.64 (stacks)
+  - The catalog was made with the full dataset (566 samples)
+  - **1,046,093** loci, effective per-sample coverage: mean=28.9x, stdev=13.6x, min=5.1x, max=73.3x
+
+**Final SNPs panel**
+
+  - Keep only samples with mean min coverage = 10x (532 samples)
   - Populations (stacks)
       - Parameters: R = 0.75 overall, min MAF = 0.01
-      - Kept 54,247 loci and 211,357 snps
+      - Kept 84,220 loci and 227,766 snps
   - Remove missing values (individuals and SNPS)
       - VCFtools - 0.1.17
       - Few individuals with more than 30% missing values, remove duplicated individuals, choosing the replicate with the less missing data 
       - X SNPs with more than 10% missing values
-      - After filtration : 170,307 snps from 553 individuals
+      - After filtration : 191,0001 snps from 526 individuals
   - HW desequilibrium by sampling location - not performed
       - Instead, remove X loci with He > 0.6 
-  - Each SNPs depth - Remove a few SNPs with too low or high median coverage (< 5 and >105, 2 times SD, approx. 1-99% percentile)
+  - Each SNPs depth - Remove a few SNPs with too low or high median coverage (< X and X105, 2 times SD, approx. 1-99% percentile)
       - Remove  SNPs (x snps from x individuals)
   - Batch effect by plate with an RDA - NS
   - Check relatedness
       - With VCFtool, relatedness2
-      - Remove x pairs of samples with relatedness > 0.25 (~0.45, so clearly duplicates)
-      - final : 3398 individuals
+      - Remove x pairs of samples with relatedness > 0.3 (~0.45, so clearly duplicates)
+      - final : X individuals
       - 9 individuals with relatedness << 1 , also outliers within a PCA (first axis = 40%). mtDNA analysis suggested Arctogadus glacialis.
   - Keep only 1 snps by RADloc (FIRST ONE), new MAF 0.01 
-      - **37,990 snps from 549 individuals, including 9 Arctodagus + 2 potential hybrids**
+      - **53,384 snps from 522 individuals, including 9 Arctodagus + 3 potential hybrids**
 
 
 **High quality SNPs panel**

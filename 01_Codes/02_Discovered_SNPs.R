@@ -6,14 +6,14 @@
 # With and without ref genome
 #
 # Audrey Bourret
-# 2023-08-14
+# 2024-02-09
 #
 
 # Library -----------------------------------------------------------------
 
 library(parallel)
 library(tidyverse)
-library(readxl)
+#library(readxl)
 
 
 # Internal functions
@@ -40,7 +40,6 @@ system2("multiqc", "--help")
 pop.info <- read.table(file.path(get.value("info.path"), "popmap.txt"))
 names(pop.info) <- c("Sample", "POP")
 pop.info
-
 
 pop.data <- read_csv(file.path(get.value("info.path"),"Project_Infos_20230811.csv"))
 
@@ -154,57 +153,8 @@ files.to.use <- list.files(get.value("raw.path"), full.names = T) %>%
   str_subset("R1") %>% 
   str_subset(".md5", negate = T)
 
-#start_time3 <- Sys.time()
+files.to.use
 
-### BENCHMARK ###
-# On 4 files of 1000 reads
-# 80 cores in Trimmomatics: 1.249837 secs
-# 8 cores in Trimmomatics: 1.179123 secs 
-# 4 cores in Trimmomatics / parallele in R 4 cores: 0.3734035 secs
-#  1 core in Trimmomatics / parallele in R 4 cores: 0.3527803 secs
-
-# With 60 cores, memory is full, so 20 seems a better compromise
-# checked in Terminal with "free -m" or "top"
-
-# # STEP 1 - REMOVE 3 PB on R2 (must do it first because of misalignment)
-# 
-# mclapply(files.to.use,
-#          FUN = function(x){
-#            
-#            # Names of the important files
-#            file1 <- x
-#            file2 <- file1 %>% str_replace("_R1", "_R2")
-#            
-#            file2.out <- file2 %>% str_replace(get.value("raw.path"), get.value("trimmo.path")) %>% 
-#              str_replace("_R2.fastq.gz", "_R2_HC3.fastq.gz")
-#            
-#            logout <- file1 %>% str_replace(get.value("raw.path"), get.value("trimmo.log")) %>% 
-#              str_replace("_R1.fastq.gz", ".log")
-#            
-#            # The command
-#            cmd1 <- paste("-jar",
-#                          trimmomatic.path, "SE",
-#                          "-threads", 1,
-#                          #"-trimlog", logout %>% str_replace(".log", "_HC.log"),
-#                          file2, file2.out,
-#                          #"ILLUMINACLIP:00_Data/00_FileInfos/adapters/TruSeq3-PE-2.fa:2:30:10",
-#                          "HEADCROP:3",
-#                          sep = " ")
-#            
-#            A1 <- system2("java", cmd1, stdout=T, stderr=T) # to R console
-#            A1
-#            
-#            # save a file log
-#            cat(file = logout,
-#                #"STEP1 - REMOVE ILLUMINA ADAPTORS", cmd1, A1,
-#                "STEP1 - CUT 3 pb ON R2 PAIRED because of quality drop on Novaseq",cmd1, A1, # what to put in my file
-#                append= F, sep = "\n\n")
-#            
-#          } ,
-#          mc.cores = 20
-# )
-# 
-# 
 
 # STEP 2 - REMOVE Illumina adaptors
 
@@ -225,11 +175,11 @@ mclapply(files.to.use,
            
            cmd1 <- paste("-jar",
                          trimmomatic.path, "PE",
-                         "-threads", 1,
+                         "-threads", 4,
                          #"-trimlog", logout,
                          file1, file2,
                          "-baseout", fileout,
-                         "ILLUMINACLIP:00_Data/00_FileInfos/adapters/TruSeq3-PE-2.fa:2:30:10",
+                         "ILLUMINACLIP:00_Data/00_FileInfos/adapters/TruSeq3-PE-2.fa:2:30:10:8:TRUE",
                          #"HEADCROP:1-99",
                          sep = " ")
            
@@ -238,12 +188,12 @@ mclapply(files.to.use,
            
            # save a file log
            cat(file = logout,
-               "STEP2 - REMOVE ILLUMINA ADAPTORS", cmd1, A1,
+               "STEP1 - REMOVE ILLUMINA ADAPTORS", cmd1, A1,
                #"STEP1 - CUT 3 pb ON R2 PAIRED because of quality drop on Novaseq",cmd1, A1, # what to put in my file
                append= T, sep = "\n\n")
            
          } ,
-         mc.cores = 20
+         mc.cores = 6
 )
 
 
@@ -345,9 +295,9 @@ gg.trim <- trim.data %>% mutate(perc_surv = Nsurvival/Ntotal) %>%
 
 gg.trim
 
-ggsave(filename = file.path(get.value("trimmo.log"), "Summary_Nreads.png"),
-       plot = gg.trim,
-       width = 5, height = 4, units = "in")
+#ggsave(filename = file.path(get.value("trimmo.log"), "Summary_Nreads.png"),
+#       plot = gg.trim,
+#       width = 5, height = 4, units = "in")
 
 
 # If you want the log file to be ignore, run the following :
@@ -365,6 +315,75 @@ fastqc(folder.in = get.value("trimmo.path"), folder.out = get.value("fastqc.trim
 multiqc(get.value("fastqc.trim.path"))
 
 
+# From the fastqc html file, I extracted the sequence length distribution
+
+fastqc_length <-read_tsv("02_Results/00_Stacks/01_FastQC/02_Trimmomatic/MultiQC_report/fastqc_sequence_length_distribution_plot_R1.tsv")
+
+names(fastqc_length)[1] <- "Sequence_length"
+
+
+fastqc_length.tidy <- fastqc_length %>% pivot_longer(-c(Sequence_length), names_to = "Plate", values_to = "Nread") %>% 
+  group_by(Plate) %>%  arrange(Plate) %>% 
+  mutate(Total_read = sum(Nread),
+         Cumulative_read = cumsum(Nread),
+         Inv_cumulative_read = Total_read - Cumulative_read + Nread,
+         P_read = Cumulative_read / Total_read * 100,
+         Inv_p_read = 100 * Inv_cumulative_read / Total_read,
+         N_nuc = Nread  * Sequence_length,
+         Max_nuc = max(Sequence_length) * Total_read,
+         Inv_Sequence_length = max(Sequence_length) - Sequence_length,
+         Inv_cumulative_nucl = Inv_cumulative_read * Sequence_length,
+         P_nucl = Inv_cumulative_nucl / max(Inv_cumulative_nucl) * 100
+         #  Inv_cumulative_nucl = Max_nuc - Cumulative_nucl
+         #P_nucl =  (N_nuc / Max_nuc * 100)
+  ) 
+
+
+fastqc_length.tidy %>% View()
+
+fastqc_length.tidy %>%   ggplot(aes(x = Sequence_length, y = Inv_p_read, group = Plate)) +
+  geom_line() 
+
+
+gg.length <- fastqc_length.tidy %>% pivot_longer(-c(Sequence_length, Plate)) %>% 
+  dplyr::filter(name %in% c("Inv_p_read", "P_nucl")) %>% 
+  #ungroup() %>% 
+  group_by(name, Sequence_length) %>% 
+  summarise(mean = mean(value),
+            sd = sd(value)) %>% 
+  ggplot(aes(x = Sequence_length, y = mean, col = name)) +
+  geom_hline(yintercept = c(80,85,90,95), col = "gray", lty = "dashed") +
+  geom_vline(xintercept = c(95), col = "darkred", cex = 1.5) +
+  geom_line()+ geom_point()+
+  geom_errorbar(aes(ymax = mean + sd, ymin = mean - sd)) +
+  labs(y = "Mean %") +
+  ggtitle("Relation between % reads and % pb to maximize ddRAD analysis")+
+  #facet_grid(.~name) +
+  theme_bw()
+
+gg.length 
+
+ggsave(filename = "02_Results/00_Stacks/02_Trimmomatic/Sequence_length.png", plot = gg.length)
+
+fastqc_length.tidy %>%   ggplot(aes(x = Sequence_length, y = Inv_p_read, group = Plate)) +
+  geom_line(alpha = 0.2) 
+
+fastqc_length.tidy %>%   ggplot(aes(x = Sequence_length, y = P_nucl, group = Plate)) +
+  geom_line(alpha = 0.2) 
+
+# From a preivous filtering results
+SCAFFOLD.INFO <- read_csv("00_Data/06b_Filtering.ref/A_ALL_samples/07_Final/Scaffold.info.H06.DP.unique.final.csv")
+
+SCAFFOLD.INFO %>% mutate(RAD.pos = sapply(str_split(ID, ":"), `[`, 2) %>% as.numeric()) %>% 
+  group_by(RAD.pos) %>% 
+  summarise(N = n()) %>% 
+  dplyr::filter(RAD.pos <=250) %>% 
+  ggplot(aes(x = RAD.pos, y = N)) + 
+  geom_bar(stat = "identity")+
+  ggtitle("Position of the first SNP in the previous dataset") +
+  theme_bw()
+
+
 # Demultiplex -------------------------------------------------------------
 
 # Barcode files are important for thise step
@@ -380,8 +399,6 @@ length(pop.info$Sample %>% unique())
 # concatenate the shared samples together after the runs complete
 
 sub.dir <- c("NS.2050.002")
-#sub.dir <- "NS.1795.003"
-sub.dir[3]
 
 # Before running, check that the right barcode file is found - here an example
 # not in a loop
@@ -467,7 +484,7 @@ for(i in sub.dir){
                           "-c", # clean
                           "-r", #rescue
                           "-q", #check quality
-                          "-t", 135,  #truncate at 150 - 6 (restriction site) - 8 (max barcode) = 136 (all reads within sample must be the same length)
+                          "-t", 90,  #truncate at 150 - 50 (adaptor) - 8 (max barcode) = 90 (all reads within sample must be the same length)
                           "-i", "gzfastq"
              )
              
@@ -557,11 +574,17 @@ Nreads.data$RunSeq <- paste(sapply(str_split(Nreads.data$Run, "[.]"),`[`,1),
 
 Nreads.data <- read_csv(file.path(get.value("demulti.log"),"AllIndividuals_Nreads.csv"))
 
+Nreads.data.old <- read_csv(file.path("./02_Results/00_Stacks/03_Demultiplex_2:30:10_old","AllIndividuals_Nreads.csv"))
+
+
 trim.data <- read_csv(file = file.path(get.value("trimmo.log"), "Summary_Nreads.csv") ) %>% 
            mutate( No_plaque =  No_plaque %>% str_replace("Pradseq_2022", "Pradseq_22"))
 
-Nreads.data <- Nreads.data %>% left_join(pop.data, by = c("Filename" = "ID_GQ")) 
+trim.data.old <- read_csv(file = file.path("./02_Results/00_Stacks/02_Trimmomatic_2:30:10_old", "Summary_Nreads.csv") ) %>% 
+  mutate( No_plaque =  No_plaque %>% str_replace("Pradseq_2022", "Pradseq_22"))
 
+Nreads.data <- Nreads.data %>% left_join(pop.data, by = c("Filename" = "ID_GQ")) 
+Nreads.data.old <- Nreads.data.old %>% left_join(pop.data, by = c("Filename" = "ID_GQ")) 
 # Check that we have all the data - all with unique data
 
 head(Nreads.data)
@@ -575,6 +598,14 @@ Nreads.data %>% group_by(No_plaque_envoi) %>% summarise(Retained = sum(Retained)
             sd = sd(Retained)/2,
             min = min(Retained)/2,
             max = max(Retained)/2)
+
+Nreads.data.old %>% group_by(No_plaque_envoi) %>% summarise(Retained = sum(Retained)) %>%
+  group_by() %>% 
+  summarise(mean = mean(Retained)/2,
+            sd = sd(Retained)/2,
+            min = min(Retained)/2,
+            max = max(Retained)/2)
+
 
 # Impact of overall process
 
@@ -632,6 +663,13 @@ Nreads.data %>% group_by(Filename) %>% summarise(Retained = sum(Retained)) %>%
             min = min(Retained)/2,
             max = max(Retained)/2)
 
+Nreads.data.old %>% group_by(Filename) %>% summarise(Retained = sum(Retained)) %>%
+  group_by() %>% 
+  summarise(mean = mean(Retained)/2,
+            sd = sd(Retained)/2,
+            min = min(Retained)/2,
+            max = max(Retained)/2)
+
 
 gg.retained.ind <- Nreads.data %>% gather(Removed, Retained, key = "Cat", value = "N") %>% #head()
   group_by(Filename, No_plaque_envoi, Cat) %>% summarise(N = sum(N)/2) %>% 
@@ -665,7 +703,6 @@ gg.retained.ind2.a <- Nreads.data %>%
 gg.retained.ind2.a
 
 
-
 gg.retained.ind2.b <- Nreads.data %>% 
   mutate(barcode_length = nchar(Barcode.y),
          first.nuc = str_sub(Barcode.y, 1,1)) %>% 
@@ -687,25 +724,6 @@ gg.retained.ind2
 ggsave(filename = file.path(get.value("demulti.log"), "Summary_Nreads_byInd_withBarcodes.png"),
        plot = gg.retained.ind2,
        width = 8, height = 8, units = "in")
-
-# gg.retained.pop <- Nreads.data %>% 
-#   group_by(Filename, Objective, Pop, No_plaque_envoi) %>% summarise(Retained = sum(Retained)/2) %>% 
-#    ggplot(aes(x = Pop, y = Retained)) + 
-#  geom_hline(yintercept = 0) +
-#     geom_boxplot() +
-#   geom_jitter(aes(col= factor(No_plaque_envoi)), cex = 1, alpha = 0.5) +
-#   labs(y = "N reads (log)") +
-#   scale_y_continuous(trans = "log10") +
-#   facet_grid(.~Objective, space = "free", scales = "free") +
-#   theme_bw() + 
-#   theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5),
-#         legend.position = "none")
-# 
-# gg.retained.pop
-# 
-# #ggsave(filename = file.path(get.value("demulti.log"), "Summary_Nreads_byPop.png"),
-# #       plot = gg.retained.pop,
-# #       width =7, height = 5, units = "in")
 
 gg.barcodes <- Nreads.data %>% 
   group_by(No_plaque_envoi, Barcode.y, Filename,RunSeq) %>% summarise(Total = sum(Total)/2) %>% 
@@ -1113,6 +1131,31 @@ graph1.0 <- map.res %>% #filter(ID != "Dp_2066") %>%
 
 graph1.0
 
+graph1.0 <- map.res %>% #filter(mapped_perc > 80) %>% 
+  ggplot(aes(x = mapped, y = properly_paired, fill = No_plaque_envoi)) + 
+  geom_point() +
+  geom_vline(xintercept = 95, lty = "dashed") +
+
+  #facet_grid(Espece ~ . , scales = "free")
+  labs(x = "Percentage of reads mapped", y = "Percentage of properly paired reads mapped") +
+  theme_bw()  
+
+graph1.0
+
+graph1.0 <- map.res %>% #filter(mapped_perc > 80) %>% 
+  ggplot(aes(x = mapped)) + 
+  geom_histogram() +
+  geom_vline(xintercept = 25000000, lty = "dashed") +
+
+  #facet_grid(Espece ~ . , scales = "free")
+ # labs(x = "Percentage of reads mapped", y = "Percentage of properly paired reads mapped") +
+  theme_bw()  
+
+graph1.0
+
+map.res %>% dplyr::filter(mapped > 25000000)
+map.res %>% dplyr::filter(mapped < 1000000)
+
 ggsave(filename = file.path(get.value("demulti.log"), "Alignment_density.png"),
        plot = graph1.0,
        width =5, height = 4, units = "in")
@@ -1143,6 +1186,16 @@ graph1.2 <- map.res %>% #filter(Espece_revision %in% c("Pb", "Pm")) %>%
 
 graph1.2
 
+graph1.2 <- map.res %>% #filter(Espece_revision %in% c("Pb", "Pm")) %>% 
+  ggplot(aes(x=total, y=properly_paired_perc, col=No_soumission_GQ)) +
+  geom_point(alpha = 0.5)+
+  geom_hline(yintercept = 95, lty = "dashed") +
+  #scale_x_continuous(trans = "log10") + 
+  labs(y = "Percentage of reads mapped", x = "N read total") +
+  theme_bw() 
+
+graph1.2
+
 graph1.3 <- map.res %>% #filter(Espece_revision %in% c("Pb"))  %>% 
   ggplot(aes(y = mapped_perc, x = No_soumission_GQ)) + 
   geom_boxplot(alpha = 0.5) +
@@ -1156,6 +1209,18 @@ graph1.3 <- map.res %>% #filter(Espece_revision %in% c("Pb"))  %>%
 
 graph1.3 
 
+graph1.3 <- map.res %>% #filter(Espece_revision %in% c("Pb"))  %>% 
+  ggplot(aes(y = properly_paired_perc, x = No_soumission_GQ)) + 
+  geom_boxplot(alpha = 0.5) +
+ # geom_hline(yintercept = c(95,96), lty = "dashed") +
+  geom_jitter(aes(col = total),height = 0, alpha = 0.75) +
+  scale_color_distiller(palette = "Spectral", trans = "log10") +
+  #facet_wrap(~ Gen_ZONE)
+  labs(y = "Percentage of reads mapped") +
+  theme_bw()  +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1, vjust = 0.5))
+
+graph1.3 
 
 graph1.4 <- map.res %>% #filter(Espece_revision %in% c("Pb"))  %>% 
   ggplot(aes(x = mapped, col = No_plaque_envoi)) +
@@ -1182,17 +1247,25 @@ graph1.5
 ## Overall popmap
 
 # Select those that will be used based on alignment
-# write.table(map.res %>% filter(mapped_perc >= 96) %>% select(ID) %>% 
+# write.table(map.res %>% filter(mapped < 25000000,
+#                                mapped > 1000000) %>% select(ID) %>% 
 #                               mutate(Pop  = "NoPop"), 
-#            file = file.path(get.value("info.path"), "popmap_good_align.txt"),
+#            file = file.path(get.value("info.path"), "popmap_good_nreads.txt"),
 #            quote = FALSE, sep = "\t",
 #            row.names = F, col.names = F)
+
+
+map.res %>% dplyr::filter(mapped > 25000000)
+map.res %>% dplyr::filter(mapped < 1000000)
 
 map.res %>% #group_by(Espece_revision) %>% 
   summarise(MedianNread = median(total),
             MedianPerc = median(mapped_perc),
             MinPerc = min(mapped_perc),
-            MaxPerc = max(mapped_perc))
+            MaxPerc = max(mapped_perc),
+            MedianPropPerc = median(properly_paired_perc),
+            MinPropPerc = min(properly_paired_perc),
+            MaxPropPerc = max(properly_paired_perc))
 
 plot(map.res[,c("total", "secondary", "mapped", "paired", "properly_paired", "singletons", "twith_itself_mate_mapped", "twith_mate_mapped_diff_chr")])
 
@@ -1232,361 +1305,13 @@ quantile(map.res$mapped, c(0.01,0.05,0.1))# %>% summary()
 
 # map.res %>%  %>% summarise(Mean = mean(Permapped))
 
-#write_csv(map.res, file = "./02_Results/Mapping_GarMor3_20230817.csv")
-
-# # Stacks - Testing parameters - De-novo ----------------------------------------
-# 
-# # parameters 
-# m.para <- c(3) # 3 is the recommand value .... but can test 4 and 5
-# M.para <- c(1:8) # Maybe test the 0
-# n.delta <- c(-1, 0, 1)# n = M
-# 
-# get.value("test.denovo.path")
-# get.value("test.denovo.log")
-# 
-# file.exists(get.value("test.denovo.path"))
-# file.exists(get.value("test.denovo.log"))
-# file.exists(file.path(get.value("info.path"), "popmap.test_samples.txt"))
-# #dir.create(get.value("test.denovo.path"))
-# 
-# # WILL RUN ONLY IF THE FILE DOESN'T EXIST!!!
-# # Check if it's paired or not ...
-# 
-# for(m in m.para){
-#   for(M in M.para){
-#     for(nn in n.delta){
-#       
-#       # last missing parameters
-#       n.para <- M + nn
-#       
-#       # Directory name
-#       test.dir <-  file.path(get.value("test.denovo.path"), paste0("stack.m",m,".M",M,".n",n.para))
-#       
-#       # Run the code only if the directory doesn't exist
-#       if(file.exists(test.dir) == F){
-#         
-#         cat("\nProcessing: ", test.dir, "\n", sep="")
-#         
-#         dir.create(test.dir)  
-#         
-#         # Run denovo_map.pl
-#         
-#         cmd <- paste("--samples", get.value("demulti.path"),
-#                      "--popmap", file.path(get.value("info.path"), "popmap.test_samples.txt"),
-#                      "-o", test.dir,
-#                      "-M", M,
-#                      "-n", n.para,
-#                      "-m", m, # default = 3 
-#                      "--paired",
-#                      "-T", 20,
-#                      "-X", "\"populations:-r 0.80\""
-#         )
-#         
-#         A <- system2("denovo_map.pl", cmd, stdout=T, stderr=T)
-#         
-#         # save a log file 
-#         
-#         cat(file = file.path(get.value("test.denovo.log"), paste0("stack.m",m,".M",M,".n",n.para,".log" )),
-#             cmd, "\n\n",
-#             A, # what to put in my file
-#             append= F, sep = "\n")
-#       } # Close the file exist condition
-#       
-#     } # close nn (aka n)
-#   } # Close M
-# } # Close m
-# 
-# 
-# # Extract statistics
-# 
-# nloci.res <- data.frame(m = character(), M = character(), n = character(),
-#                         r80 = character(), n_loci = numeric())
-# 
-# nsnps.res <- data.frame(m = character(), M = character(), n = character(),
-#                         r80 = character(), n_snps = numeric(), n_loci = numeric())
-# 
-# 
-# 
-# for(x in list.files(get.value("test.denovo.path"), full.names = T)){
-#   
-#   # Extract parameters
-#   info.param <- x %>% str_remove(get.value("test.denovo.path")) %>% 
-#     str_remove("/stack.")
-#   
-#   m.param <- sapply(str_split(info.param, "\\."), `[`)[[1]] %>% str_remove("m")
-#   M.param <- sapply(str_split(info.param, "\\."), `[`)[[2]] %>% str_remove("M")
-#   n.param <- sapply(str_split(info.param, "\\."), `[`)[[3]] %>% str_remove("n")
-#   
-#   # N loci
-#   
-#   cmd <- paste(file.path(x, "populations.log.distribs"),
-#                "samples_per_loc_postfilters")
-#   
-#   res <- system2("stacks-dist-extract", cmd, stdout = T)
-#   
-#   data <- res[c(-1, -2)] %>% str_split(pattern = "\t")
-#   
-#   data <-  data.frame(matrix(unlist(data), nrow= length(data), byrow = T))
-#   names(data) <- c("n_samples", "n_loci")
-#   
-#   nloci.res <- bind_rows(nloci.res, 
-#                          data.frame(m = m.param, M = M.param, n = n.param,
-#                                     r80 = "yes", n_loci = as.numeric(as.character(data$n_loci)) %>%  sum() )
-#   )
-#   
-#   # N SNP / locus
-#   
-#   cmd <- paste(file.path(x, "populations.log.distribs"),
-#                "snps_per_loc_postfilters")
-#   
-#   res <- system2("stacks-dist-extract", cmd, stdout = T)
-#   
-#   data <- res[c(-1, -2)] %>% str_split(pattern = "\t")
-#   
-#   data <-  data.frame(matrix(unlist(data), nrow= length(data), byrow = T))
-#   names(data) <- c("n_snps", "n_loci")
-#   
-#   data$n_snps <- as.numeric(as.character(data$n_snps))
-#   data$n_loci <- as.numeric(as.character(data$n_loci))  
-#   
-#   data$m   <- m.param
-#   data$M   <- M.param
-#   data$n   <- n.param
-#   data$r80 <- "yes"  
-#   
-#   nsnps.res <- bind_rows(nsnps.res, data)   
-#   
-# }
-# 
-# nloci.res <- nloci.res %>% left_join(nsnps.res %>% filter(n_snps == 0) %>% select(m,n,M, no_div = n_loci), 
-#                                      by = c("m", "M", "n")) %>% 
-#   mutate(n_loci_poly = n_loci - no_div)
-# nloci.res
-# nsnps.res
-# 
-# # Le meilleur paramètre
-# nloci.res %>% select(m, M, n, n_loci_poly) %>% arrange(desc(n_loci_poly)) %>% head(10)
-# 
-# graph1.1 <- nloci.res %>% gather(n_loci, n_loci_poly, key = "loci", value = "n_loci") %>%  
-#   mutate(n.rel = ifelse(M==n, "M", ifelse(n>M, "M + 1", "M - 1")),
-#          grouped = paste(loci, n.rel)) %>% 
-#   ggplot(aes(x = M, y = n_loci, group = grouped, col = n.rel)) +
-#   geom_line(aes(lty = loci), show.legend = F) +
-#   geom_point() +
-#   labs(y = "No. of loci\nshared by 80% of samples", 
-#        colour = "n") + 
-#   facet_grid(.~m, labeller = label_both) +
-#   guides(colour = guide_legend(title.hjust = 0.5))+
-#   theme_bw()
-# 
-# graph1.1
-# 
-# graph1.2 <- nsnps.res %>% mutate(n_snps_tot = n_snps * n_loci) %>% 
-#   group_by(m, M, n) %>% 
-#   summarise(n_snps = sum(n_snps_tot)) %>% 
-#   mutate(n.rel = ifelse(M==n, "M", ifelse(n>M, "M + 1", "M - 1"))) %>% 
-#   ggplot(aes(x = M, y = n_snps, group = n.rel, col = n.rel)) +
-#   geom_line() +
-#   geom_point() +
-#   labs(y = "No. of snps\nshared by 80% of samples", colour = "n") + 
-#   facet_grid(.~m, labeller = label_both) +
-#   guides(colour = guide_legend(title.hjust = 0.5))+
-#   theme_bw()
-# 
-# graph1.2
-# 
-# graph1.3 <- nsnps.res %>% mutate(n = ifelse(M==n, "M", ifelse(n>M, "M + 1", "M - 1"))) %>% 
-#   filter(m == 3, n %in% c("M + 1", "M", "M - 1")) %>% 
-#   group_by(m, M, n) %>% 
-#   mutate(n_snps = ifelse(n_snps > 10, 11, n_snps),
-#          p_loci = n_loci / sum(n_loci)) %>% 
-#   ggplot(aes(x = n_snps, y = p_loci, fill = M)) + 
-#   geom_bar(stat = "identity", position = "dodge") +
-#   labs(y = "Percentage of loci") + 
-#   facet_grid(n ~ m, labeller = label_both)+
-#   guides(colour = guide_legend(title.hjust = 0.5))+
-#   theme_bw()
-# 
-# graph1.3
-# 
-# ggsave(filename = file.path(get.value("test.denovo.log"), "NLoci_test.png"),
-#        plot = graph1.1,
-#        width = 7.5, height = 4, units = "in")
-# 
-# ggsave(filename = file.path(get.value("test.denovo.log"), "NSnps_test.png"),
-#        plot = graph1.2,
-#        width = 7.5, height = 4, units = "in")
-# 
-# ggsave(filename = file.path(get.value("test.denovo.log"), "NSnpsByLocus_test.png"),
-#        plot = graph1.3,
-#        width = 7.5, height = 4, units = "in")
-# 
-
-
-# Stacks - Testing parameters - Ref-genome --------------------------------
-
-# This part will run the ref_map.pl pipeline with a subset of samples,
-# just to be sure that everything is alright
-
-cmd <- paste("--samples", file.path(get.value("align.path"), "Bsaida"),
-             "--popmap", file.path(get.value("info.path"), "popmap.test_samples.txt"),
-             "-o", file.path(get.value("test.ref.path"), "Bsaida"),
-             "-X", "\"gstacks:-S .sorted.bam\"", 
-             "-T", 8,
-             "-X", "\"populations:-r 0.80 --vcf --write-single-snp\""
-             # en espérant que ça fonctionne ...
-)
-
-cmd
-
-A <- system2("ref_map.pl", cmd, stdout=T, stderr=T)
-A
-
-# Stats
-
-# Extract statistics
-
-cmd1 <- paste(file.path(get.value("test.ref.path"), "populations.log.distribs"),
-              "samples_per_loc_postfilters")
-
-res1 <- system2("stacks-dist-extract", cmd1, stdout = T)
-
-data.int <- res1[c(-1, -2)] %>% str_split(pattern = "\t")
-
-data.int <-  data.frame(matrix(unlist(data.int), nrow= length(data.int), byrow = T))
-names(data.int) <- c("n_samples", "n_loci")
-
-n_loci <- as.numeric(as.character(data.int$n_loci)) %>%  sum() 
-
-# N SNP / locus
-
-cmd2 <- paste(file.path(get.value("test.ref.path"), "populations.log.distribs"),
-              "snps_per_loc_postfilters")
-
-res2 <- system2("stacks-dist-extract", cmd2, stdout = T)
-
-data.int <- res2[c(-1, -2)] %>% str_split(pattern = "\t")
-
-data.int <-  data.frame(matrix(unlist(data.int), nrow= length(data.int), byrow = T))
-names(data.int) <- c("n_snps", "n_loci")
-
-data.int$n_snps <- as.numeric(as.character(data.int$n_snps))
-data.int$n_loci <- as.numeric(as.character(data.int$n_loci))  
-
-no_div <- data.int %>% filter(n_snps == 0) %>% pull(n_loci)  %>% as.numeric()
-n_loci_poly <- n_loci - no_div
-
-cat("\nThere is", n_loci_poly, "polymorphic loci (r80) out of", n_loci, "loci")
-
-
-# If you want the big files to be ignore, run the following :
-
-cat("catalog.*", "*.tsv", "!.gitignore", sep = "\n",
-    file = file.path(get.value("test.ref.path"), ".gitignore"))
-
-
-
-vcf.path <- ("00_Data/04b_Test.ref/populations.snps.vcf")
-vcf.data <- vcfR::read.vcfR(vcf.path)
-
-library(remotes)
-#remotes::install_github("biodray/QuickPop")
-library(QuickPop)
-library(adegenet)
-gl.data  <- vcfR::vcfR2genlight(vcf.data) 
-pop(gl.data) <- data.frame(ID_GQ = indNames(gl.data)) %>% 
-  left_join(pop.data) %>% pull(Espece)
-
-table(pop(gl.data))
-
-pca.test  <- glPca(gl.data, center = TRUE, scale = FALSE,  
-                   parallel = TRUE, n.core = 20, nf = 1000)
-
-gPCA <- pca.test %>% QuickPop::pca_scoretable(naxe = 3) %>%
-  left_join(pop.data, by = c("ID" = "ID_GQ")) %>% 
-  ggplot(aes(x = score.PC1, y = score.PC2, col =Region_echantillonnage)) +
-  geom_hline(yintercept = 0) +
-  geom_vline(xintercept = 0) +
-  #  stat_ellipse(aes(col = Espece))+
-  geom_point(alpha = 0.5, size = 3) +  
-  #  scale_colour_manual(name = "Region", values = c("black","blue", "darkorange","red", "magenta"))+    
-  annotate("text",  x=-Inf, y = Inf, label = paste("Test snps:",  nLoc(gl.data)), vjust=1, hjust=0) +
-  
-  labs(#title = paste("All snps:",  nLoc(gl.final)),
-    x = paste0("PC1 (", QuickPop::pca_var(pca.test)$p.eig[1] %>% round(3) *100, "%)"),
-    y = paste0("PC2 (", QuickPop::pca_var(pca.test)$p.eig[2] %>% round(3) *100, "%)")) +
-  theme_bw()
-gPCA
-
-ggsave(filename = file.path(get.value("test.ref.log"), "PCA_test_StackRef.png"),
-       plot = gPCA,
-       width = 5, height = 4, units = "in")
-
-# If you want the big files to be ignore, run the following :
-cat("catalog.*", "*.tsv", "*.vcf", "!.gitignore", sep = "\n",
-    file = file.path(get.value("test.ref.path"), ".gitignore"))
-
-# # Stacks - Testing parameters - Comparing de-novo VS ref ------------------
-# 
-# # N SNP / locus - REF m3 M2 n3
-# 
-# cmd2 <- paste(file.path(get.value("test.denovo.path"), "stack.m3.M2.n3", "gstacks.log.distribs"),
-#               "effective_coverages_per_sample")
-# 
-# res2 <- system2("stacks-dist-extract", cmd2, stdout = T)
-# 
-# data2 <- res2[c(-1, -2, -3)] %>% str_split(pattern = "\t")
-# 
-# data2 <-  data.frame(matrix(unlist(data2), nrow= length(data2), byrow = T))
-# names(data2) <- c("sample", "n_loci", "n_used_fw_reads", "mean_cov", "mean_cov_ns")
-# data2 <- data2 %>% mutate(Method = "denovo")
-# 
-# # N SNP / locus - denovo
-# 
-# cmd1 <- paste(file.path(get.value("test.ref.path"), "gstacks.log.distribs"),
-#               "effective_coverages_per_sample")
-# 
-# res1 <- system2("stacks-dist-extract", cmd1, stdout = T)
-# 
-# data1 <- res1[c(-1, -2, -3)] %>% str_split(pattern = "\t")
-# 
-# data1 <-  data.frame(matrix(unlist(data1), nrow= length(data1), byrow = T))
-# names(data1) <- c("sample", "n_loci", "n_used_fw_reads", "mean_cov", "mean_cov_ns")
-# data1 <- data1 %>% mutate(Method = "ref")
-# 
-# data.test <- rbind(data1, data2)
-# 
-# data.test 
-# 
-# graph1.4 <- data.test  %>% select(sample, mean_cov_ns, Method) %>% 
-#   spread("Method", mean_cov_ns)  %>% 
-#   left_join(data, by = c("sample" = "ID_GQ")) %>%
-#   ggplot(aes(x = as.numeric(as.character(ref)), y = as.numeric(as.character(denovo)), col = Espece)) +
-#   geom_point() +
-#   geom_abline(slope = 1, lty = "dashed", col = "darkgray") +
-#   #facet_wrap(~POP, nrow = 2) +
-#   labs(x = "Mean coverage - reference genome", y = "Mean coverage - denovo") +
-#   scale_x_continuous(limits = c(3,20)) +
-#   scale_y_continuous(limits = c(3,20)) +
-#   theme_bw() +
-#   theme(legend.position = "right")
-# 
-# graph1.4
-# 
-# ggsave(filename = file.path(get.value("stacks.ref.log"), "CoverageBySample_ComparisonRefvsDenovo.png"),
-#        plot = graph1.4,
-#        width = 4, height = 4, units = "in")
-# 
-# 
-# 
-# 
-# 
+#write_csv(map.res, file = "./02_Results/Mapping_GarMor3_20240221.csv")
 
 
 # Gstakcs - Ref - discovered SNPs -----------------------------------------
 
 cmd <- paste("-I", get.value("align.path"),
-             "-M", file.path(get.value("info.path"), "popmap_good_align.txt"),
+             "-M", file.path(get.value("info.path"), "popmap_good_nreads.txt"),
              "-O", get.value("stacks.ref.path"),
              "-S", ".sorted.bam",
              "-t", 8)
@@ -1635,7 +1360,7 @@ graph2.1 <- data %>% left_join(pop.data, by = c("sample" = "ID_GQ")) %>%
 
 graph2.1
 
-ggsave(filename = file.path(get.value("stacks.ref.log"), "CoverageByPlate_Aug2023.png"),
+ggsave(filename = file.path(get.value("stacks.ref.log"), "CoverageByPlate_Feb2024.png"),
        plot = graph2.1,
        width = 7.5, height = 4, units = "in")
 
@@ -1652,7 +1377,7 @@ graph2.2 <- data %>% left_join(pop.data, by = c("sample" = "ID_GQ")) %>%
 
 graph2.2
 
-ggsave(filename = file.path(get.value("stacks.ref.log"), "CoverageVSloci_May2023.png"),
+ggsave(filename = file.path(get.value("stacks.ref.log"), "CoverageVSloci_Feb2024.png"),
        plot = graph2.2,
        width = 7, height = 4, units = "in")
 
@@ -1671,7 +1396,7 @@ graph2.3 <- data %>% left_join(pop.data, by = c("sample" = "ID_GQ")) %>%
 
 graph2.3
 
-ggsave(filename = file.path(get.value("stacks.ref.log"), "Coverage_Aug2023.png"),
+ggsave(filename = file.path(get.value("stacks.ref.log"), "Coverage_Feb2024.png"),
        plot = graph2.3,
        width = 7, height = 4, units = "in")
 

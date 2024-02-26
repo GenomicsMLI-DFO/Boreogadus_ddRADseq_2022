@@ -1,0 +1,19 @@
+
+
+--vcf ./00_Data/06b_Filtering.ref/C_10X_samples_2024/06_Relatedness/populations.184620snps.522indwArctogadus.H06.all.recode.vcf --recode --snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/07_Final/Loc.H06.DP.unique.final_wArctogadu.csv --out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/07_Final/populations.53384snps.522indwArctogadus.H06.DP.single.final
+
+
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf ./00_Data/06b_Filtering.ref/C_10X_samples_2024/06_Relatedness/populations.184620snps.522indwArctogadus.H06.all.recode.vcf
+	--out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/07_Final/populations.53384snps.522indwArctogadus.H06.DP.single.final
+	--recode
+	--snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/07_Final/Loc.H06.DP.unique.final_wArctogadu.csv
+
+After filtering, kept 522 out of 522 Individuals
+Outputting VCF file...
+After filtering, kept 53384 out of a possible 184620 Sites
+Run Time = 38.00 seconds

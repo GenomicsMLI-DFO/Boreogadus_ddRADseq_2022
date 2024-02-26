@@ -1,0 +1,19 @@
+
+
+--vcf /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/03_HW/populations.190049snps.526.ind.h06.all.recode.vcf --recode --snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/04_DP/Loc.H06.all.DP.csv --out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/04_DP/populations.184620snps.526ind.H06.all
+
+
+
+VCFtools - 0.1.16
+(C) Adam Auton and Anthony Marcketta 2009
+
+Parameters as interpreted:
+	--vcf /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/03_HW/populations.190049snps.526.ind.h06.all.recode.vcf
+	--out /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/04_DP/populations.184620snps.526ind.H06.all
+	--recode
+	--snps /media/genyoda/Storage/Projets/Boreogadus_ddRADseq_2022/./00_Data/06b_Filtering.ref/C_10X_samples_2024/04_DP/Loc.H06.all.DP.csv
+
+After filtering, kept 526 out of 526 Individuals
+Outputting VCF file...
+After filtering, kept 184620 out of a possible 190049 Sites
+Run Time = 131.00 seconds
