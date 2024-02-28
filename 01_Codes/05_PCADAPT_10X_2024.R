@@ -42,8 +42,6 @@ SCAFFOLD.info <- vcf.data@fix %>% as.data.frame() %>%
 
 SCAFFOLD.info
 
-
-
 #save(list = c("vcf.data", "gl.data", "gi.data"),
 #     file ="TrevorVCF_2024.Rdata"
 #     )
@@ -338,6 +336,8 @@ pca.neutral %>% QuickPop::pca_scoretable(naxe = 6) %>%
 
 
 
+# BayeScan ----------------------------------------------------------------
+
 # DIFFERENT PEAKS BY CLUSTER? ---------------------------------------------
 
 # Step 1 - categorized them
@@ -559,6 +559,19 @@ bayes.ecoregion %>% filter(qval < 0.05) %>%   pull(alpha) %>% hist()
 
 bayes.ecoregion %>% filter(qval <= 0.05) %>% nrow / bayes.ecoregion %>% nrow()
 bayes.ecoregion %>% filter(qval <= 0.05) %>% nrow 
+
+bayes.ecoregion  %>% head()
+
+
+res.bayescan <- bayes.ecoregion %>% rename(ID = LOC) %>% 
+   left_join(SCAFFOLD.info %>% dplyr::select(ID, CHROM, POS)) %>% 
+  mutate(Outliers.qvalue = ifelse(qval <= 0.05, T, F))
+
+res.bayescan %>% View()
+
+write_csv(res.bayescan, "02_Results/03_BayeScan_2024/Bayescan_ecoregion_results.csv")
+
+
 
 library("ggVennDiagram")
 

@@ -95,7 +95,7 @@ Script to run the external program RADsex, aiming to identify sexualluy biased z
       - Kept 84,220 loci and 227,766 snps
   - Remove missing values (individuals and SNPS)
       - VCFtools - 0.1.17
-      - Few individuals with more than 30% missing values, remove duplicated individuals, choosing the replicate with the less missing data 
+      - 2 individuals with more than 30% missing values, remove duplicated individuals, choosing the replicate with the less missing data 
       - X SNPs with more than 10% missing values
       - After filtration : 191,0001 snps from 526 individuals
   - HW desequilibrium by sampling location - not performed

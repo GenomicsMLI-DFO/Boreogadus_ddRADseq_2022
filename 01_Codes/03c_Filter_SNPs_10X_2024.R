@@ -446,6 +446,14 @@ head(vcf.data)
 
 vcf_field_names(vcf.data , tag = "FORMAT")
 
+SCAFFOLD.info <- vcf.data@fix %>% as.data.frame() %>%  
+  select(ID, CHROM, POS) %>% 
+  mutate(scaffold = sapply(str_split(CHROM, ","), `[`,1) %>% str_remove("scaffold"),
+         RADloc = sapply(str_split(ID, ":"), `[`,1),
+         scaffold.length = sapply(str_split(CHROM, ","), `[`,2))
+
+
+SCAFFOLD.info$RADloc %>% unique() %>% length()
 
 # Conversion to various R formats
 #gl.data  <- vcfR::vcfR2genlight(vcf.data) 
@@ -1166,6 +1174,7 @@ SCAFFOLD.info <- vcf.data@fix %>% as.data.frame() %>%
 
 SCAFFOLD.info
 
+SCAFFOLD.info$RADloc %>% unique() %>% length()
 
 na.gi.count <- function(gi){
   res <- apply(tab(gi), MARGIN = 2, FUN = function(l){   n.na <- length(l[is.na(l) == T])
