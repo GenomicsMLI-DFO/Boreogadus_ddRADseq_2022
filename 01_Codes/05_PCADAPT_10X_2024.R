@@ -5,7 +5,7 @@
 #  549 individuals (9 Arctogadus, 45 intermediate, 500 Boreogadus)
 #
 # Audrey Bourret
-# 2023-10-27
+# 2024-02-27
 #
 
 # Library -----------------------------------------------------------------
@@ -28,35 +28,46 @@ pop.data
 
 # Genetic Data Conversion ------------------------------------------------------------
 
-vcf.path <- "/media/genyoda/Extra_Storage/Projets/Data_Trevor/02_Results/08_Boreogadus/Updates_ecoregions_6xii23/populations.38131snps.507indwArctogadus.H06.DP.single.final.noArc+hy.0-05.noinver.recode.vcf"
+vcf.path <- "/media/genyoda/Extra_Storage/Projets/Data_Trevor/02_Results/08_Boreogadus/New_analysis_23ii24/populations.11233snps.511indwArctogadus.H06.DP.single.final.recode.vcf"
 
 vcf.data <- vcfR::read.vcfR(vcf.path)
 gl.data  <- vcfR::vcfR2genlight(vcf.data) 
 gi.data  <- vcfR::vcfR2genind(vcf.data) 
 
+SCAFFOLD.info <- vcf.data@fix %>% as.data.frame() %>%  
+  select(ID, CHROM, POS) %>% 
+  mutate(scaffold = sapply(str_split(CHROM, ","), `[`,1) %>% str_remove("scaffold"),
+         RADloc = sapply(str_split(ID, ":"), `[`,1)
+  )
+
+SCAFFOLD.info
+
+
+
 #save(list = c("vcf.data", "gl.data", "gi.data"),
-#     file ="TrevorVCF.Rdata"
+#     file ="TrevorVCF_2024.Rdata"
 #     )
 
 cmd1 <- paste("--vcf", vcf.path, 
               #"--recode",
               "--plink-tped",
-              "--out",  "02_Results/02_PCADAPT/populations.38131snps.507indwArctogadus.H06.DP.single.final.noArc+hy.0-05.noinver")
+              "--out",  "02_Results/02_PCADAPT_2024/populations.11233snps.511indwArctogadus.H06.DP.single.final.recode")
 
 
 cmd1
 
-#A1 <- system2("vcftools", cmd1, stdout=T, stderr=T)
+A1 <- system2("vcftools", cmd1, stdout=T, stderr=T)
+A1
 
-cmd2a <- paste("--tfam", "./02_Results/02_PCADAPT/populations.38131snps.507indwArctogadus.H06.DP.single.final.noArc+hy.0-05.noinver.tfam", 
-               "--tped", "./02_Results/02_PCADAPT/populations.38131snps.507indwArctogadus.H06.DP.single.final.noArc+hy.0-05.noinver.tped", 
+cmd2a <- paste("--tfam", "./02_Results/02_PCADAPT_2024/populations.11233snps.511indwArctogadus.H06.DP.single.final.recode.tfam", 
+               "--tped", "./02_Results/02_PCADAPT_2024/populations.11233snps.511indwArctogadus.H06.DP.single.final.recode.tped", 
                "--make-bed", 
-               "--out", "./02_Results/02_PCADAPT/populations.38131snps.507indwArctogadus.H06.DP.single.final.noArc+hy.0-05.noinver" 
+               "--out", "./02_Results/02_PCADAPT_2024/populations.11233snps.511indwArctogadus.H06.DP.single.final" 
                
 )
 
-# A2a <- system2("/home/genyoda/Documents/Programs/plink_linux_x86_64_20210606/plink", cmd2a, stdout=T, stderr=T)
-#A2a
+ A2a <- system2("/home/genyoda/Documents/Programs/plink_linux_x86_64_20210606/plink", cmd2a, stdout=T, stderr=T)
+A2a
 
 
 # PCADAPT -----------------------------------------------------------------
@@ -68,11 +79,11 @@ library("qvalue")
 # Convertion to plink .bed format
 
 # Read .bed in PCAadapt
-pcadapt.genotype  <- read.pcadapt(file.path("./02_Results/02_PCADAPT/populations.38131snps.507indwArctogadus.H06.DP.single.final.noArc+hy.0-05.noinver.bed" ),
+pcadapt.genotype  <- read.pcadapt(file.path("./02_Results/02_PCADAPT_2024/populations.11233snps.511indwArctogadus.H06.DP.single.final.bed" ),
                                          type = "bed")
 
 
-pcadapt.snp <- read.delim(file.path(here::here(), "./02_Results/02_PCADAPT/populations.38131snps.507indwArctogadus.H06.DP.single.final.noArc+hy.0-05.noinver.bim" ),
+pcadapt.snp <- read.delim(file.path(here::here(), "./02_Results/02_PCADAPT_2024/populations.11233snps.511indwArctogadus.H06.DP.single.final.bim" ),
                                  header = F) %>% pull(V2)
 
 # Run pcadapt
@@ -88,8 +99,6 @@ plot(pcadapt.k10, option = "screeplot")
 
 plot(pcadapt.k10, option = "scores") 
 
-# K = 2 pour sfa et K = 3 pour final
-
 pcadapt.k2 <- pcadapt(pcadapt.genotype , K = 2)
 pcadapt.k3 <- pcadapt(pcadapt.genotype , K = 3)
 pcadapt.k4 <- pcadapt(pcadapt.genotype , K = 4)
@@ -104,20 +113,15 @@ pcadapt.k2.qqplot <- plot(pcadapt.k2, option = "qqplot") + theme_bw()
 pcadapt.k2.chi2 <- plot(pcadapt.k2, option = "stat.distribution")   + theme_bw()
 
 
-ggsave(filename = here::here("02_Results/02_PCADAPT/pcadapt_k2_chi2.pdf"), 
+ggsave(filename = here::here("02_Results/02_PCADAPT_2024/pcadapt_k2_chi2.pdf"), 
        plot =pcadapt.k2.chi2, 
        width =5, height =5 , units = "in",
        dpi = 300)
 
-ggsave(filename = here::here("02_Results/02_PCADAPT/pcadapt_k2_qqplot.pdf"), 
+ggsave(filename = here::here("02_Results/02_PCADAPT_2024/pcadapt_k2_qqplot.pdf"), 
        plot =pcadapt.k2.qqplot, 
        width =5, height =5 , units = "in",
        dpi = 300)
-
-
-test2 <- ggplot(data = data.frame(x= 1:3, y = 4:6), aes(x =x, y =y)) + geom_point()
-test %>% str()
-
 
 # Statistics
 #x$pvalues 
@@ -127,6 +131,7 @@ qval.k2 <- qvalue::qvalue(pcadapt.k2$pvalues)$qvalues
 outliers.k2 <- which(qval.k2 < alpha)
 length(outliers.k2)
 
+length(outliers.k2) / nLoc(gl.data)
 
 padj.k2 <- p.adjust(pcadapt.k2$pvalues,method="BH")
 outliers.padj.k2 <- which(padj.k2 < alpha)
@@ -136,6 +141,10 @@ bonf.k2 <- p.adjust(pcadapt.k2$pvalues,method="bonferroni")
 outliers.bonf.k2 <- which(bonf.k2 < alpha)
 length(outliers.bonf.k2)
 
+length(outliers.bonf.k2)/ nLoc(gl.data)
+
+library(eulerr)
+library(RColorBrewer)
 
 venn.pcadapt <- plot(euler(list(qvalue =   pcadapt.snp[outliers.k2]  , BH = pcadapt.snp[outliers.padj.k2], Bonferroni =  pcadapt.snp[outliers.bonf.k2] ) , shape = "circle"),
                      quantities = T,
@@ -153,12 +162,9 @@ res.pcadapt <- data.frame(ID = pcadapt.snp,
 
 res.pcadapt %>% View()
 
-res.pcadapt %>% mutate(test = -log10(pvalues)) %>% arrange(pvalues) %>% View(
-  
-)
+res.pcadapt %>% mutate(test = -log10(pvalues)) %>% arrange(pvalues) %>% View()
 
-
-#write_csv(res.pcadapt, "02_Results/02_PCADAPT/PCADAPT_k2_results.csv")
+#write_csv(res.pcadapt, "02_Results/02_PCADAPT_2024/PCADAPT_k2_results.csv")
 
 qval.k3 <- qvalue::qvalue(pcadapt.k3$pvalues)$qvalues
 outliers.k3 <- which(qval.k3 < alpha)
@@ -185,10 +191,8 @@ pcadapt.outliers <- pcadapt.snp[outliers.k2]
 #save(list = c("pcadapt.outliers"),
 #     file = file.path("02_Results/02_PopulationGenetics/OutliersLoc.Rdata"))
 
-nLoc(gl.final)
+nLoc(gl.data)
 
-library(RColorBrewer)
-library(eulerr)
 
 venn.pcadapt <- plot(euler(list(pcadapt.k2=   pcadapt.snp[outliers.k2]  , pcadapt.k3 =  pcadapt.snp[outliers.k3], pcadapt.k4 =  pcadapt.snp[outliers.k4] ) , shape = "circle"),
                      quantities = T,
@@ -198,24 +202,13 @@ venn.pcadapt <- plot(euler(list(pcadapt.k2=   pcadapt.snp[outliers.k2]  , pcadap
 venn.pcadapt
 
 
-
-
 pcadapt.outliers <- pcadapt.snp[outliers.k2]
-
 
 
 # Create new VCF ----------------------------------------------------------
 
 pcadapt.outliers %>% length() / nLoc(gl.data)
 
-
-SCAFFOLD.info <- vcf.data@fix %>% as.data.frame() %>%  
-  select(ID, CHROM, POS) %>% 
-  mutate(scaffold = sapply(str_split(CHROM, ","), `[`,1) %>% str_remove("scaffold"),
-         RADloc = sapply(str_split(ID, ":"), `[`,1)
-  )
-
-SCAFFOLD.info
 
 df.outlier <-  SCAFFOLD.info %>% 
   dplyr::filter(ID %in% pcadapt.outliers)
@@ -227,10 +220,10 @@ nrow(df.outlier)
 nrow(df.neutral)
 
 
-write.csv(df.outlier %>% select(ID), file.path("02_Results/02_PCADAPT/Outlier_pcadapt_k2.csv"), 
+write.csv(df.outlier %>% select(ID), file.path("02_Results/02_PCADAPT_2024/Outlier_pcadapt_k2.csv"), 
           row.names = F, quote = F)
 
-write.csv(df.neutral %>% select(ID), file.path("02_Results/02_PCADAPT/Neutral_pcadapt_k2.csv"), 
+write.csv(df.neutral %>% select(ID), file.path("02_Results/02_PCADAPT_2024/Neutral_pcadapt_k2.csv"), 
           row.names = F, quote = F)
 
 # CREATE VCF WITH UNIQUE
@@ -239,9 +232,9 @@ vcf.path
 
 cmd <- paste("--vcf", vcf.path, 
              "--recode",
-             "--snps", file.path("02_Results/02_PCADAPT/Outlier_pcadapt_k2.csv"),
+             "--snps", file.path("02_Results/02_PCADAPT_2024/Outlier_pcadapt_k2.csv"),
              
-             "--out", file.path("02_Results/02_PCADAPT/populations.38131snps.507indwArctogadus.H06.DP.single.final.noArc+hy.0-05.noinver.outlier")
+             "--out", file.path("02_Results/02_PCADAPT_2024/populations.outlier")
              )
 
 
@@ -252,16 +245,15 @@ A <- system2("vcftools", cmd, stdout=T, stderr=T)
 
 cmd <- paste("--vcf", vcf.path, 
              "--recode",
-             "--snps", file.path("02_Results/02_PCADAPT/Neutral_pcadapt_k2.csv"),
+             "--snps", file.path("02_Results/02_PCADAPT_2024/Neutral_pcadapt_k2.csv"),
              
-             "--out", file.path("02_Results/02_PCADAPT/populations.38131snps.507indwArctogadus.H06.DP.single.final.noArc+hy.0-05.noinver.neutral")
+             "--out", file.path("02_Results/02_PCADAPT_2024/populations.38131snps.507indwArctogadus.H06.DP.single.final.noArc+hy.0-05.noinver.neutral")
 )
 
 
 cmd
 
 A <- system2("vcftools", cmd, stdout=T, stderr=T)
-
 
 
 # PCA ---------------------------------------------------------------------
@@ -275,7 +267,6 @@ pca.neutral  <- glPca(gl.data[,locNames(gl.data) %nin% pcadapt.outliers], center
                        parallel = TRUE, n.core =16, nf = 1000)
 
 
-
 pca.eco  <- glPca(gl.data[,locNames(gl.data) %in% bayes.ecoregion$LOC[bayes.ecoregion$qval < 0.05]], center = TRUE, scale = FALSE,  
                       parallel = TRUE, n.core =16, nf = 1000)
 
@@ -286,7 +277,7 @@ pca.outliers %>% QuickPop::pca_scoretable(naxe = 6) %>%
                                   ifelse(Region_echantillonnage %in% c("2G", "2H", "2J"), "2GHJ", 
                                          Region_echantillonnage ) 
   )) %>% 
-  ggplot(aes(x = score.PC3, y = score.PC4, col = Region)) +
+  ggplot(aes(x = score.PC1, y = score.PC2, col = Region)) +
   geom_hline(yintercept = 0) +
   geom_vline(xintercept = 0) +
   #facet_wrap(~Region_echantillonnage, ncol = 3) +
@@ -329,14 +320,14 @@ pca.neutral %>% QuickPop::pca_scoretable(naxe = 6) %>%
                           ifelse(Region_echantillonnage %in% c("2G", "2H", "2J"), "2GHJ", 
                                  Region_echantillonnage ) 
   )) %>% 
-  left_join(Env.data) %>% 
-  ggplot(aes(x = score.PC1, y = score.PC2, col = BO22_tempmean_ss)) +
+  #left_join(Env.data) %>% 
+  ggplot(aes(x = score.PC1, y = score.PC2, col = Region)) +
   geom_hline(yintercept = 0) +
   geom_vline(xintercept = 0) +
   #facet_wrap(~Region_echantillonnage, ncol = 3) +
   #stat_ellipse(aes(col = Region))+
   geom_point(alpha = 0.5, size = 2) +  
-  scale_color_viridis_c()+
+#  scale_color_viridis_c()+
   #  scale_colour_manual(name = "Region", values = c("black","blue", "darkorange","red", "magenta"))+    
   # annotate("text",  x=-Inf, y = Inf, label = paste("Test snps:",  nLoc(gl.data[, locNames(gl.data) %in% LOC.MAF10.NA05])), vjust=1, hjust=0) +
   
@@ -443,46 +434,46 @@ pop(gl.data) <- data.frame(ID_GQ = indNames(gl.data)) %>%
 
 pop(gl.data) %>% table()
 
-gl2bayescan(gl.data, outfile = "02_Results/03_BayeScan/bayescan_gl.ecoregion.txt", outpath = ".")
+gl2bayescan(gl.data, outfile = "02_Results/03_BayeScan_2024/bayescan_gl.ecoregion.txt", outpath = ".")
 
 # Clust 1 vs 2 vs 3
 
-ID.c1c2 <- k3.df %>% dplyr::filter(Clust %in% c(1,2)) %>% pull(ID_GQ)
-ID.c1c3 <- k3.df %>% dplyr::filter(Clust %in% c(1,3)) %>% pull(ID_GQ)
-ID.c2c3 <- k3.df %>% dplyr::filter(Clust %in% c(2,3)) %>% pull(ID_GQ)
+#ID.c1c2 <- k3.df %>% dplyr::filter(Clust %in% c(1,2)) %>% pull(ID_GQ)
+#ID.c1c3 <- k3.df %>% dplyr::filter(Clust %in% c(1,3)) %>% pull(ID_GQ)
+#ID.c2c3 <- k3.df %>% dplyr::filter(Clust %in% c(2,3)) %>% pull(ID_GQ)
 
-gl.c1c2 <- gl.data[indNames(gl.data) %in% ID.c1c2,]
+#gl.c1c2 <- gl.data[indNames(gl.data) %in% ID.c1c2,]
 
-pop(gl.c1c2) <- data.frame(ID_GQ = indNames(gl.c1c2)) %>% 
-  left_join(k3.df) %>% pull(Clust)
+#pop(gl.c1c2) <- data.frame(ID_GQ = indNames(gl.c1c2)) %>% 
+#  left_join(k3.df) %>% pull(Clust)
 
-pop(gl.c1c2) %>% table()
+#pop(gl.c1c2) %>% table()
 
-gl2bayescan(gl.c1c2, outfile = "02_Results/03_BayeScan/bayescan_gl.c1c2.txt", outpath = ".")
+#gl2bayescan(gl.c1c2, outfile = "02_Results/03_BayeScan/bayescan_gl.c1c2.txt", outpath = ".")
 
-gl.c1c3 <- gl.data[indNames(gl.data) %in% ID.c1c3,]
+#gl.c1c3 <- gl.data[indNames(gl.data) %in% ID.c1c3,]
 
-pop(gl.c1c3) <- data.frame(ID_GQ = indNames(gl.c1c3)) %>% 
-  left_join(k3.df) %>% pull(Clust)
+#pop(gl.c1c3) <- data.frame(ID_GQ = indNames(gl.c1c3)) %>% 
+#  left_join(k3.df) %>% pull(Clust)
 
-pop(gl.c1c3) %>% table()
+#pop(gl.c1c3) %>% table()
 
-gl2bayescan(gl.c1c3, outfile = "02_Results/03_BayeScan/bayescan_gl.c1c3.txt", outpath = ".")
+#gl2bayescan(gl.c1c3, outfile = "02_Results/03_BayeScan/bayescan_gl.c1c3.txt", outpath = ".")
 
-gl.c2c3 <- gl.data[indNames(gl.data) %in% ID.c2c3,]
+#gl.c2c3 <- gl.data[indNames(gl.data) %in% ID.c2c3,]
 
-pop(gl.c2c3) <- data.frame(ID_GQ = indNames(gl.c2c3)) %>% 
-  left_join(k3.df) %>% pull(Clust)
+#pop(gl.c2c3) <- data.frame(ID_GQ = indNames(gl.c2c3)) %>% 
+#  left_join(k3.df) %>% pull(Clust)
 
-pop(gl.c2c3) %>% table()
+#pop(gl.c2c3) %>% table()
 
-gl2bayescan(gl.c2c3, outfile = "02_Results/03_BayeScan/bayescan_gl.c2c3.txt", outpath = ".")
+#gl2bayescan(gl.c2c3, outfile = "02_Results/03_BayeScan/bayescan_gl.c2c3.txt", outpath = ".")
 
 # Run bayescan
 
-cmd <- paste("02_Results/03_BayeScan/bayescan_gl.ecoregion.txt",
+cmd <- paste("02_Results/03_BayeScan_2024/bayescan_gl.ecoregion.txt",
              "-snp",
-             "-od", "./02_Results/03_BayeScan/Results/", #Output directory file
+             "-od", "./02_Results/03_BayeScan_2024/Results/", #Output directory file
              "-threads", 20
 )
 
@@ -490,54 +481,54 @@ cmd
 
 A <- system2("bayescan", cmd, stdout = T, stderr = T)
 A
-
-cmd <- paste("02_Results/03_BayeScan/bayescan_gl.c1c2.txt",
-             "-snp",
-             "-od", "./02_Results/03_BayeScan/Results/", #Output directory file
-             "-threads", 20
-)
-
-cmd
-
-A <- system2("bayescan", cmd, stdout = T, stderr = T)
-A
-
-cmd <- paste("02_Results/03_BayeScan/bayescan_gl.c1c3.txt",
-             "-snp",
-             "-od", "./02_Results/03_BayeScan/Results/", #Output directory file
-             "-threads", 20
-)
-
-cmd
-
-A <- system2("bayescan", cmd, stdout = T, stderr = T)
-A
-
-cmd <- paste("02_Results/03_BayeScan/bayescan_gl.c2c3.txt",
-             "-snp",
-             "-od", "./02_Results/03_BayeScan/Results/", #Output directory file
-             "-threads", 20
-)
-
-cmd
-
-A <- system2("bayescan", cmd, stdout = T, stderr = T)
-A
-
+ 
+# cmd <- paste("02_Results/03_BayeScan/bayescan_gl.c1c2.txt",
+#              "-snp",
+#              "-od", "./02_Results/03_BayeScan/Results/", #Output directory file
+#              "-threads", 20
+# )
+# 
+# cmd
+# 
+# A <- system2("bayescan", cmd, stdout = T, stderr = T)
+# A
+# 
+# cmd <- paste("02_Results/03_BayeScan/bayescan_gl.c1c3.txt",
+#              "-snp",
+#              "-od", "./02_Results/03_BayeScan/Results/", #Output directory file
+#              "-threads", 20
+# )
+# 
+# cmd
+# 
+# A <- system2("bayescan", cmd, stdout = T, stderr = T)
+# A
+# 
+# cmd <- paste("02_Results/03_BayeScan/bayescan_gl.c2c3.txt",
+#              "-snp",
+#              "-od", "./02_Results/03_BayeScan/Results/", #Output directory file
+#              "-threads", 20
+# )
+# 
+# cmd
+# 
+# A <- system2("bayescan", cmd, stdout = T, stderr = T)
+# A
+# 
 
 
 source("/home/genyoda/Documents/Programs/BayeScan/R_functions/plot_R.r")
 
-plot_bayescan("02_Results/03_BayeScan/Results/bayescan_gl.ecoregion_fst.txt", FDR = 0.05, add_text= F)
-plot_bayescan("02_Results/03_BayeScan/Results/bayescan_gl.c1c2_fst.txt", FDR = 0.05, add_text= F)
-plot_bayescan("02_Results/03_BayeScan/Results/bayescan_gl.c1c3_fst.txt", FDR = 0.05, add_text= F)
-plot_bayescan("02_Results/03_BayeScan/Results/bayescan_gl.c2c3_fst.txt", FDR = 0.05, add_text= F)
+plot_bayescan("02_Results/03_BayeScan_2024/Results/bayescan_gl.ecoregion_fst.txt", FDR = 0.05, add_text= F)
+#plot_bayescan("02_Results/03_BayeScan/Results/bayescan_gl.c1c2_fst.txt", FDR = 0.05, add_text= F)
+#plot_bayescan("02_Results/03_BayeScan/Results/bayescan_gl.c1c3_fst.txt", FDR = 0.05, add_text= F)
+#plot_bayescan("02_Results/03_BayeScan/Results/bayescan_gl.c2c3_fst.txt", FDR = 0.05, add_text= F)
 
 
-bayes.ecoregion <- read.table("02_Results/03_BayeScan/Results/bayescan_gl.ecoregion_fst.txt")
-bayes.c1c2      <- read.table("02_Results/03_BayeScan/Results/bayescan_gl.c1c2_fst.txt")
-bayes.c1c3      <- read.table("02_Results/03_BayeScan/Results/bayescan_gl.c1c3_fst.txt")
-bayes.c2c3      <- read.table("02_Results/03_BayeScan/Results/bayescan_gl.c2c3_fst.txt")
+bayes.ecoregion <- read.table("02_Results/03_BayeScan_2024/Results/bayescan_gl.ecoregion_fst.txt")
+#bayes.c1c2      <- read.table("02_Results/03_BayeScan/Results/bayescan_gl.c1c2_fst.txt")
+#bayes.c1c3      <- read.table("02_Results/03_BayeScan/Results/bayescan_gl.c1c3_fst.txt")
+#bayes.c2c3      <- read.table("02_Results/03_BayeScan/Results/bayescan_gl.c2c3_fst.txt")
 
 add.bayes.names <- function(fst, gl){
   loc <- data.frame(LOC = adegenet::locNames(gl)) %>% 
@@ -548,9 +539,9 @@ add.bayes.names <- function(fst, gl){
 }
 
 hist(bayes.ecoregion$fst)
-hist(bayes.c1c2$fst)
-hist(bayes.c1c3$fst)
-hist(bayes.c2c3$fst)
+#hist(bayes.c1c2$fst)
+#hist(bayes.c1c3$fst)
+#hist(bayes.c2c3$fst)
 
 # The estimated alpha coefficient indicating the strength and direction of selection. 
 # A positive value of alpha suggests diversifying selection, whereas negative values 
@@ -558,9 +549,9 @@ hist(bayes.c2c3$fst)
 #
 
 bayes.ecoregion <- add.bayes.names(bayes.ecoregion, gl.data)
-bayes.c1c2 <- add.bayes.names(bayes.c1c2, gl.data)
-bayes.c1c3 <- add.bayes.names(bayes.c1c3, gl.data)
-bayes.c2c3 <- add.bayes.names(bayes.c2c3, gl.data)
+#bayes.c1c2 <- add.bayes.names(bayes.c1c2, gl.data)
+#bayes.c1c3 <- add.bayes.names(bayes.c1c3, gl.data)
+#bayes.c2c3 <- add.bayes.names(bayes.c2c3, gl.data)
 
 bayes.ecoregion %>% filter(qval < 0.05) %>%   pull(alpha) %>% hist() 
 
@@ -581,8 +572,8 @@ venn.outlier <- plot(euler(list(#ALL = locNames(gl.final),
   #c1c2 = bayes.c1c2$LOC[bayes.c1c2$qval < 0.05],
   #c1c3 =  bayes.c1c3$LOC[bayes.c1c3$qval < 0.05],
   #c2c3 = bayes.c2c3$LOC[bayes.c2c3$qval < 0.05],
-  #qvalue =   pcadapt.snp[outliers.k2]  #, 
-  Bonferroni =  pcadapt.snp[outliers.bonf.k2] 
+ qvalue =   pcadapt.snp[outliers.k2]  #, 
+ # Bonferroni =  pcadapt.snp[outliers.bonf.k2] 
 ) , shape = "circle"),
 quantities = T,
 #fill = brewer.pal(n = 3, name = "Dark2"),
@@ -592,7 +583,7 @@ venn.outlier
 
 venn.bayescan
 
-328/8311
+446 / 11233
 236/314
 
 # Default plot
@@ -607,46 +598,46 @@ ggVennDiagram(list(#ALL = locNames(gl.final),
 ), label_alpha = 0, label = c("count")) +
    scale_fill_distiller(palette = "RdBu")
 
-
-ggVennDiagram(list(#ALL = locNames(gl.final),
-  #BayeScan_Region =  bayes.ecoregion$LOC[bayes.ecoregion$qval < 0.05], 
-  c1c2 = bayes.c1c2$LOC[bayes.c1c2$qval < 0.05],
-  c1c3 =  bayes.c1c3$LOC[bayes.c1c3$qval < 0.05],
-  c2c3 = bayes.c2c3$LOC[bayes.c2c3$qval < 0.05]#,
-  #pcadapt_qvalue =   pcadapt.snp[outliers.k2]  , 
-  #pcadapt_bonferroni =  pcadapt.snp[outliers.bonf.k2] 
-), label_alpha = 0, label = c("count")) +
-  scale_fill_distiller(palette = "RdBu")
-
-
-test <-   bind_rows( bayes.c1c2 %>% mutate(Comp = "c1c2"),
-  bayes.c1c3 %>% mutate(Comp = "c1c3"),
-  bayes.c2c3 %>% mutate(Comp = "c2c3"),
-  bayes.ecoregion %>% mutate(Comp = "Region")
-)%>% left_join(SCAFFOLD.info, by = c("LOC" = "ID")) %>% 
-  dplyr::mutate(CHROM = ifelse(!str_detect(CHROM, "LR"), "Unplaced", CHROM),
-                POS = as.numeric(POS))  
-
-test <- test %>% left_join(Chromo.df)
-test  %>% 
-  mutate(sign = ifelse(qval < 0.05/8000, "highly yes",
-                ifelse(qval < 0.05, "yes", "no"))) %>% 
-  ggplot(aes(x = POS, y = fst, col = sign )) +
-  geom_point() +
-  facet_grid(Comp~chr, scale = "free_x", space = "free_x")+
-  theme_minimal() + 
-  theme(axis.text.x = element_blank(),
-        strip.text.x = element_text(angle = 90, vjust = 0.5, hjust = 0),
-        strip.text.y = element_text(angle = 90),
-        panel.grid = element_blank(),
-        panel.spacing = unit(0, "cm"),
-        panel.border = element_rect(fill = NA, colour = "black"),
-        plot.background = element_rect(fill = "white", colour  = "white"),
-        legend.title = element_blank(),
-        axis.title.x = element_blank(),
-        legend.position = "bottom",
-        plot.margin = margin(t = 20, r = 10, b = 10, l = 10, unit = "pt") )
-
+# 
+# ggVennDiagram(list(#ALL = locNames(gl.final),
+#   #BayeScan_Region =  bayes.ecoregion$LOC[bayes.ecoregion$qval < 0.05], 
+#   c1c2 = bayes.c1c2$LOC[bayes.c1c2$qval < 0.05],
+#   c1c3 =  bayes.c1c3$LOC[bayes.c1c3$qval < 0.05],
+#   c2c3 = bayes.c2c3$LOC[bayes.c2c3$qval < 0.05]#,
+#   #pcadapt_qvalue =   pcadapt.snp[outliers.k2]  , 
+#   #pcadapt_bonferroni =  pcadapt.snp[outliers.bonf.k2] 
+# ), label_alpha = 0, label = c("count")) +
+#   scale_fill_distiller(palette = "RdBu")
+# 
+# 
+# test <-   bind_rows( bayes.c1c2 %>% mutate(Comp = "c1c2"),
+#   bayes.c1c3 %>% mutate(Comp = "c1c3"),
+#   bayes.c2c3 %>% mutate(Comp = "c2c3"),
+#   bayes.ecoregion %>% mutate(Comp = "Region")
+# )%>% left_join(SCAFFOLD.info, by = c("LOC" = "ID")) %>% 
+#   dplyr::mutate(CHROM = ifelse(!str_detect(CHROM, "LR"), "Unplaced", CHROM),
+#                 POS = as.numeric(POS))  
+# 
+# test <- test %>% left_join(Chromo.df)
+# test  %>% 
+#   mutate(sign = ifelse(qval < 0.05/8000, "highly yes",
+#                 ifelse(qval < 0.05, "yes", "no"))) %>% 
+#   ggplot(aes(x = POS, y = fst, col = sign )) +
+#   geom_point() +
+#   facet_grid(Comp~chr, scale = "free_x", space = "free_x")+
+#   theme_minimal() + 
+#   theme(axis.text.x = element_blank(),
+#         strip.text.x = element_text(angle = 90, vjust = 0.5, hjust = 0),
+#         strip.text.y = element_text(angle = 90),
+#         panel.grid = element_blank(),
+#         panel.spacing = unit(0, "cm"),
+#         panel.border = element_rect(fill = NA, colour = "black"),
+#         plot.background = element_rect(fill = "white", colour  = "white"),
+#         legend.title = element_blank(),
+#         axis.title.x = element_blank(),
+#         legend.position = "bottom",
+#         plot.margin = margin(t = 20, r = 10, b = 10, l = 10, unit = "pt") )
+# 
 
 
 library(qqman)
