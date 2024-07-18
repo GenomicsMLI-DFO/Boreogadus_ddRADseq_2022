@@ -42,11 +42,11 @@ Main script to obtain a first catalog of SNPs through STACKS.
 
 Main script to perform the first round of filtration, up to a SNPs panel with 1 SNP / locus, still with Arctogadus and hybrids individuals. 
 
-### 04_Boreogadus_commands_6xii23.R
+#### 04_Boreogadus_commands_6xii23.R
 
-Macin script for main genetic analysis and map.
+Main script for main genetic analysis and map.
 
-### 05_PCADAPT_10X_2024.R
+#### 05_PCADAPT_10X_2024.R
 
 Script to run PCAdapt and BayeScan.
 
