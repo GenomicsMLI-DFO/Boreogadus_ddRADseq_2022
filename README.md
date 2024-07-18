@@ -36,11 +36,19 @@ In-development
 
 #### 02_Discovered_SNPs.R
 
-Main script to obtain a first catalog of SNPs through STACKS. An older version of the script (02_Discovered_SNPs_2:30:10_old.R) using less longer reads was used in the first attempts to work on this dataset, but was later abandoned. 
+Main script to obtain a first catalog of SNPs through STACKS.
 
 #### 03c_Filter_SNPs_10X_2024.R
 
-Main script to perform the first round of filtration, up to a SNPs panel with 1 SNP / locus, still with Arctogadus and hybrids individuals. Older version of the script (03a_Filter_SNPs_5X_2023.R and 03b_Filter_SNPs_10X_2023.R) were used in previous version of the pipeline.
+Main script to perform the first round of filtration, up to a SNPs panel with 1 SNP / locus, still with Arctogadus and hybrids individuals. 
+
+### 04_Boreogadus_commands_6xii23.R
+
+Macin script for main genetic analysis and map.
+
+### 05_PCADAPT_10X_2024.R
+
+Script to run PCAdapt and BayeScan.
 
 #### 99_RADsex.R
 

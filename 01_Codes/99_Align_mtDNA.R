@@ -503,15 +503,13 @@ raw.info  <-bind_rows(Seq1.BlastTOP.95,
                 
                 DNAidentity= ifelse(ID_GQ %in% c("S_22_00047","S_22_00054","S_22_00056","S_22_00057","S_22_00058","S_22_00154","S_22_00156","S_22_00172"), "Arctodagus", "Boreogadus"))
 
-
-
 #write_csv(raw.info ,
 #          "02_Results/99_mtDNA/Table_compile_assignments_20231207.csv") 
 
 #%>%
 
 raw.info <- read_csv("02_Results/99_mtDNA/Table_compile_assignments_20231207.csv")
-
+raw.info
 
 mtDNA.df %>% group_by(mtSP) %>% summarise(N = sum(N))
 
@@ -525,6 +523,7 @@ mtDNA.df
 
 #write_csv(mtDNA.df, "02_Results/99_mtDNA/Table_summary_seq1seq2_20231207.csv")
 
+mtDNA.df <- read_csv("02_Results/99_mtDNA/Table_summary_seq1seq2_20231207.csv")
 
 raw.info %>% 
   left_join(ID_Ecoregion) %>% 
