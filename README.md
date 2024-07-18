@@ -5,7 +5,7 @@ __Main author:__  Trevor Bringloe and Audrey Bourret
 __Affiliation:__  Fisheries and Oceans Canada (DFO)   
 __Group:__        Laboratory of genomics   
 __Location:__     Maurice Lamontagne Institute  
-__Affiliated publication:__  Bringloe TT, Bourret A, Cote D, Roux MJ, Herbig J, Robert D, Geoffroy M, Parent GJ (accepted). enomic architecture and population structure of Boreogadus saida in Canadian waters: signals of adaptive divergence and hybridization with Arctogadus glacialis. Scientific Reports.
+__Affiliated publication:__  Bringloe TT, Bourret A, Cote D, Roux MJ, Herbig J, Robert D, Geoffroy M, Parent GJ (accepted). enomic architecture and population structure of Boreogadus saida in Canadian waters: signals of adaptive divergence and hybridization with Arctogadus glacialis. Scientific Reports.  
 __Contact:__      e-mail: tbringloe@gmail.com
 
 - [Abstract](#abstract)
