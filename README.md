@@ -1,11 +1,11 @@
 # R scripts and results of the Boreogadus genomic MS
-## Genomic architecture and population structure of Boreogadus saida in Canadian waters: signals of adaptive divergence and hybridization with Arctogadus glacialis
+## Genomic architecture and population structure of Boreogadus saida from Canadian waters
 
 __Main author:__  Trevor Bringloe and Audrey Bourret  
 __Affiliation:__  Fisheries and Oceans Canada (DFO)   
 __Group:__        Laboratory of genomics   
 __Location:__     Maurice Lamontagne Institute  
-__Affiliated publication:__  Bringloe TT, Bourret A, Cote D, Roux MJ, Herbig J, Robert D, Geoffroy M, Parent GJ (accepted). enomic architecture and population structure of Boreogadus saida in Canadian waters: signals of adaptive divergence and hybridization with Arctogadus glacialis. Scientific Reports.  
+__Affiliated publication:__  Bringloe TT, Bourret A, Cote D, Roux MJ, Herbig J, Robert D, Geoffroy M, Parent GJ (2024). enGenomic architecture and population structure of Boreogadus saida from Canadian waters. Scientific Reports 14, 19331. https://doi.org/10.1038/s41598-024-69782-w  
 __Contact:__      e-mail: tbringloe@gmail.com
 
 - [Abstract](#abstract)
@@ -19,7 +19,7 @@ __Contact:__      e-mail: tbringloe@gmail.com
 The polar cod, Boreogadus saida, is an abundant and ubiquitous forage fish and a crucial link in Arctic marine trophic dynamics. Our objective was to unravel layers of genomic structure in B. saida from Canadian waters, specifically screening for potential hybridization with the Arctic cod, Arctogadus glacialis, large chromosomal inversions and sex-linked regions, prior to interpreting population structure. Our analysis of 53,384 SNPs in 522 individuals revealed hybridization and introgression between A. glacialis into B. saida. Subsequent population level analyses of B. saida using 12,305 SNPs in 511 individuals revealed featured three large (ca. 7.4 to 16.1 Mbp) chromosomal inversions, and a 2 Mbp region featuring sex-linked loci. We demonstrated population structuring across the Western and Eastern Arctic, and subarctic regions ranging from the Hudson Bay to the Atlantic maritime provinces. Genomic signal for the inferred population structure was highly aggregated into a handful of SNPs (13.8%), pointing to potentially important adaptive evolution across the Canadian range. Our study provides a high-resolution perspective on the genomic structure of B. saida, providing a foundation for work that could be expanded to the entire circumpolar range for the species.
 
 ## Status
-In-development
+Published
 
 ## Contents
 ### Folder structure
